@@ -1,8 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
+import * as Sentry from "@sentry/browser";
 
-ReactDOM.render(<div />, document.getElementById("root"));
+import ParentalCompensationApp from "./ParentalCompensationApp";
+
+Sentry.init({
+  dsn: process.env.REACT_APP_API_SENTRY
+});
+
+ReactDOM.render(<ParentalCompensationApp />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
