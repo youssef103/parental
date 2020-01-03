@@ -5,7 +5,7 @@ interface Props {
   classNamne?: string;
 }
 
-export const Card: React.FC<Props> = ({ arrData, classNamne }) => {
+const CardComponent: React.FC<Props> = ({ arrData, classNamne }) => {
   return (
     <ul>
       {arrData.map((data, index) => (
@@ -16,3 +16,5 @@ export const Card: React.FC<Props> = ({ arrData, classNamne }) => {
     </ul>
   );
 };
+
+export default CardComponent;

@@ -5,7 +5,7 @@ import { SelectBoxComponent } from "./utilities/ui/selectbox/SelectBox";
 
 import GlobalStyles from "./utilities/style/GlobalStyle";
 import { Container, Row } from "./utilities/layout";
-import { Card } from "./features/card/CardComponent";
+import Card from "./features/card/CardComponent";
 
 interface IState {
   baseSalary: string;

@@ -34,7 +34,7 @@ exports[`Test ParentalCompensationApp Component should render ParentalCompensati
     />
   </styled.div>
   <styled.div>
-    <Card
+    <CardComponent
       arrData={
         Array [
           Object {
