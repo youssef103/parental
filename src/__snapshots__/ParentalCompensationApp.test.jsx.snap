@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ParentalCompensationApp Component should render ParentalCompensationApp correctly 1`] = `
+<styled.div>
+  <GlobalStyleComponent />
+  <styled.div
+    Col={2}
+  >
+    <TextBoxComponent
+      label="Grundlön"
+      name="baseSalary"
+      onChange={[Function]}
+      value=""
+    />
+    <SelectBoxComponent
+      label="Test"
+      name="test"
+      options={
+        Array [
+          Object {
+            "text": "one",
+            "value": "1",
+          },
+          Object {
+            "text": "two",
+            "value": "2",
+          },
+          Object {
+            "text": "three",
+            "value": "3",
+          },
+        ]
+      }
+    />
+  </styled.div>
+  <styled.div>
+    <Card
+      arrData={
+        Array [
+          Object {
+            "text": "one",
+            "value": "1",
+          },
+          Object {
+            "text": "two",
+            "value": "2",
+          },
+          Object {
+            "text": "three",
+            "value": "3",
+          },
+        ]
+      }
+    />
+    <button
+      onClick={[Function]}
+    >
+      Break the world
+    </button>
+  </styled.div>
+</styled.div>
+`;
