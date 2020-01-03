@@ -16,6 +16,6 @@ describe("Testin CardReducer", () => {
   it("should return initialState", () => {
     const initialState = [];
 
-    expect(CardrReducer(initialState, {})).toEqual(initialState);
+    expect(CardrReducer(initialState, {})).toHaveLength(0);
   });
 });
