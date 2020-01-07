@@ -50,14 +50,6 @@ class ParentalCompensationApp extends Component<any, any> {
           {fackData.cardData.map((data, index) => (
             <Card key={index} arrData={data} />
           ))}
-
-          <button
-            onClick={() => {
-              throw new Error("Test .env");
-            }}
-          >
-            Break the world
-          </button>
         </Row>
       </Container>
     );

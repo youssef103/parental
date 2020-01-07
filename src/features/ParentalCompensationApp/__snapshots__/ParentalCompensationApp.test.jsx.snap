@@ -33,30 +33,21 @@ exports[`Test ParentalCompensationApp Component should render ParentalCompensati
       }
     />
   </styled.div>
-  <styled.div>
+  <styled.div
+    Col={1}
+  >
     <CardComponent
       arrData={
-        Array [
-          Object {
-            "text": "one",
-            "value": "1",
-          },
-          Object {
-            "text": "two",
-            "value": "2",
-          },
-          Object {
-            "text": "three",
-            "value": "3",
-          },
-        ]
+        Object {
+          "excessFixedSalary": "53700 kr",
+          "max10PBB": "45600 kr",
+          "max15PBB90": "697500 kr",
+          "parentalSalaryAbove10PBB": "3972,33 kr",
+          "parentalSalaryUpto10PBB": "3821,92 kr",
+        }
       }
+      key="0"
     />
-    <button
-      onClick={[Function]}
-    >
-      Break the world
-    </button>
   </styled.div>
 </styled.div>
 `;

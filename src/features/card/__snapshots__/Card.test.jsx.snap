@@ -1,3 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testin CardComponent Should render empty ul if arrData is empty 1`] = `<ul />`;
+exports[`Testin CardComponent Should render empty ul if arrData is empty 1`] = `
+<styled.div>
+  <styled.ul>
+    <li>
+      <span>
+        Max 10 PBB 10%:
+      </span>
+      <span />
+    </li>
+    <li>
+      <span>
+        Max 15 PBB 90%:
+      </span>
+      <span />
+    </li>
+    <li>
+      <span>
+        Överskjutande fast lön:
+      </span>
+      <span />
+    </li>
+    <li>
+      <span>
+        Föräldralön upp till 10 PBB:
+      </span>
+      <span />
+    </li>
+    <li>
+      <span>
+        Föräldralön över 10 PBB:
+      </span>
+      <span />
+    </li>
+  </styled.ul>
+  <styled.div>
+    <span>
+      Total föräldralön/mån:
+    </span>
+    <span>
+      4500000 kr
+    </span>
+  </styled.div>
+</styled.div>
+`;
