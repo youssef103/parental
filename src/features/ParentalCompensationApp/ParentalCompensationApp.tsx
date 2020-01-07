@@ -7,6 +7,8 @@ import GlobalStyles from "../../utilities/style/GlobalStyle";
 import { Container, Row } from "../../utilities/layout";
 import Card from "../card/CardComponent";
 
+import { fackData } from "../../fixtures/fackData";
+
 interface IState {
   baseSalary: string;
   data: IOptoinProps[];
@@ -44,8 +46,11 @@ class ParentalCompensationApp extends Component<any, any> {
             label="Test"
           />
         </Row>
-        <Row>
-          <Card arrData={this.state.data} />
+        <Row Col={fackData.cardData.length}>
+          {fackData.cardData.map((data, index) => (
+            <Card key={index} arrData={data} />
+          ))}
+
           <button
             onClick={() => {
               throw new Error("Test .env");

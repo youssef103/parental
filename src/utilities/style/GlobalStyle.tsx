@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
   body {
-    background:  ${styling.colors.lightGray};;
+    background:  ${styling.colors.lightGray};
   }
 
   h1, h2, h3, p {
