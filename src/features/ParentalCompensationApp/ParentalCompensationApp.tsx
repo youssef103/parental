@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import TextBoxComponent from "./utilities/ui/textbox/TextBox";
-import { IOptoinProps } from "./utilities/ui/selectbox/IOptoinProps";
-import { SelectBoxComponent } from "./utilities/ui/selectbox/SelectBox";
+import TextBoxComponent from "../../utilities/ui/textbox/TextBox";
+import { IOptoinProps } from "../../utilities/ui/selectbox/IOptoinProps";
+import { SelectBoxComponent } from "../../utilities/ui/selectbox/SelectBox";
 
-import GlobalStyles from "./utilities/style/GlobalStyle";
-import { Container, Row } from "./utilities/layout";
-import Card from "./features/card/CardComponent";
+import GlobalStyles from "../../utilities/style/GlobalStyle";
+import { Container, Row } from "../../utilities/layout";
+import Card from "../card/CardComponent";
 
 interface IState {
   baseSalary: string;

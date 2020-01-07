@@ -5,7 +5,7 @@ import * as serviceWorker from "./serviceWorker";
 import * as Sentry from "@sentry/browser";
 import { Provider } from "react-redux";
 
-import ParentalCompensationApp from "./ParentalCompensationApp";
+import ParentalCompensationApp from "./features";
 import { store } from "./store";
 
 Sentry.init({
