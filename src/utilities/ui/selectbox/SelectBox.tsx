@@ -3,12 +3,13 @@ import { Options } from "./Options";
 
 import { ISelectBoxProps } from "./ISelectBox";
 import { IOptoinProps } from "./IOptoinProps";
-import { ILabelProps } from "../Label/ILabelProps";
+import { ILabelProps } from "../label/ILabelProps";
 import SelectBox from "./styles";
 
 export const SelectBoxComponent: React.FC<ILabelProps & ISelectBoxProps> = ({
   label,
   labelClass,
+  hintText,
   name,
   options,
   ...rest
@@ -19,6 +20,7 @@ export const SelectBoxComponent: React.FC<ILabelProps & ISelectBoxProps> = ({
         htmlFor={name}
         labelText={label}
         labelClassName={labelClass}
+        hintText={hintText}
       />
     )}
     <SelectBox.DrowpDown name={name} id={name} {...rest}>

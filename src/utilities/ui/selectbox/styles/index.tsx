@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import DrowpDown from "./DropDown";
-import { Label } from "../../Label/Label";
+import { Label } from "../../label/Label";
 
 const SelectBox: any = styled.div`
   width: 100%;

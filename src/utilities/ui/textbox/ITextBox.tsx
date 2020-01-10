@@ -4,5 +4,6 @@ export interface ITextBoxProps {
   value: string;
   type?: string;
   className?: string;
+  hintText?: string;
   error?: string;
 }

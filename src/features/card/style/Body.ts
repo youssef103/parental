@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import config from "../../../utilities/style/config";
+import config from "../../../utilities/config";
 
 const { styling } = config;
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Input from "./Input";
-import { Label } from "../../Label/Label";
+import { Label } from "../../label/Label";
 
 const TextBox: any = styled.div`
   width: 100%;
