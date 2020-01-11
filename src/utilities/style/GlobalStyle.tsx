@@ -6,6 +6,7 @@ const { styling } = config;
 const GlobalStyle = createGlobalStyle`
 *{
   box-sizing: border-box;
+  font-family: ${styling.typography.fontFamily}
 }
   body {
     background:  ${styling.colors.lightGray};
@@ -25,6 +26,8 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400  !important;
     font-size: 19px;
   }
+
+
   .CalendarDay__selected,
   .CalendarDay__selected:active,
   .CalendarDay__selected:hover {
@@ -37,33 +40,44 @@ const GlobalStyle = createGlobalStyle`
     border: 1px solid ${config.styling.colors.white} !important;
     color: ${config.styling.colors.white} !important;
   }
+  
   .DateInput_input__focused {
     border-bottom: 2px solid ${config.styling.colors.primary} !important;
   }
   
-    .DateRangePickerInput, .DateRangePicker,.SingleDatePicker ,.SingleDatePickerInput{
-      width: 100% !important;
-      box-shadow: ${config.styling.borderShadow()};
-      height:60px;
+  .DateRangePickerInput, .DateRangePicker,.SingleDatePicker ,.SingleDatePickerInput{
+    width: 100% !important;
+    box-shadow: ${config.styling.borderShadow()};
+    height:60px;
 
-      .DateInput_input{
-        text-align: center  !important;
-        font-weight: 400  !important;
-        height: 58px;
-      }
+    .DateInput_input{
+      text-align: center  !important;
+      font-weight: 400  !important;
+      height: 58px;
     }
+  }
 
-    .SingleDatePicker ,.SingleDatePickerInput{
+  .SingleDatePicker ,.SingleDatePickerInput{
     .DateInput{  
       width:90%;
     }
   }
-    .DateRangePickerInput, .DateRangePicker{
-      .DateInput{
-        width:41%;
-      }
-    }
   
+  .DateRangePicker{
+    margin-bottom: 10px;
+
+    & + div{
+      position:absolute;
+      text-align: center;
+      font-size: ${config.styling.typography.fontMedSize + 1};
+    }
+  }
+
+  .DateRangePickerInput, .DateRangePicker{
+    .DateInput{
+      width:41%;
+    }
+  } 
 `;
 
 export default GlobalStyle;

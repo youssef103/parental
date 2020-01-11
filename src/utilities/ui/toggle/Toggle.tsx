@@ -1,44 +1,20 @@
 import React from "react";
-import { Toggle2 as Switch } from "./style/Toggle";
-import { Label } from "../label/Label";
-import { ILabelProps } from "../label/ILabelProps";
+import Switch from "./style/Toggle";
+import { IToggle } from "./IToggle";
 
-interface Props {
-  isOn: boolean;
-  handleToggle: () => void;
-  name: string;
-  error?: string;
-}
-
-const Toggle: React.FC<ILabelProps & Props> = ({
-  label,
-  labelClass,
-  name,
-  error,
-  isOn,
-  handleToggle,
-  ...rest
-}) => {
+const Toggle: React.FC<IToggle> = ({ name, isOn, handleToggle }) => {
   return (
-    <Switch isOn={isOn} error="hhgh">
-      <input
+    <Switch isOn={isOn}>
+      <Switch.CheckBox
         checked={isOn}
         onChange={handleToggle}
-        className="react-switch-checkbox"
         id={name}
         name={name}
-        type="checkbox"
       />
 
-      <Label
-        htmlFor={name}
-        labelText={label}
-        labelClassName={`react-switch-label ${labelClass}`}
-      >
-        <span className={`react-switch-button`} />
-      </Label>
-
-      {error && <div className="alert alert-danger">{error}</div>}
+      <Switch.ToggleLabel htmlFor={name}>
+        <Switch.ToggleBtn />
+      </Switch.ToggleLabel>
     </Switch>
   );
 };

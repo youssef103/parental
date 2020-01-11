@@ -1,4 +1,4 @@
-import { lighten } from "polished";
+import { lighten, darken } from "polished";
 import moment from "moment";
 
 const customMediaQuery = (maxWidth: number) =>
@@ -10,13 +10,16 @@ const config = {
       text: "#3C3C3B",
       primary: "#DB3E77",
       secondary: lighten(0.15, "#DB3E77"),
-      danger: "#DD2C00",
+      danger: darken(0.2, "#DB3E77"),
       white: "#FFFFFF",
       lightGray: "#EDEDED",
       darkGray: "#CCCCCC"
     },
     typography: {
-      font: "'Sedgwick Ave', cursive"
+      fontFamily: "'Noto Sans',sans-serif",
+      fontSmallSize: "14px",
+      fontMedSize: "16px",
+      fontBigSize: "20px"
     },
     borderShadow: (opacity: number = 0.15) =>
       `0 2px 4px rgba(0, 0, 0, ${opacity})`,

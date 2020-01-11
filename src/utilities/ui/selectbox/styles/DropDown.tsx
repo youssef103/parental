@@ -5,7 +5,7 @@ const DrowpDown = styled.select`
   height: 60px;
   width: 100%;
   font-size: 1em;
-  text-align: center;
+  text-align-last: center;
   color: #000000;
   border: 1px solid #eeeeee;
   margin-bottom: 10px;

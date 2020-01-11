@@ -1,5 +1,6 @@
 import * as React from "react";
 import { DateRangePicker } from "react-dates";
+import { Label } from "../../utilities/ui/label/Label";
 
 export interface IDurationProps {}
 
@@ -24,11 +25,12 @@ export class Duration extends React.Component<IDurationProps, any> {
     const { countOfDays } = this.state;
     return (
       <div>
+        <Label htmlFor="startDate" labelText="Datum" />
         <DateRangePicker
           startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-          startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+          startDateId="startDate" // PropTypes.string.isRequired,
           endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-          endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+          endDateId="endDate" // PropTypes.string.isRequired,
           onDatesChange={({ startDate, endDate }) => {
             const countOfDays =
               endDate && startDate && endDate.diff(startDate, "days");
@@ -51,9 +53,12 @@ export class Duration extends React.Component<IDurationProps, any> {
           //block
         />
         {countOfDays && (
-          <p>
-            {countOfDays <= 1 ? countOfDays + " Dag" : countOfDays + " Dagar"}
-          </p>
+          <Label
+            hintText="kkkjkk"
+            labelText={
+              countOfDays <= 1 ? countOfDays + " Dag" : countOfDays + " Dagar"
+            }
+          />
         )}
       </div>
     );

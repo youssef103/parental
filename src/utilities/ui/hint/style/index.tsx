@@ -3,7 +3,7 @@ import { HintIcon, HintText } from "./hint";
 
 const Hint: any = styled.div`
   position: relative;
-  width: 50px;
+  width: 30px;
 `;
 
 Hint.Icon = HintIcon;
