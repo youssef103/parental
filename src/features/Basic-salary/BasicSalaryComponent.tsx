@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { SelectBoxComponent } from "../../utilities/ui/selectbox/SelectBox";
-import TextBoxComponent from "../../utilities/ui/textbox/TextBox";
+import { SelectBoxComponent } from "../../utilities/ui/selectbox";
+import TextBoxComponent from "../../utilities/ui/textbox";
 import { Row } from "../../utilities/layout";
 import Slider from "react-input-slider";
-import config from "../../utilities/config";
+import { colors, styling } from "../../utilities/config";
 
 interface Props {}
 
@@ -11,22 +11,22 @@ const BasicSalaryComponent: React.FC<Props> = () => {
   const [textBoxValue, setTextBoxValue] = useState("30000");
   return (
     <>
-      <Row Col="2">
+      <Row col={2}>
         <SelectBoxComponent
           name="salary-type"
           options={[
             { value: "rörlig", text: "Rörlig" },
             { value: "stabil", text: "Stabil" }
           ]}
-          label="Lönemodell"
+          labelText="Lönemodell"
         />
 
         <TextBoxComponent
-          label="Grundlön"
+          labelText="Grundlön"
           name="baseSalary"
-          value={textBoxValue}
+          value={`${textBoxValue} kr`}
           onChange={e => setTextBoxValue(e.target.value)}
-          hintText="This is a test text"
+          hintText=""
           error=""
         />
       </Row>
@@ -40,12 +40,13 @@ const BasicSalaryComponent: React.FC<Props> = () => {
         styles={{
           track: {
             width: "100%",
-            backgroundColor: `${config.styling.colors.darkGray}`,
+            backgroundColor: `${colors.darkGray}`,
             height: 15,
-            borderRadius: 10
+            borderRadius: 10,
+            boxShadow: `${styling.borderShadow(0.15, "inset")}`
           },
           active: {
-            backgroundColor: `${config.styling.colors.primary}`,
+            backgroundColor: `${colors.primary}`,
             borderRadius: 10
           },
           thumb: {

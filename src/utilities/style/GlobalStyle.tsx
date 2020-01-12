@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import config from "../config";
-
-const { styling } = config;
+import { styling, colors } from "../config";
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -9,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
   font-family: ${styling.typography.fontFamily}
 }
   body {
-    background:  ${styling.colors.lightGray};
+    background:  ${colors.lightGray};
   }
 
   h1, h2, h3, p {
@@ -18,8 +16,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection{
-    background: ${config.styling.colors.primary};
-    color: ${config.styling.colors.white}
+    background: ${colors.primary};
+    color: ${colors.white}
   }
 
   input, select{
@@ -31,23 +29,23 @@ const GlobalStyle = createGlobalStyle`
   .CalendarDay__selected,
   .CalendarDay__selected:active,
   .CalendarDay__selected:hover {
-    background: ${config.styling.colors.primary} !important;
-    border: 1px solid ${config.styling.colors.secondary} !important;
+    background: ${colors.primary} !important;
+    border: 1px solid ${colors.secondary} !important;
   }
 
   .CalendarDay__selected_span, .CalendarDay__hovered_span {
-    background: ${config.styling.colors.secondary} !important;
-    border: 1px solid ${config.styling.colors.white} !important;
-    color: ${config.styling.colors.white} !important;
+    background: ${colors.secondary} !important;
+    border: 1px solid ${colors.white} !important;
+    color: ${colors.white} !important;
   }
   
   .DateInput_input__focused {
-    border-bottom: 2px solid ${config.styling.colors.primary} !important;
+    border-bottom: 2px solid ${colors.primary} !important;
   }
   
   .DateRangePickerInput, .DateRangePicker,.SingleDatePicker ,.SingleDatePickerInput{
     width: 100% !important;
-    box-shadow: ${config.styling.borderShadow()};
+    box-shadow: ${styling.borderShadow()};
     height:60px;
 
     .DateInput_input{
@@ -67,9 +65,10 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: 10px;
 
     & + div{
-      position:absolute;
+      /*position:absolute;*/
+      width: 100%;
       text-align: center;
-      font-size: ${config.styling.typography.fontMedSize + 1};
+      font-size: ${styling.typography.fontMedSize};
     }
   }
 

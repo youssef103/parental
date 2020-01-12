@@ -1,8 +1,14 @@
-import styled from "styled-components";
-import config from "../../config";
+import React from "react";
+import StyledError from "./style";
+import { IError } from "./IError";
 
-export const Error: any = styled.div`
-  margin-top: 10px;
-  color: ${config.styling.colors.danger};
-  font-size: ${config.styling.typography.fontSmallSize};
-`;
+const ErrorComponent: React.FC<IError> = ({ error }) => {
+  return (
+    <StyledError>
+      <StyledError.Icon />
+      <StyledError.Text>{error}</StyledError.Text>
+    </StyledError>
+  );
+};
+
+export default ErrorComponent;

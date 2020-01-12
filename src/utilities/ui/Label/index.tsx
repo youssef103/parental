@@ -1,14 +1,14 @@
 import React from "react";
-import Hint from "../hint/Hint";
-import LabelWrap from "./style";
-import { ILabel } from "./ILabel";
+import Hint from "../hint";
 import Toggle from "../toggle";
-import { ILabelToggle } from "./ILabelToggle";
 
-export const Label: React.FC<ILabel & ILabelToggle> = ({
+import LabelWrap from "./style";
+import { ILabel, ILabelSharedProps, ILabelToggle } from "./ILabel";
+
+export const Label: React.FC<ILabel & ILabelSharedProps & ILabelToggle> = ({
   htmlFor,
   labelText,
-  labelClassName,
+  labelClass,
   hintText,
   children,
   handleToggle,
@@ -20,7 +20,7 @@ export const Label: React.FC<ILabel & ILabelToggle> = ({
     <LabelWrap>
       {hintText && <Hint hintText={hintText} />}
 
-      <label htmlFor={htmlFor} className={labelClassName}>
+      <label htmlFor={htmlFor} className={labelClass}>
         {labelText}
         {children}
       </label>

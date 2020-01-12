@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TextBox from "../../utilities/ui/textbox/TextBox";
+import TextBox from "../../utilities/ui/textbox";
 
 interface Props {
   year?: string;
@@ -12,7 +12,7 @@ const BasicAmount: React.FC<Props> = ({ year }) => {
   return (
     <TextBox
       disabled={!toggleState}
-      label={`Basbelopp för ${year}`}
+      labelText={`Basbelopp för ${year}`}
       name={`basic-amount${year}`}
       value={textBoxValue}
       onChange={e => setTextBoxValue(e.target.value)}

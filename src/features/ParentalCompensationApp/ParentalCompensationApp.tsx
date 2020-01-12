@@ -1,7 +1,7 @@
 import React from "react";
 import "react-dates/initialize";
 
-import config from "../../utilities/config";
+import { localDateConfig } from "../../utilities/config";
 
 import GlobalStyles from "../../utilities/style/GlobalStyle";
 import { Container, Row } from "../../utilities/layout";
@@ -14,9 +14,10 @@ import { fackData } from "../../fixtures/fackData";
 import CriteriaComponent from "../criteria";
 import "react-dates/lib/css/_datepicker.css";
 import BasicAmount from "../basic-amount/BasicAmount";
+import Spinner from "../../utilities/ui/spinner";
 
 /*  moment.locale("sv");*/
-config.localConfig();
+localDateConfig();
 
 interface Props {}
 
@@ -25,17 +26,20 @@ const ParentalCompensationApp: React.FC<Props> = () => {
     <Container>
       <GlobalStyles />
 
+      <h3>Vad behöver jag tänka på?</h3>
       <CriteriaComponent />
-      <Row Col={2}>
+      <h3>Prisbasbeloppet</h3>
+      <Row col={2}>
         <Duration />
-        <Row Col={2}>
+        <Row col={2}>
           <BasicAmount year="2020" />
           <BasicAmount year="2021" />
         </Row>
       </Row>
       <BasicSalaryComponent />
 
-      <Row Col={fackData.cardData.length}>
+      <Row col={fackData.cardData.length}>
+        <Spinner size={5} />
         {fackData.cardData.map((data, index) => (
           <Card key={index} arrData={data} />
         ))}

@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import config from "../../../utilities/config";
-
-const { styling } = config;
+import { colors } from "../../../utilities/config";
 
 export const Body = styled.ul`
   list-style: none;
@@ -17,8 +15,8 @@ export const Body = styled.ul`
     }
 
     &:hover {
-      background: ${styling.colors.primary};
-      color: ${styling.colors.white};
+      background: ${colors.primary};
+      color: ${colors.white};
     }
   }
 `;

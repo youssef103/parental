@@ -1,3 +1,3 @@
-export interface IHintProps {
+export interface IHint {
   hintText?: string;
 }

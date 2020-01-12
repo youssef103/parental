@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import DrowpDown from "./DropDown";
-import { Label } from "../../label/Label";
+import Input from "./Input";
+import { Label } from "../../label";
 
-const SelectBox: any = styled.div`
+const StyledSelectBox: any = styled.div`
   width: 100%;
 `;
 
-SelectBox.Label = Label;
-SelectBox.DrowpDown = DrowpDown;
+StyledSelectBox.Label = Label;
+StyledSelectBox.Input = Input;
 
-export default SelectBox;
+export default StyledSelectBox;

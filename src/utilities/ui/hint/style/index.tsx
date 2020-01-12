@@ -1,12 +1,16 @@
 import styled from "styled-components";
-import { HintIcon, HintText } from "./hint";
 
-const Hint: any = styled.div`
+import { HintText } from "./HintText";
+import { HintIcon } from "./HintIcon";
+
+import { IHint } from "../IHint";
+
+const StyledHint: any = styled.div<IHint>`
   position: relative;
   width: 30px;
 `;
 
-Hint.Icon = HintIcon;
-Hint.Text = HintText;
+StyledHint.Icon = HintIcon;
+StyledHint.Text = HintText;
 
-export default Hint;
+export default StyledHint;

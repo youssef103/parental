@@ -1,6 +1,15 @@
 export interface ILabel {
-  labelText?: string;
-  labelClassName?: string;
   htmlFor?: string;
+}
+
+export interface ILabelSharedProps {
+  labelText?: string;
+  labelClass?: string;
   hintText?: string;
+}
+
+export interface ILabelToggle {
+  handleToggle?: () => void;
+  toggleName?: string;
+  toggleState?: boolean;
 }

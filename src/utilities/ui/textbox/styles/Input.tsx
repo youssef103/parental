@@ -1,19 +1,19 @@
 import styled from "styled-components";
-import config from "../../../config";
+import { ITextBox } from "../ITextBox";
+import { colors } from "../../../config";
 
-const Input = styled.input`
+const Input = styled.input<ITextBox>`
   height: 60px;
   width: 100%;
   text-align: center;
-  border: 1px solid
-    ${(props: any) => (props.error ? config.styling.colors.danger : "#eeeeee")};
+  border: 1px solid ${({ error }) => (error ? colors.danger : "#eeeeee")};
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  outline-color: ${config.styling.colors.primary};
+  outline-color: ${colors.primary};
 
   &:disabled {
-    background: ${config.styling.colors.lightGray};
-    color: ${config.styling.colors.darkGray};
+    background: ${colors.lightGray};
+    color: ${colors.darkGray};
     cursor: not-allowed;
   }
 `;

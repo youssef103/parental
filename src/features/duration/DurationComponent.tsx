@@ -1,6 +1,6 @@
 import * as React from "react";
 import { DateRangePicker } from "react-dates";
-import { Label } from "../../utilities/ui/label/Label";
+import { Label } from "../../utilities/ui/label";
 
 export interface IDurationProps {}
 
@@ -21,11 +21,17 @@ export class Duration extends React.Component<IDurationProps, any> {
       countOfDays: null
     };
   }
+
   public render() {
     const { countOfDays } = this.state;
     return (
       <div>
-        <Label htmlFor="startDate" labelText="Datum" />
+        <Label
+          htmlFor="startDate"
+          labelText="Datum"
+          hintText="Perioden måste vara mer än 30 dagar."
+        />
+
         <DateRangePicker
           startDate={this.state.startDate} // momentPropTypes.momentObj or null,
           startDateId="startDate" // PropTypes.string.isRequired,
@@ -54,9 +60,18 @@ export class Duration extends React.Component<IDurationProps, any> {
         />
         {countOfDays && (
           <Label
-            hintText="kkkjkk"
             labelText={
-              countOfDays <= 1 ? countOfDays + " Dag" : countOfDays + " Dagar"
+              countOfDays <= 1
+                ? countOfDays + " Dag"
+                : countOfDays +
+                  " Dagar" +
+                  ` ( ${this.state.endDate.diff(
+                    this.state.startDate,
+                    "days"
+                  )} dag/ar inom 2019 and ${this.state.endDate.diff(
+                    this.state.startDate,
+                    "days"
+                  )} dag/ar inom 2020 )`
             }
           />
         )}

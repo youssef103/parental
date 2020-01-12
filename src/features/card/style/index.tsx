@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import config from "../../../utilities/config";
+import { styling } from "../../../utilities/config";
 
 import { Body } from "./Body";
 import { Footer } from "./Footer";
 
-const { styling } = config;
 const Card: any = styled.div`
   height: 100%;
   width: 100%;

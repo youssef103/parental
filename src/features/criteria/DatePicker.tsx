@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
 import { SingleDatePicker } from "react-dates";
-import { Label } from "../../utilities/ui/label/Label";
+import { Label } from "../../utilities/ui/label";
+import Error from "../../utilities/ui/error";
+import moment from "moment";
 
 interface Props {}
 
@@ -13,7 +15,8 @@ const DatePicker: React.FC<Props> = () => {
     <div>
       <Label
         htmlFor="child-birthday"
-        hintText="kkkjkk"
+        hintText="Din föräldraledighet måste tas ut inom 24 månader efter barnets födelse
+        eller adoption."
         labelText="Födelse av ditt barn"
       />
       <SingleDatePicker
@@ -25,9 +28,15 @@ const DatePicker: React.FC<Props> = () => {
         placeholder="Datum"
         displayFormat="YYYY-MM-DD"
         hideKeyboardShortcutsPanel={true}
-        isOutsideRange={() => false}
         showDefaultInputIcon
         showClearDate
+        isOutsideRange={day =>
+          day.isAfter(moment()) || day.isBefore(moment().subtract(2, "years"))
+        }
+      />
+      <Error
+        error="Din föräldraledighet måste tas ut inom 24 månader efter barnets födelse
+        eller adoption"
       />
     </div>
   );

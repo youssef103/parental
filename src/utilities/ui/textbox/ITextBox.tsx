@@ -1,5 +1,5 @@
 import React from "react";
-export interface ITextBoxProps {
+export interface ITextBox {
   name: string;
   value: string;
   type?: string;

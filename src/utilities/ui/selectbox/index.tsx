@@ -3,30 +3,31 @@ import { Options } from "./Options";
 
 import { ISelectBoxProps } from "./ISelectBox";
 import { IOptoinProps } from "./IOptoinProps";
-import { ILabelProps } from "../label/ILabelProps";
-import SelectBox from "./styles";
+import { ILabelSharedProps } from "../label/ILabel";
+import StyledSelectBox from "./styles";
 
-export const SelectBoxComponent: React.FC<ILabelProps & ISelectBoxProps> = ({
-  label,
+export const SelectBoxComponent: React.FC<ILabelSharedProps &
+  ISelectBoxProps> = ({
+  labelText,
   labelClass,
   hintText,
   name,
   options,
   ...rest
 }) => (
-  <SelectBox>
-    {label && (
-      <SelectBox.Label
+  <StyledSelectBox>
+    {labelText && (
+      <StyledSelectBox.Label
         htmlFor={name}
-        labelText={label}
+        labelText={labelText}
         labelClassName={labelClass}
         hintText={hintText}
       />
     )}
-    <SelectBox.DrowpDown name={name} id={name} {...rest}>
+    <StyledSelectBox.Input name={name} id={name} {...rest}>
       {options.map((option: IOptoinProps) => (
         <Options key={option.value} value={option.value} text={option.text} />
       ))}
-    </SelectBox.DrowpDown>
-  </SelectBox>
+    </StyledSelectBox.Input>
+  </StyledSelectBox>
 );
