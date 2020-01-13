@@ -1,3 +1,7 @@
 import { Action } from "redux";
 
-const loadCard = () => {};
+const loadingCard = () => {};
+
+const loadedCardSuccess = () => {};
+
+const loadedCardFailure = () => {};

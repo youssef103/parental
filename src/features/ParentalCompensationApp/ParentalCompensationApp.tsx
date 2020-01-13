@@ -1,27 +1,23 @@
 import React from "react";
 import "react-dates/initialize";
 
-import { localDateConfig } from "../../utilities/config";
-
-import GlobalStyles from "../../utilities/style/GlobalStyle";
-import { Container, Row } from "../../utilities/layout";
-
+import { Duration, BasicAmount } from "../price-base";
+import BasicSalaryComponent from "../salary-info/BasicSalaryComponent";
+import CriteriaComponent from "../criterias";
 import Card from "../card/CardComponent";
-import BasicSalaryComponent from "../Basic-salary/BasicSalaryComponent";
-import { Duration } from "../duration/DurationComponent";
+import Spinner from "../../common/spinner";
 
-import { fackData } from "../../fixtures/fackData";
-import CriteriaComponent from "../criteria";
+import { localDateConfig } from "../../utilities/config";
+import { fackData, PBB } from "../../fixtures";
+
+import { Container, Row } from "../../utilities/layout";
+import GlobalStyles from "../../utilities/style/GlobalStyle";
 import "react-dates/lib/css/_datepicker.css";
-import BasicAmount from "../basic-amount/BasicAmount";
-import Spinner from "../../utilities/ui/spinner";
 
 /*  moment.locale("sv");*/
 localDateConfig();
 
-interface Props {}
-
-const ParentalCompensationApp: React.FC<Props> = () => {
+const ParentalCompensationApp: React.FC = () => {
   return (
     <Container>
       <GlobalStyles />
@@ -39,7 +35,7 @@ const ParentalCompensationApp: React.FC<Props> = () => {
       <BasicSalaryComponent />
 
       <Row col={fackData.cardData.length}>
-        <Spinner size={5} />
+        {/*<Spinner size={5} />*/}
         {fackData.cardData.map((data, index) => (
           <Card key={index} arrData={data} />
         ))}

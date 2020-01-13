@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { styling } from "../../../utilities/config";
 
-import { Body } from "./Body";
+import { Body, ListItem } from "./Body";
 import { Footer } from "./Footer";
 
-const Card: any = styled.div`
+const StyledCard: any = styled.div`
   height: 100%;
   width: 100%;
   border: 1px solid #eeeeee;
@@ -18,7 +18,8 @@ const Card: any = styled.div`
   }
 `;
 
-Card.Body = Body;
-Card.Footer = Footer;
+StyledCard.Body = Body;
+StyledCard.ListItem = ListItem;
+StyledCard.Footer = Footer;
 
-export default Card;
+export default StyledCard;
