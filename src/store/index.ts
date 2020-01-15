@@ -1,17 +1,26 @@
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
+import thunk from "redux-thunk";
+
+import rootReducers from "./rootReducers";
 import {
-    createStore,
-    applyMiddleware
-} from 'redux';
-import {
-    composeWithDevTools
-} from 'redux-devtools-extension/developmentOnly';
-import thunk from 'redux-thunk';
+  SalaryInfoActionTypes,
+  CriteriaActionTypes,
+  PriceBaseActionTypes,
+  CardActionTypes
+} from "../features";
 
-import rootReducers from './reducers'
+const middlewares = [thunk];
+const middleWareEnhancer = applyMiddleware(...middlewares);
 
+export type AppState = ReturnType<typeof rootReducers>;
+export type AppActionTypes =
+  | CriteriaActionTypes
+  | PriceBaseActionTypes
+  | SalaryInfoActionTypes
+  | CardActionTypes;
 
-const middleware = [thunk];
-
-const initialState = {};
-
-export const store = createStore(rootReducers, initialState, composeWithDevTools(applyMiddleware(...middleware)));
+export const store = createStore(
+  rootReducers,
+  composeWithDevTools(middleWareEnhancer)
+);

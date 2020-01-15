@@ -1,10 +1,10 @@
-import CardComponent from "./CardComponent";
-import CardrReducer from "./CardReducer";
+import Card from "./Card";
+import CardrReducer from "./reducer";
 
-describe("Testin CardComponent", () => {
+describe("Testin Card Component", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<CardComponent arrData={[]} />);
+    wrapper = shallow(<Card arrData={[]} />);
   });
 
   it("Should render empty ul if arrData is empty", () => {
@@ -14,7 +14,10 @@ describe("Testin CardComponent", () => {
 
 describe("Testin CardReducer", () => {
   it("should return initialState", () => {
-    const initialState = [];
+    const initialState = {
+      loaded: false,
+      data: []
+    };
 
     expect(CardrReducer(initialState, {})).toHaveLength(0);
   });

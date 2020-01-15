@@ -2,7 +2,7 @@ import React from "react";
 import StyledError from "./style";
 import { IError } from "./IError";
 
-const ErrorComponent: React.FC<IError> = ({ error }) => {
+const Error: React.FC<IError> = ({ error }) => {
   return (
     <StyledError>
       <StyledError.Icon />
@@ -11,4 +11,4 @@ const ErrorComponent: React.FC<IError> = ({ error }) => {
   );
 };
 
-export default ErrorComponent;
+export default Error;

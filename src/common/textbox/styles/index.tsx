@@ -2,10 +2,10 @@ import styled from "styled-components";
 import Input from "./Input";
 import { Label } from "../../label";
 
-const TextBox: any = styled.div`
+const StyledTextBox: any = styled.div`
   width: 100%;
 `;
 
-TextBox.Label = Label;
-TextBox.Input = Input;
-export default TextBox;
+StyledTextBox.Label = Label;
+StyledTextBox.Input = Input;
+export default StyledTextBox;

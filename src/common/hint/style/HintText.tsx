@@ -6,7 +6,8 @@ import { colors } from "../../../utilities/config";
 export const HintText = styled.p<IHint>`
   position: absolute;
   top: 26px;
-  left: -83px;
+  ${(props: IHint) =>
+    props.diraction === "right" ? "right:1px" : "left: -83px;"}
   font-size: 14px;
   padding: 15px 10px;
   z-index: 10;
@@ -26,6 +27,7 @@ export const HintText = styled.p<IHint>`
     border-bottom: 10px solid ${colors.primary};
     position: absolute;
     top: -10px;
-    left: 86px;
+    ${(props: IHint) =>
+      props.diraction === "right" ? "right:12px" : "left: 86px;"}
   }
 `;

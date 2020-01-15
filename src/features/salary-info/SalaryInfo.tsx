@@ -1,32 +1,30 @@
 import React, { useState } from "react";
-import { SelectBoxComponent } from "../../common/selectbox";
-import TextBoxComponent from "../../common/textbox";
-import { Row } from "../../utilities/layout";
 import Slider from "react-input-slider";
+import { ISalaryInfo } from "./ISalaryInfo";
+
+import { SelectBox, TextBox } from "../../common";
+
+import { Row } from "../../utilities/layout";
 import { colors, styling } from "../../utilities/config";
+import { salaryModels, hintMessages } from "../../fixtures/configData";
 
-interface Props {}
-
-const BasicSalaryComponent: React.FC<Props> = () => {
+const BasicSalaryComponent: React.FC<ISalaryInfo> = () => {
   const [textBoxValue, setTextBoxValue] = useState("30000");
   return (
     <>
       <Row col={2}>
-        <SelectBoxComponent
+        <SelectBox
           name="salary-type"
-          options={[
-            { value: "rörlig", text: "Rörlig" },
-            { value: "stabil", text: "Stabil" }
-          ]}
+          options={salaryModels}
           labelText="Lönemodell"
         />
 
-        <TextBoxComponent
+        <TextBox
           labelText="Grundlön"
           name="baseSalary"
-          value={`${textBoxValue} kr`}
+          value={`${textBoxValue}`}
           onChange={e => setTextBoxValue(e.target.value)}
-          hintText=""
+          hintText={hintMessages.minSalary}
           error=""
         />
       </Row>

@@ -6,8 +6,7 @@ import { IOptoinProps } from "./IOptoinProps";
 import { ILabelSharedProps } from "../label/ILabel";
 import StyledSelectBox from "./styles";
 
-export const SelectBoxComponent: React.FC<ILabelSharedProps &
-  ISelectBoxProps> = ({
+export const SelectBox: React.FC<ILabelSharedProps & ISelectBoxProps> = ({
   labelText,
   labelClass,
   hintText,

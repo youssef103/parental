@@ -1,4 +1,4 @@
-export interface data {
+export interface ICard {
   max10PBB: string;
   max15PBB90: string;
   excessFixedSalary: string;
@@ -7,6 +7,6 @@ export interface data {
 }
 
 export interface ICardProps {
-  arrData: data;
+  arrData: ICard;
   classNamne?: string;
 }

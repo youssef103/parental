@@ -2,13 +2,12 @@ import React from "react";
 import "react-dates/initialize";
 
 import { Duration, BasicAmount } from "../price-base";
-import BasicSalaryComponent from "../salary-info/BasicSalaryComponent";
-import CriteriaComponent from "../criterias";
-import Card from "../card/CardComponent";
-import Spinner from "../../common/spinner";
+import BasicSalary from "../salary-info/SalaryInfo";
+import { Criteria } from "../criterias";
+import { Card } from "../card";
 
 import { localDateConfig } from "../../utilities/config";
-import { fackData, PBB } from "../../fixtures";
+import { fackData } from "../../fixtures";
 
 import { Container, Row } from "../../utilities/layout";
 import GlobalStyles from "../../utilities/style/GlobalStyle";
@@ -23,7 +22,7 @@ const ParentalCompensationApp: React.FC = () => {
       <GlobalStyles />
 
       <h3>Vad behöver jag tänka på?</h3>
-      <CriteriaComponent />
+      <Criteria />
       <h3>Prisbasbeloppet</h3>
       <Row col={2}>
         <Duration />
@@ -32,10 +31,9 @@ const ParentalCompensationApp: React.FC = () => {
           <BasicAmount year="2021" />
         </Row>
       </Row>
-      <BasicSalaryComponent />
+      <BasicSalary />
 
       <Row col={fackData.cardData.length}>
-        {/*<Spinner size={5} />*/}
         {fackData.cardData.map((data, index) => (
           <Card key={index} arrData={data} />
         ))}

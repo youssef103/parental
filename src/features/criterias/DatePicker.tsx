@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-
-import { SingleDatePicker } from "react-dates";
-import { Label } from "../../common/label";
-import Error from "../../common/error";
 import moment from "moment";
+import { SingleDatePicker } from "react-dates";
 
-interface Props {}
+import { Label, Error } from "../../common";
+import { hintMessages, errorMessages } from "../../fixtures/configData";
 
-const DatePicker: React.FC<Props> = () => {
+const DatePicker: React.FC = () => {
   const [focused, setFocused] = useState(false);
   const [date, setDate] = useState();
 
@@ -15,8 +13,7 @@ const DatePicker: React.FC<Props> = () => {
     <div>
       <Label
         htmlFor="child-birthday"
-        hintText="Din föräldraledighet måste tas ut inom 24 månader efter barnets födelse
-        eller adoption."
+        hintText={hintMessages.period}
         labelText="Födelse av ditt barn"
       />
       <SingleDatePicker
@@ -35,10 +32,7 @@ const DatePicker: React.FC<Props> = () => {
           day.isAfter(moment()) || day.isBefore(moment().subtract(2, "years"))
         }
       />
-      <Error
-        error="Din föräldraledighet måste tas ut inom 24 månader efter barnets födelse
-        eller adoption"
-      />
+      <Error error={errorMessages.period} />
     </div>
   );
 };

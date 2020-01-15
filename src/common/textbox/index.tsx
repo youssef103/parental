@@ -3,7 +3,7 @@ import { ILabelSharedProps, ILabelToggle } from "../label/ILabel";
 import { ITextBox } from "./ITextBox";
 
 import { Label } from "../label";
-import TextBox from "./styles";
+import StyledTextBox from "./styles";
 import Error from "../error/style";
 
 type OnChangeProps = {
@@ -12,7 +12,7 @@ type OnChangeProps = {
   disabled?: boolean;
 };
 
-const TextBoxComponent: React.FC<ILabelSharedProps &
+const TextBox: React.FC<ILabelSharedProps &
   ITextBox &
   ILabelToggle &
   OnChangeProps> = ({
@@ -24,7 +24,7 @@ const TextBoxComponent: React.FC<ILabelSharedProps &
   type = "text",
   ...rest
 }) => (
-  <TextBox>
+  <StyledTextBox>
     {labelText && (
       <Label
         htmlFor={name}
@@ -36,14 +36,14 @@ const TextBoxComponent: React.FC<ILabelSharedProps &
         handleToggle={rest.handleToggle}
       />
     )}
-    <TextBox.Input id={name} name={name} {...rest} error={!!error} />
+    <StyledTextBox.Input id={name} name={name} {...rest} error={!!error} />
     {error && (
       <Error>
         <Error.Icon />
         <Error.Text>{error}</Error.Text>
       </Error>
     )}
-  </TextBox>
+  </StyledTextBox>
 );
 
-export default TextBoxComponent;
+export default TextBox;

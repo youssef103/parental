@@ -1,13 +1,15 @@
 import * as React from "react";
 import { DateRangePicker } from "react-dates";
-import { Label } from "../../../common/label";
+import { Label } from "../../common";
+import { hintMessages } from "../../fixtures/configData";
 
 export interface IDurationProps {}
 
 interface IDurationState {
-  startDate: string;
-  endDate: string;
-  //focusedInput: boolean;
+  startDate?: null | string;
+  endDate?: null | string;
+  focusedInput?: boolean;
+  countOfDays?: number;
 }
 
 export class Duration extends React.Component<IDurationProps, any> {
@@ -29,7 +31,7 @@ export class Duration extends React.Component<IDurationProps, any> {
         <Label
           htmlFor="startDate"
           labelText="Datum"
-          hintText="Perioden måste vara mer än 30 dagar."
+          hintText={hintMessages.minPeriod}
         />
 
         <DateRangePicker
@@ -61,17 +63,7 @@ export class Duration extends React.Component<IDurationProps, any> {
         {countOfDays && (
           <Label
             labelText={
-              countOfDays <= 1
-                ? countOfDays + " Dag"
-                : countOfDays +
-                  " Dagar" +
-                  ` ( ${this.state.endDate.diff(
-                    this.state.startDate,
-                    "days"
-                  )} dag/ar inom 2019 and ${this.state.endDate.diff(
-                    this.state.startDate,
-                    "days"
-                  )} dag/ar inom 2020 )`
+              countOfDays <= 1 ? countOfDays + " Dag" : countOfDays + " Dagar"
             }
           />
         )}
