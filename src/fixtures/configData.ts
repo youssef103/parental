@@ -1,13 +1,13 @@
 export const salaryModels = [
   { value: "", text: "Välj din lönemodell" },
-  { value: "1", text: "Rörlig" },
-  { value: "2", text: "Stabil" }
+  { value: "Rörlig", text: "Rörlig" },
+  { value: "Stabil", text: "Stabil" }
 ];
 
 export const employeeStatus = [
   { value: "", text: "Välj värdet från listan" },
-  { value: "1", text: "mer än ett år" },
-  { value: "2", text: "mer än tre år" }
+  { value: "mer än ett år", text: "mer än ett år" },
+  { value: "mer än tre år", text: "mer än tre år" }
 ];
 
 const sharedMessages = {
@@ -19,7 +19,9 @@ const sharedMessages = {
 
 export const errorMessages = {
   ...sharedMessages,
-  NotFoundPBB: "Tyvärr kunde inte hitta PBB för "
+  notFoundPBB: "Tyvärr kunde inte hitta PBB för ",
+  statusIsRequired: "Välj värdet från listan.",
+  birthday: "Du måste fylla i ett giltigt födelsedatum"
 };
 
 export const hintMessages = {

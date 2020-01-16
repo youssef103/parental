@@ -1,24 +1,28 @@
 import { Dispatch } from "redux";
-import { ThunkAction } from "redux-thunk";
-import {
-  CriteriaActionTypes,
-  SET_BIRTHDAY,
-  SET_STATUS,
-  CriteriaState
-} from "./types";
+import { ThunkDispatch } from "redux-thunk";
+import { AppActionTypes, AppState, ThunkType } from "../../store";
+import { SET_BIRTHDAY, SET_STATUS } from "./types";
+import { errorMessages } from "../../fixtures/configData";
+import { setStatusError, setBirtDayError } from "../../store/middlewares";
 
-type ThunkType = ThunkAction<void, CriteriaState, null, CriteriaActionTypes>;
+export const setBirtDate = (birthday: string): ThunkType => (
+  dispatch: ThunkDispatch<AppState, any, any>,
+  getState: () => AppState
+): any => {
+  if (birthday === null) {
+    return dispatch(setBirtDayError(errorMessages.period));
+  }
 
-export const setChildBirtDate = (birthday: string): ThunkType => (
-  dispatch: Dispatch<CriteriaActionTypes>,
-  getState: () => CriteriaState
-): CriteriaActionTypes => {
   return dispatch({ type: SET_BIRTHDAY, payload: birthday });
 };
 
 export const setStatus = (status: string): ThunkType => (
-  dispatch: Dispatch<CriteriaActionTypes>,
-  getState: () => CriteriaState
-): CriteriaActionTypes => {
-  return dispatch({ type: SET_STATUS, payload: status });
+  dispatch: ThunkDispatch<AppState, any, any>,
+  getState: () => AppState
+): any => {
+  if (status === "") {
+    return dispatch(setStatusError(errorMessages.statusIsRequired));
+  }
+  //dispatch(setStatusError(""));
+  dispatch({ type: SET_STATUS, payload: status });
 };

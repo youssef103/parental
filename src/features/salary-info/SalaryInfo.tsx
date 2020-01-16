@@ -7,9 +7,17 @@ import { SelectBox, TextBox } from "../../common";
 import { Row } from "../../utilities/layout";
 import { colors, styling } from "../../utilities/config";
 import { salaryModels, hintMessages } from "../../fixtures/configData";
+import { connect } from "react-redux";
+import { AppState } from "../../store";
+import { ThunkDispatch } from "redux-thunk";
+import { setBasicSalary, setSalaryModel } from "./action";
 
-const BasicSalaryComponent: React.FC<ISalaryInfo> = () => {
-  const [textBoxValue, setTextBoxValue] = useState("30000");
+const BasicSalaryComponent: React.FC<ISalaryInfo & any> = props => {
+  const {
+    basiceSalaryValue,
+    basiceSalaryChangeHandler,
+    setSalaryModelChangeHandler
+  } = props;
   return (
     <>
       <Row col={2}>
@@ -17,13 +25,14 @@ const BasicSalaryComponent: React.FC<ISalaryInfo> = () => {
           name="salary-type"
           options={salaryModels}
           labelText="Lönemodell"
+          onChange={e => setSalaryModelChangeHandler(e.target.value)}
         />
 
         <TextBox
           labelText="Grundlön"
           name="baseSalary"
-          value={`${textBoxValue}`}
-          onChange={e => setTextBoxValue(e.target.value)}
+          value={basiceSalaryValue}
+          onChange={e => basiceSalaryChangeHandler(e.target.value)}
           hintText={hintMessages.minSalary}
           error=""
         />
@@ -33,8 +42,8 @@ const BasicSalaryComponent: React.FC<ISalaryInfo> = () => {
         xstep={50}
         xmin={0}
         xmax={100000}
-        x={parseInt(textBoxValue)}
-        onChange={({ x }) => setTextBoxValue(x.toString())}
+        x={parseInt(basiceSalaryValue)}
+        onChange={({ x }) => basiceSalaryChangeHandler(x.toString())}
         styles={{
           track: {
             width: "100%",
@@ -61,4 +70,19 @@ const BasicSalaryComponent: React.FC<ISalaryInfo> = () => {
   );
 };
 
-export default BasicSalaryComponent;
+const mapStateToProps = (state: AppState) => ({
+  basiceSalaryValue: state.salaryInfo.basicSalary,
+  salaryModels: state.salaryInfo.salaryModel
+});
+
+const mapStateToDispatch = (dispatch: ThunkDispatch<AppState, any, any>) => ({
+  basiceSalaryChangeHandler: (salary: string) =>
+    dispatch(setBasicSalary(salary)),
+  setSalaryModelChangeHandler: (salaryModel: string) =>
+    dispatch(setSalaryModel(salaryModel))
+});
+
+export default connect(
+  mapStateToProps,
+  mapStateToDispatch
+)(BasicSalaryComponent);

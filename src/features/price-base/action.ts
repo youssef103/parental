@@ -8,13 +8,13 @@ import { PriceBaseActionTypes, SET_PBB, SET_DURATION } from "./types";
 
 type ThunkType = ThunkAction<void, AppState, null, PriceBaseActionTypes>;
 
-export const setPBB = (pbb: IPBB): ThunkType => (
+export const setPBB = ({ pbb }: IPBB): ThunkType => (
   dispatch: Dispatch,
   getState: () => AppState
 ): PriceBaseActionTypes => {
   return dispatch({
     type: SET_PBB,
-    payload: pbb
+    payload: { pbb }
   });
 };
 

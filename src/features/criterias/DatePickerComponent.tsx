@@ -5,7 +5,7 @@ import { SingleDatePicker } from "react-dates";
 import { Label, Error } from "../../common";
 import { hintMessages, errorMessages } from "../../fixtures/configData";
 
-const DatePicker: React.FC = () => {
+const DatePicker: React.FC<any> = props => {
   const [focused, setFocused] = useState(false);
   const [date, setDate] = useState();
 
@@ -17,8 +17,8 @@ const DatePicker: React.FC = () => {
         labelText="Födelse av ditt barn"
       />
       <SingleDatePicker
-        date={date} // momentPropTypes.momentObj or null
-        onDateChange={date => setDate(date)} // PropTypes.func.isRequired
+        date={props.birthday} // momentPropTypes.momentObj or null
+        onDateChange={props.changeDateHandler} // PropTypes.func.isRequired
         focused={focused} // PropTypes.bool
         onFocusChange={() => setFocused(!focused)} // PropTypes.func.isRequired
         id="child-birthday" // PropTypes.string.isRequired,
@@ -32,7 +32,7 @@ const DatePicker: React.FC = () => {
           day.isAfter(moment()) || day.isBefore(moment().subtract(2, "years"))
         }
       />
-      <Error error={errorMessages.period} />
+      {props.error && <Error error={props.error} />}
     </div>
   );
 };

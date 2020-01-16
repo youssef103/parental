@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 
-import * as Sentry from "@sentry/browser";
+// import * as Sentry from "@sentry/browser";
 import { Provider } from "react-redux";
 
 import { ParentalCompensationApp } from "./features";
 import { store } from "./store";
 
-Sentry.init({
+/*Sentry.init({
   dsn: process.env.REACT_APP_API_SENTRY
-});
+});*/
 
 ReactDOM.render(
   <Provider store={store}>

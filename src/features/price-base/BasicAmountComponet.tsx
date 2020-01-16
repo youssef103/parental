@@ -7,9 +7,10 @@ interface Props {
   year?: string;
 }
 
-const BasicAmount: React.FC<Props> = ({ year }) => {
+const BasicAmount: React.FC = (props: any) => {
   const [textBoxValue, setTextBoxValue] = useState("0");
   const [toggleState, setToggleState] = useState(false);
+  const { year } = props;
 
   return (
     <TextBox
@@ -17,12 +18,12 @@ const BasicAmount: React.FC<Props> = ({ year }) => {
       labelText={`Basbelopp för ${year}`}
       name={`basic-amount${year}`}
       value={textBoxValue}
-      onChange={e => setTextBoxValue(e.target.value)}
+      onChange={props.onPBBChange}
       hintText={hintMessages.changePBB}
       toggleName={`basic-amount${year}`}
       toggleState={toggleState}
       handleToggle={() => setToggleState(!toggleState)}
-      error={`${errorMessages.NotFoundPBB} ${year}`}
+      error={`${errorMessages.notFoundPBB} ${year}`}
     />
   );
 };

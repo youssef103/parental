@@ -1,5 +1,5 @@
 export interface ISalaryInfo {
-  salaryType?: string;
+  salaryModel?: string;
   basicSalary?: string;
 }
 

@@ -1,21 +1,23 @@
 import { Action } from "redux";
 
-export const SET_STATUS = "SET_STATUS";
-export const SET_BIRTHDAY = "SET_BIRTHDAY";
+export const SET_STATUS = "[CRITERIAS] SET_STATUS";
+export const SET_BIRTHDAY = "[CRITERIAS] SET_BIRTHDAY";
+export const STATUS_HAS_ERROR = "[CRITERIAS] STATUS_HAS_ERROR";
+export const BIRTHDAY_HAS_ERROR = "[CRITERIAS]  BIRTHDAY_HAS_ERROR";
 
 export interface CriteriaState {
-  birthday?: string;
-  status?: string;
+  readonly birthday?: string;
+  readonly status?: string;
 }
 
 interface setSalaryTypeAction extends Action {
-  type: typeof SET_STATUS;
-  payload: string;
+  readonly type: typeof SET_STATUS;
+  readonly payload: string;
 }
 
 interface setChildBirthdayAction extends Action {
-  type: typeof SET_BIRTHDAY;
-  payload: string;
+  readonly type: typeof SET_BIRTHDAY;
+  readonly payload: string;
 }
 
 export type CriteriaActionTypes = setChildBirthdayAction | setSalaryTypeAction;

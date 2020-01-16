@@ -1,7 +1,7 @@
 import React from "react";
 import "react-dates/initialize";
 
-import { Duration, BasicAmount } from "../price-base";
+import { PriceBase } from "../price-base";
 import BasicSalary from "../salary-info/SalaryInfo";
 import { Criteria } from "../criterias";
 import { Card } from "../card";
@@ -23,14 +23,10 @@ const ParentalCompensationApp: React.FC = () => {
 
       <h3>Vad behöver jag tänka på?</h3>
       <Criteria />
+
       <h3>Prisbasbeloppet</h3>
-      <Row col={2}>
-        <Duration />
-        <Row col={2}>
-          <BasicAmount year="2020" />
-          <BasicAmount year="2021" />
-        </Row>
-      </Row>
+      <PriceBase />
+
       <BasicSalary />
 
       <Row col={fackData.cardData.length}>
