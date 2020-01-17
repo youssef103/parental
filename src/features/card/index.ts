@@ -1,5 +1,5 @@
-export * from "./types";
-export * from "./action";
+export * from "./Card.types";
+export * from "./Card.action";
 
-export { default as CardReducer } from "./reducer";
-export { default as Card } from "./Card";
+export { default as CardReducer } from "./Card.reducer";
+export { default as Card } from "./Card.component";

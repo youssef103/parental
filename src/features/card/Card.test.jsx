@@ -1,5 +1,5 @@
-import Card from "./Card";
-import CardrReducer from "./reducer";
+import Card from "./Card.component";
+import CardrReducer from "./Card.reducer";
 
 describe("Testin Card Component", () => {
   let wrapper;

@@ -1,5 +1,5 @@
-export * from "./types";
-export * from "./action";
+export * from "./Criterias.types";
+export * from "./Criterias.action";
 
-export { default as CriteriaReducer } from "./reducer";
-export { default as Criteria } from "./container";
+export { default as CriteriaReducer } from "./Criterias.reducer";
+export { default as Criteria } from "./Criterias.container";
