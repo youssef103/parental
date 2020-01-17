@@ -4,14 +4,17 @@ import { ICardProps } from "./ICard";
 
 import StyledCard from "./style";
 import { Spinner, Error } from "../../common";
+import { connect } from "react-redux";
+import { AppState } from "../../store";
+import { getPBB } from "./selector";
 
-const Card: React.FC<ICardProps> = ({ arrData }) => {
+const Card: React.FC<ICardProps> = ({ arrData, ...props }) => {
   const error: boolean = false;
   const loading: boolean = false;
 
   if (loading) return <Spinner size={5} />;
-  if (error && !loading) return <Error error={""}></Error>;
-
+  if (error && !loading) return <Error error={[]}></Error>;
+  console.log(props);
   return (
     <StyledCard>
       <StyledCard.Body>
@@ -49,4 +52,8 @@ const Card: React.FC<ICardProps> = ({ arrData }) => {
   );
 };
 
-export default Card;
+const mapStateToProps = (state: AppState) => ({
+  pbb: state.priceBase.pbb,
+  pbb2: getPBB(state)
+});
+export default connect(mapStateToProps, null)(Card);

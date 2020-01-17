@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { SelectBox } from "../../common";
 
 import { employeeStatus, hintMessages } from "../../fixtures/configData";

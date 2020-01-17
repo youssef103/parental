@@ -1,7 +1,7 @@
 export type IDuration = {
   startDate?: null | string;
   endDate?: null | string;
-  countOfDays?: number | undefined;
+  countOfDays?: undefined | number;
 };
 
 export interface IPBB {
@@ -9,6 +9,6 @@ export interface IPBB {
 }
 
 export interface IPriceBase {
-  pbb: IPBB[];
+  pbb: IPBB;
   duration: IDuration;
 }

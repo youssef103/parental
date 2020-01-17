@@ -4,7 +4,7 @@ import {
   START_DATE_HAS_ERROR,
   PBB_HAS_ERROR,
   END_DATE_HAS_ERROR,
-  SALARY_TYPE_HAS_ERROR,
+  SALARY_MODEL_HAS_ERROR,
   SALARY_HAS_ERROR,
   ErrorState,
   ErrorActionTypes
@@ -17,7 +17,7 @@ const initialState: ErrorState = {
   endDate: undefined,
   pbb: undefined,
   countOfDays: undefined,
-  salaryType: undefined,
+  salaryModel: undefined,
   basicSalary: undefined
 };
 
@@ -33,8 +33,8 @@ export default (state = initialState, action: ErrorActionTypes): ErrorState => {
       return { ...state, endDate: action.payload };
     case PBB_HAS_ERROR:
       return { ...state, pbb: action.payload };
-    case SALARY_TYPE_HAS_ERROR:
-      return { ...state, salaryType: action.payload };
+    case SALARY_MODEL_HAS_ERROR:
+      return { ...state, salaryModel: action.payload };
     case SALARY_HAS_ERROR:
       return { ...state, birthday: action.payload };
     default:

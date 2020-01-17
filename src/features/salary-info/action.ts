@@ -1,11 +1,8 @@
-import { Dispatch } from "redux";
-import { ThunkDispatch } from "redux-thunk";
-import { ISalaryInfo } from "./ISalaryInfo";
 import { SET_BASIC_SALARY, SET_SALARY_MODEL } from "./types";
-import { AppState, ThunkType } from "../../store";
+import { AppState, ThunkActionType, ThunkDispatchType } from "../../store";
 
-export const setBasicSalary = (basicSalary: string): ThunkType => (
-  dispatch: ThunkDispatch<AppState, any, any>,
+export const setBasicSalary = (basicSalary: string): ThunkActionType => (
+  dispatch: ThunkDispatchType,
   getState: () => AppState
 ): any => {
   return dispatch({
@@ -14,8 +11,8 @@ export const setBasicSalary = (basicSalary: string): ThunkType => (
   });
 };
 
-export const setSalaryModel = (salaryModel: string): ThunkType => (
-  dispatch: ThunkDispatch<AppState, any, any>,
+export const setSalaryModel = (salaryModel: string): ThunkActionType => (
+  dispatch: ThunkDispatchType,
   getState: () => AppState
 ): any => {
   dispatch({

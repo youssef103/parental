@@ -28,7 +28,7 @@ const startLoadCard = (
 ): ThunkAction<void, CardState, null, CardActionTypes> => (
   dispatch: Dispatch<CardActionTypes>,
   getState: () => CardState
-) => {
+): void => {
   dispatch(loadingCard());
 
   try {

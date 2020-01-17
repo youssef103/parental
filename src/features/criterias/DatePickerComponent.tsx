@@ -3,11 +3,10 @@ import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 
 import { Label, Error } from "../../common";
-import { hintMessages, errorMessages } from "../../fixtures/configData";
+import { hintMessages } from "../../fixtures/configData";
 
 const DatePicker: React.FC<any> = props => {
   const [focused, setFocused] = useState(false);
-  const [date, setDate] = useState();
 
   return (
     <div>

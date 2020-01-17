@@ -6,11 +6,11 @@ export const STATUS_HAS_ERROR = "[CRITERIAS] STATUS_HAS_ERROR";
 export const BIRTHDAY_HAS_ERROR = "[CRITERIAS]  BIRTHDAY_HAS_ERROR";
 
 export interface CriteriaState {
-  readonly birthday?: string;
+  readonly birthday?: null | string;
   readonly status?: string;
 }
 
-interface setSalaryTypeAction extends Action {
+interface setSalaryModelAction extends Action {
   readonly type: typeof SET_STATUS;
   readonly payload: string;
 }
@@ -20,4 +20,4 @@ interface setChildBirthdayAction extends Action {
   readonly payload: string;
 }
 
-export type CriteriaActionTypes = setChildBirthdayAction | setSalaryTypeAction;
+export type CriteriaActionTypes = setChildBirthdayAction | setSalaryModelAction;

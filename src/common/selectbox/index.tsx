@@ -6,7 +6,6 @@ import { IOptoinProps } from "./IOptoinProps";
 import { ILabelSharedProps } from "../label/ILabel";
 import StyledSelectBox from "./styles";
 import Error from "../error";
-import { errorMessages } from "../../fixtures/configData";
 
 type c = {
   value?: string;

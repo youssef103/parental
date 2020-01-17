@@ -5,7 +5,7 @@ export const BIRTHDAY_HAS_ERROR = "BIRTHDAY_HAS_ERROR";
 export const START_DATE_HAS_ERROR = "START_DATE_HAS_ERROR";
 export const END_DATE_HAS_ERROR = "END_DATE_HAS_ERROR";
 export const PBB_HAS_ERROR = "PBB_HAS_ERROR";
-export const SALARY_TYPE_HAS_ERROR = "SALARY_TYPE_HAS_ERROR";
+export const SALARY_MODEL_HAS_ERROR = "SALARY_MODEL_HAS_ERROR";
 export const SALARY_HAS_ERROR = "SALARY_HAS_ERROR";
 
 export interface ErrorState {
@@ -15,7 +15,7 @@ export interface ErrorState {
   endDate?: string;
   pbb?: string;
   countOfDays?: string;
-  salaryType?: string;
+  salaryModel?: string;
   basicSalary?: string;
 }
 
@@ -44,8 +44,8 @@ interface setPBBErrorAction extends Action {
   payload: string;
 }
 
-interface setSalaryTypeErrorAction extends Action {
-  type: typeof SALARY_TYPE_HAS_ERROR;
+interface setSalaryModelErrorAction extends Action {
+  type: typeof SALARY_MODEL_HAS_ERROR;
   payload: string;
 }
 
@@ -60,5 +60,5 @@ export type ErrorActionTypes =
   | setStartDateErrorAction
   | setEndDateErrorAction
   | setPBBErrorAction
-  | setSalaryTypeErrorAction
+  | setSalaryModelErrorAction
   | setSalaryErrorAction;

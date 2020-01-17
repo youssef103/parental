@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ThunkDispatch } from "redux-thunk";
 import { connect } from "react-redux";
 import EmployeeStatus from "./EmployeeStatusComponent";

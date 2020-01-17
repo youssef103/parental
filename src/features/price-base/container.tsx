@@ -1,5 +1,4 @@
 import React from "react";
-import { IDuration } from "./IPriceBase";
 import { Row } from "../../utilities/layout";
 import { Duration, BasicAmount } from ".";
 import { connect } from "react-redux";
@@ -9,8 +8,8 @@ import { setPBB } from "./action";
 
 interface Props {}
 
-const PriceBase: React.FC = (props: any) => {
-  const { startDate, endDate, countOfDays, pbb } = props;
+const PriceBase: React.FC<any> = (props: any) => {
+  //const { startDate, endDate, countOfDays, pbb, onPBBChangeHandler } = props;
   return (
     <Row col={2}>
       <Duration />
@@ -27,8 +26,8 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapStateToDispatch = (dispatch: ThunkDispatch<AppState, any, any>) => ({
-  onDatesChange: () => dispatch({ type: "" })
-  //onPBBChange: (amount: string) => dispatch(setPBB(amount))
+  onDatesChange: () => dispatch({ type: "" }),
+  onPBBChangeHandler: (pbb: any) => dispatch(setPBB(pbb))
 });
 
 export default connect(mapStateToProps, mapStateToDispatch)(PriceBase);

@@ -1,31 +1,37 @@
-import { Dispatch } from "redux";
-import { ThunkAction } from "redux-thunk";
+import moment from "moment";
 
-import { IDuration, IPBB } from "./IPriceBase";
+import { AppState, ThunkActionType, ThunkDispatchType } from "../../store";
+import { SET_PBB, SET_DURATION } from "./types";
+import { PBB } from "../../fixtures/pbb";
 
-import { AppState } from "../../store";
-import { PriceBaseActionTypes, SET_PBB, SET_DURATION } from "./types";
-
-type ThunkType = ThunkAction<void, AppState, null, PriceBaseActionTypes>;
-
-export const setPBB = ({ pbb }: IPBB): ThunkType => (
-  dispatch: Dispatch,
+export const setPBB = (pbb: any): ThunkActionType => (
+  dispatch: ThunkDispatchType,
   getState: () => AppState
-): PriceBaseActionTypes => {
-  return dispatch({
+): void => {
+  dispatch({
     type: SET_PBB,
-    payload: { pbb }
+    payload: pbb
   });
 };
 
-export const setDuration = ({
-  startDate,
-  endDate,
-  countOfDays
-}: IDuration): ThunkType => (
-  dispatch: Dispatch,
+export const setDuration = (
+  startDate: any,
+  endDate: any,
+  countOfDays: any
+): ThunkActionType => (
+  dispatch: ThunkDispatchType,
   getState: () => AppState
-): PriceBaseActionTypes => {
+): any => {
+  const sameYear = moment(startDate).isSame(endDate, "year");
+
+  let firstYear: number = moment(startDate).year();
+  let secondYear: number = moment(endDate).year();
+
+  dispatch(setPBB(PBB[firstYear]));
+
+  if (!sameYear) {
+    dispatch(setPBB(PBB[secondYear]));
+  }
   return dispatch({
     type: SET_DURATION,
     payload: {

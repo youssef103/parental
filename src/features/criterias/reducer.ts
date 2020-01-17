@@ -6,7 +6,7 @@ import {
 } from "./types";
 
 const initialState: CriteriaState = {
-  birthday: "",
+  birthday: null,
   status: ""
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Slider from "react-input-slider";
 import { ISalaryInfo } from "./ISalaryInfo";
 
@@ -8,7 +8,7 @@ import { Row } from "../../utilities/layout";
 import { colors, styling } from "../../utilities/config";
 import { salaryModels, hintMessages } from "../../fixtures/configData";
 import { connect } from "react-redux";
-import { AppState } from "../../store";
+import { AppState, AppActions } from "../../store";
 import { ThunkDispatch } from "redux-thunk";
 import { setBasicSalary, setSalaryModel } from "./action";
 
@@ -75,7 +75,9 @@ const mapStateToProps = (state: AppState) => ({
   salaryModels: state.salaryInfo.salaryModel
 });
 
-const mapStateToDispatch = (dispatch: ThunkDispatch<AppState, any, any>) => ({
+const mapStateToDispatch = (
+  dispatch: ThunkDispatch<AppState, any, AppActions>
+) => ({
   basiceSalaryChangeHandler: (salary: string) =>
     dispatch(setBasicSalary(salary)),
   setSalaryModelChangeHandler: (salaryModel: string) =>
