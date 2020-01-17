@@ -4,7 +4,7 @@ describe("Test ParentalCompensationApp Component", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<ParentalCompensationApp />);
+    wrapper = shallow(<AppComponent />);
   });
 
   it("should render ParentalCompensationApp correctly", () => {

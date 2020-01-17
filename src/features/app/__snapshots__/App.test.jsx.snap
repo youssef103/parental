@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ParentalCompensationApp Component should render ParentalCompensationApp correctly 1`] = `
+<styled.div>
+  <GlobalStyleComponent />
+  <h3>
+    Vad behöver jag tänka på?
+  </h3>
+  <Connect(Criteria) />
+  <h3>
+    Prisbasbeloppet
+  </h3>
+  <Connect(PriceBase) />
+  <Connect(BasicSalaryComponent) />
+  <styled.div
+    col={2}
+  >
+    <Connect(Card)
+      arrData={
+        Object {
+          "excessFixedSalary": "53700 kr",
+          "max10PBB": "45600 kr",
+          "max15PBB90": "697500 kr",
+          "parentalSalaryAbove10PBB": "3972,33 kr",
+          "parentalSalaryUpto10PBB": "3821,92 kr",
+        }
+      }
+      key="0"
+    />
+    <Connect(Card)
+      arrData={
+        Object {
+          "excessFixedSalary": "53700 kr",
+          "max10PBB": "45600 kr",
+          "max15PBB90": "697500 kr",
+          "parentalSalaryAbove10PBB": "3972,33 kr",
+          "parentalSalaryUpto10PBB": "3821,92 kr",
+        }
+      }
+      key="1"
+    />
+  </styled.div>
+</styled.div>
+`;
