@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TextBox from "../../../common/ui/textbox";
 
-import { hintMessages, errorMessages } from "../../../fixtures/configData";
+import { hintMessages, errorMessages } from "../../../constants/configData";
 import { AppState } from "../../../store";
 import { ThunkDispatch } from "redux-thunk";
 import { setPBB } from "..";

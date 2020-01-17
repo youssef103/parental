@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DateRangePicker } from "react-dates";
 import { Label } from "../../../common/ui";
-import { hintMessages } from "../../../fixtures/configData";
+import { hintMessages } from "../../../constants/configData";
 import { connect } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { AppState } from "../../../store";

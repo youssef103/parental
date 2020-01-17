@@ -7,7 +7,7 @@ import { Criteria } from "../criterias";
 import { Card } from "../card";
 
 import { localDateConfig } from "../../utilities/config";
-import { fackData } from "../../fixtures";
+import { fackData } from "../../constants";
 
 import { Container, Row } from "../../utilities/layout";
 import GlobalStyles from "../../utilities/style/GlobalStyle";

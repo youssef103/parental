@@ -2,7 +2,7 @@ import moment from "moment";
 
 import { AppState, ThunkActionType, ThunkDispatchType } from "../../store";
 import { SET_PBB, SET_DURATION } from "./PriceBase.types";
-import { PBB } from "../../fixtures/pbb";
+import { PBB } from "../../constants/pbb";
 
 export const setPBB = (pbb: any): ThunkActionType => (
   dispatch: ThunkDispatchType,

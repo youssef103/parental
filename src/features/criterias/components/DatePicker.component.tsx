@@ -3,7 +3,7 @@ import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 
 import { Label, Error } from "../../../common/ui";
-import { hintMessages } from "../../../fixtures/configData";
+import { hintMessages } from "../../../constants/configData";
 
 const DatePickerComponent: React.FC<any> = props => {
   const [focused, setFocused] = useState(false);

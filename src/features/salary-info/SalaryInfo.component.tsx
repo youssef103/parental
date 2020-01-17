@@ -6,7 +6,7 @@ import { SelectBox, TextBox } from "../../common/ui";
 
 import { Row } from "../../utilities/layout";
 import { colors, styling } from "../../utilities/config";
-import { salaryModels, hintMessages } from "../../fixtures/configData";
+import { salaryModels, hintMessages } from "../../constants/configData";
 import { connect } from "react-redux";
 import { AppState, AppActions } from "../../store";
 import { ThunkDispatch } from "redux-thunk";

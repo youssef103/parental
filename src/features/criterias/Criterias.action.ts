@@ -1,7 +1,7 @@
 import { ThunkDispatch } from "redux-thunk";
 import { AppState, ThunkActionType } from "../../store";
 import { SET_BIRTHDAY, SET_STATUS } from "./Criterias.types";
-import { errorMessages } from "../../fixtures/configData";
+import { errorMessages } from "../../constants/configData";
 import { setStatusError, setBirtDayError } from "../../store/middlewares";
 
 export const setBirtDate = (birthday: string): ThunkActionType => (

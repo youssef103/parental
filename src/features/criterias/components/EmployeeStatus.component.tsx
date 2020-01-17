@@ -1,7 +1,7 @@
 import React from "react";
 import { SelectBox } from "../../../common/ui";
 
-import { employeeStatus, hintMessages } from "../../../fixtures/configData";
+import { employeeStatus, hintMessages } from "../../../constants/configData";
 
 interface Props {}
 
