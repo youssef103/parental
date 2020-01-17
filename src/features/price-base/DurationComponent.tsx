@@ -23,7 +23,6 @@ class Duration extends React.Component<any, any> {
 
   public render() {
     const { countOfDays } = this.state;
-    console.log(this.props);
     return (
       <div>
         <Label

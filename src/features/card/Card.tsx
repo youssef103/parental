@@ -14,7 +14,6 @@ const Card: React.FC<ICardProps> = ({ arrData, ...props }) => {
 
   if (loading) return <Spinner size={5} />;
   if (error && !loading) return <Error error={[]}></Error>;
-  console.log(props);
   return (
     <StyledCard>
       <StyledCard.Body>

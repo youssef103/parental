@@ -6,9 +6,6 @@ export default ({ dispatch, getState }: MiddlewareAPI) => (
 ) => (action: AppActions) => {
   switch (action.type) {
     default:
-      console.log("Log action", action.type);
-      console.log("next action", next(action));
-      console.log("next action", getState());
       return; //dispatch(setPBBError("55555"));
   }
 };
