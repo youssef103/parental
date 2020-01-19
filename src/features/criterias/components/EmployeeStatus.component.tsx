@@ -1,18 +1,22 @@
 import React from "react";
 import { SelectBox } from "../../../common/ui";
 
-import { employeeStatus, hintMessages } from "../../../constants/configData";
+import { EmployeeStatusProps } from "../Criterias.types";
+import {
+  employeeStatus,
+  hintMessages
+} from "../../../utilities/config/messages.config";
 
-interface Props {}
-
-const EmployeeStatusComponent: React.FC<any> = props => {
+const EmployeeStatusComponent: React.FC<EmployeeStatusProps & {
+  error: string;
+}> = ({ changeSalaryHandler, ...props }) => {
   return (
     <SelectBox
       name="salary-type"
       options={employeeStatus}
       labelText="Jag är en sammanhängande anställning på Dynabyte i"
       hintText={hintMessages.employeeStatus}
-      onChange={props.changeSalaryHandler}
+      onChange={changeSalaryHandler}
       error={props.error}
     />
   );

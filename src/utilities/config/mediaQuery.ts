@@ -13,7 +13,8 @@ export const size = {
   tablet: 768,
   custom: 945,
   laptop: 1024
-  /*  laptopL: 1440,
+  /*  
+  laptopL: 1440,
   desktop: 2000,
   xSmall: 320,
   small: 576,

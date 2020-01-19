@@ -3,9 +3,15 @@ import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 
 import { Label, Error } from "../../../common/ui";
-import { hintMessages } from "../../../constants/configData";
+import { hintMessages } from "../../../utilities/config/messages.config";
+import { DatePickerProps } from "../Criterias.types";
 
-const DatePickerComponent: React.FC<any> = props => {
+const DatePickerComponent: React.FC<DatePickerProps> = ({
+  error,
+  birthday,
+  changeDateHandler,
+  ...props
+}) => {
   const [focused, setFocused] = useState(false);
 
   return (
@@ -16,8 +22,8 @@ const DatePickerComponent: React.FC<any> = props => {
         labelText="Födelse av ditt barn"
       />
       <SingleDatePicker
-        date={props.birthday} // momentPropTypes.momentObj or null
-        onDateChange={props.changeDateHandler} // PropTypes.func.isRequired
+        date={birthday} // momentPropTypes.momentObj or null
+        onDateChange={changeDateHandler} // PropTypes.func.isRequired
         focused={focused} // PropTypes.bool
         onFocusChange={() => setFocused(!focused)} // PropTypes.func.isRequired
         id="child-birthday" // PropTypes.string.isRequired,
@@ -31,7 +37,7 @@ const DatePickerComponent: React.FC<any> = props => {
           day.isAfter(moment()) || day.isBefore(moment().subtract(2, "years"))
         }
       />
-      {props.error && <Error error={props.error} />}
+      {error && <Error error={error} />}
     </div>
   );
 };

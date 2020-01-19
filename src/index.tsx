@@ -8,10 +8,6 @@ import { Provider } from "react-redux";
 import { App } from "./features";
 import { store } from "./store";
 
-/*Sentry.init({
-  dsn: process.env.REACT_APP_API_SENTRY
-});*/
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

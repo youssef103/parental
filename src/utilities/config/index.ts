@@ -1,6 +1,6 @@
 import colors from "./color";
-import localDateConfig from "./dateConfig";
 import mediaQuery from "./mediaQuery";
+import localDateConfig from "./moment.config";
 
 const styling = {
   typography: {
@@ -12,5 +12,8 @@ const styling = {
   borderShadow: (opacity: number = 0.15, state: string = "") =>
     `0 2px 4px rgba(0, 0, 0, ${opacity}) ${state}`
 };
+
+export * from "./messages.config";
+export * from "./moment.config";
 
 export { styling, colors, localDateConfig, mediaQuery };

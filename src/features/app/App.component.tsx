@@ -2,16 +2,16 @@ import React from "react";
 import "react-dates/initialize";
 
 import { PriceBase } from "../price-base";
-import BasicSalary from "../salary-info/SalaryInfo.component";
+import BasicSalary from "../salary-info/components/SalaryInfo.component";
 import { Criteria } from "../criterias";
 import { Card } from "../card";
 
 import { localDateConfig } from "../../utilities/config";
-import { fackData } from "../../constants";
 
-import { Container, Row } from "../../utilities/layout";
-import GlobalStyles from "../../utilities/style/GlobalStyle";
+import { Container } from "../../utilities/styles/layout";
+import GlobalStyles from "../../utilities/styles/GlobalStyle";
 import "react-dates/lib/css/_datepicker.css";
+import { Title } from "./style";
 
 /*  moment.locale("sv");*/
 localDateConfig();
@@ -21,19 +21,15 @@ const AppComponent: React.FC = () => {
     <Container>
       <GlobalStyles />
 
-      <h3>Vad behöver jag tänka på?</h3>
+      <Title mt={30}>Vad behöver jag tänka på?</Title>
       <Criteria />
 
-      <h3>Prisbasbeloppet</h3>
+      <Title>Prisbasbeloppet</Title>
       <PriceBase />
 
       <BasicSalary />
 
-      <Row col={fackData.cardData.length}>
-        {fackData.cardData.map((data, index) => (
-          <Card key={index} arrData={data} />
-        ))}
-      </Row>
+      <Card />
     </Container>
   );
 };

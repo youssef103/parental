@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../../../utilities/config";
 
-export const Icon: any = styled.span`
+export const Icon = styled.span`
   border: 3px solid ${colors.danger};
   border-radius: 50%;
   padding: 2px 4px 0;

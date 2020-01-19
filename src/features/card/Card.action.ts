@@ -1,28 +1,26 @@
-import { Dispatch } from "redux";
-import { ThunkAction } from "redux-thunk";
-import { ICard } from "./ICard";
 import {
+  ICard,
   LOAD_CARD,
   LOAD_CARD_SECCUSS,
   LOAD_CARD_FAILURE,
-  CardState,
   CardActionTypes
 } from "./Card.types";
 
-const loadingCard = (): CardActionTypes => ({
+export const loadingCard = (): CardActionTypes => ({
   type: LOAD_CARD
 });
 
-const loadedCardSeccuss = (card: ICard): CardActionTypes => ({
+export const loadedCardSeccuss = (card: ICard): CardActionTypes => ({
   type: LOAD_CARD_SECCUSS,
   payload: card
 });
 
-const loadedCardFailure = (error: string): CardActionTypes => ({
+export const loadedCardFailure = (error: string): CardActionTypes => ({
   type: LOAD_CARD_FAILURE,
   payload: error
 });
 
+/*
 const startLoadCard = (
   data: ICard
 ): ThunkAction<void, CardState, null, CardActionTypes> => (
@@ -37,3 +35,4 @@ const startLoadCard = (
     dispatch(loadedCardFailure(err.message));
   }
 };
+*/

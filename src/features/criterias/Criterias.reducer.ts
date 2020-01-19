@@ -7,7 +7,8 @@ import {
 
 const initialState: CriteriaState = {
   birthday: null,
-  status: ""
+  status: "",
+  errors: {}
 };
 
 export default (
@@ -16,10 +17,18 @@ export default (
 ): CriteriaState => {
   switch (action.type) {
     case SET_BIRTHDAY:
-      return { ...state, birthday: action.payload };
+      return {
+        ...state,
+        birthday: action.birthday,
+        errors: { ...state.errors, birthday: action.error }
+      };
 
     case SET_STATUS:
-      return { ...state, status: action.payload };
+      return {
+        ...state,
+        status: action.status,
+        errors: { ...state.errors, status: action.error }
+      };
 
     default:
       return state;

@@ -1,4 +1,4 @@
-import Card from "./Card.component";
+import Card from "./components/Card.component";
 import CardrReducer from "./Card.reducer";
 
 describe("Testin Card Component", () => {

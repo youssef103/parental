@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mediaQuery } from "../config";
+import { mediaQuery } from "../../config";
 interface IProps {
   col: number;
 }

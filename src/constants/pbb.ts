@@ -1,4 +1,4 @@
-export const PBB: { [key: string]: number } = {
+export const PBB: any = {
   "2020": 47300,
   "2019": 46500,
   "2018": 45500,

@@ -1,2 +1,2 @@
-export * from "./fackData";
+export * from "./fack.data";
 export * from "./pbb";

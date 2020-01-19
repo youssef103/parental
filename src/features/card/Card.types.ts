@@ -1,5 +1,16 @@
 import { Action } from "redux";
-import { ICard } from "./ICard";
+
+export interface ICard {
+  max10PBB: number;
+  max15PBB90: number;
+  excessFixedSalary: number;
+  parentalSalaryUpto10PBB: number;
+  parentalSalaryAbove10PBB: number;
+}
+
+export interface ICardProps {
+  arrData?: ICard;
+}
 
 export interface CardState {
   loaded: boolean;

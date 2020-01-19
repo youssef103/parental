@@ -21,7 +21,7 @@ export const errorMessages = {
   ...sharedMessages,
   notFoundPBB: "Tyvärr kunde inte hitta PBB för ",
   statusIsRequired: "Välj värdet från listan.",
-  birthday: "Du måste fylla i ett giltigt födelsedatum"
+  birthdayIsRequired: "Barn födelsedag fält krävs"
 };
 
 export const hintMessages = {
