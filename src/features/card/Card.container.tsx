@@ -2,18 +2,34 @@ import { connect } from "react-redux";
 import { CardComponent } from "./components";
 
 import { AppState } from "../../store";
-import { getPBB1, getPBB2, getCards } from "./Card.selector";
-import { ICard } from "./Card.types";
+import {
+  getPBB1,
+  getPBB2,
+  getCards,
+  getCardStatus,
+  getErrors
+} from "./Card.selector";
+import {
+  IMapCardStateToProps,
+  CardActionTypes,
+  ICard,
+  IMapCardStateToDispatch
+} from "./Card.types";
+import { ThunkDispatch } from "redux-thunk";
+import { startLoadCard } from "./Card.action";
 
-type IMapStateToProps2 = {
-  pbb1: number;
-  pbb2: number;
-  cards: ICard[];
-};
-const mapStateToProps = (state: AppState): IMapStateToProps2 & any => ({
+const mapStateToProps = (state: AppState): IMapCardStateToProps => ({
   pbb1: getPBB1(state),
   pbb2: getPBB2(state),
-  cards: getCards(state)
+  cards: getCards(state),
+  loaded: getCardStatus(state),
+  errors: getErrors(state)
 });
 
-export default connect(mapStateToProps, null)(CardComponent);
+const mapStateToDispatch = (
+  dispatch: ThunkDispatch<AppState, any, CardActionTypes>
+): IMapCardStateToDispatch => ({
+  loadCard: (data: ICard[]) => dispatch(startLoadCard(data))
+});
+
+export default connect(mapStateToProps, mapStateToDispatch)(CardComponent);

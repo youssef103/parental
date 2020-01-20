@@ -1,6 +1,5 @@
 import * as React from "react";
 import { DateRangePicker } from "react-dates";
-import moment from "moment";
 import { Label, Error } from "../../../common/ui";
 import { hintMessages } from "../../../utilities/config/messages.config";
 
@@ -19,7 +18,6 @@ class Duration extends React.Component<any, any> {
 
   public render() {
     const {
-      birthday,
       startDate,
       endDate,
       countOfDays,
@@ -46,10 +44,7 @@ class Duration extends React.Component<any, any> {
           focusedInput={this.state.focusedInput}
           onFocusChange={focusedInput => this.setState({ focusedInput })}
           //numberOfMonths={1}
-          isOutsideRange={day =>
-            day.isBefore(moment(birthday)) ||
-            day.isAfter(moment(birthday).add(2, "years"))
-          }
+          isOutsideRange={() => false}
           showDefaultInputIcon
           displayFormat="YYYY-MM-DD"
           startDatePlaceholderText="Start Datum"

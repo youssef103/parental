@@ -9,8 +9,8 @@ import { Card } from "../card";
 import { localDateConfig } from "../../utilities/config";
 
 import { Container } from "../../utilities/styles/layout";
-import GlobalStyles from "../../utilities/styles/GlobalStyle";
 import "react-dates/lib/css/_datepicker.css";
+import GlobalStyles from "../../utilities/styles/GlobalStyle";
 import { Title } from "./style";
 
 /*  moment.locale("sv");*/

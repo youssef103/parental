@@ -1,6 +1,4 @@
 import React from "react";
-import { ThunkDispatch } from "redux-thunk";
-import { connect } from "react-redux";
 import Slider from "react-input-slider";
 
 import { SelectBox, TextBox } from "../../../common/ui";
@@ -11,11 +9,9 @@ import {
   salaryModels,
   hintMessages
 } from "../../../utilities/config/messages.config";
-import { AppState, AppActions } from "../../../store";
-import { setBasicSalary, setSalaryModel } from "../SalaryInfo.action";
 import { ISalaryInfo } from "../SalaryInfo.types";
 
-const BasicSalaryComponent: React.FC<ISalaryInfo & any> = props => {
+const SalaryInfoComponent: React.FC<ISalaryInfo & any> = props => {
   const {
     basiceSalaryValue,
     basiceSalaryChangeHandler,
@@ -73,21 +69,4 @@ const BasicSalaryComponent: React.FC<ISalaryInfo & any> = props => {
   );
 };
 
-const mapStateToProps = (state: AppState) => ({
-  basiceSalaryValue: state.salaryInfo.basicSalary,
-  salaryModels: state.salaryInfo.salaryModel
-});
-
-const mapStateToDispatch = (
-  dispatch: ThunkDispatch<AppState, any, AppActions>
-) => ({
-  basiceSalaryChangeHandler: (salary: number) =>
-    dispatch(setBasicSalary(salary)),
-  setSalaryModelChangeHandler: (salaryModel: string) =>
-    dispatch(setSalaryModel(salaryModel))
-});
-
-export default connect(
-  mapStateToProps,
-  mapStateToDispatch
-)(BasicSalaryComponent);
+export default SalaryInfoComponent;

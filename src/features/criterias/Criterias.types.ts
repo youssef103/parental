@@ -28,13 +28,13 @@ export interface EmployeeStatusProps {
   readonly error: string;
 }
 
-export type IMapStateToProps = {
+export type IMapCriteriaStateToProps = {
   birthday?: string | null;
   statusError?: string;
   birthdayError?: string;
 };
 
-export type IMapDispatchProps = {
+export type IMapCriteriaDispatchProps = {
   changeSalaryHandler: (status: string) => void;
   changeDateHandler: (date: string) => void;
 };

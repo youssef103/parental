@@ -17,14 +17,14 @@ import {
   EmployeeStatusProps,
   DatePickerProps,
   CriteriaActionTypes,
-  IMapStateToProps,
-  IMapDispatchProps
+  IMapCriteriaStateToProps,
+  IMapCriteriaDispatchProps
 } from "./Criterias.types";
 
 type IProps = EmployeeStatusProps &
   DatePickerProps &
-  IMapStateToProps &
-  IMapDispatchProps &
+  IMapCriteriaStateToProps &
+  IMapCriteriaDispatchProps &
   any;
 
 const Criteria: React.FC<IProps> = props => {
@@ -45,7 +45,7 @@ const Criteria: React.FC<IProps> = props => {
   );
 };
 
-const mapStateToProps = (state: AppState): IMapStateToProps => ({
+const mapStateToProps = (state: AppState): IMapCriteriaStateToProps => ({
   birthday: getBirthday(state),
   statusError: getStatusError(state),
   birthdayError: getBirthdayError(state)
@@ -53,7 +53,7 @@ const mapStateToProps = (state: AppState): IMapStateToProps => ({
 
 const mapStateToDispatch = (
   dispatch: ThunkDispatch<AppState, any, CriteriaActionTypes>
-): IMapDispatchProps => ({
+): IMapCriteriaDispatchProps => ({
   changeSalaryHandler: (status: string) => dispatch(setStatus(status)),
   changeDateHandler: (date: string) => dispatch(setBirtDate(date))
 });

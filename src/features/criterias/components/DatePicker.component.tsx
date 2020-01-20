@@ -9,8 +9,7 @@ import { DatePickerProps } from "../Criterias.types";
 const DatePickerComponent: React.FC<DatePickerProps> = ({
   error,
   birthday,
-  changeDateHandler,
-  ...props
+  changeDateHandler
 }) => {
   const [focused, setFocused] = useState(false);
 

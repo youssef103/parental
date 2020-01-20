@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 import { AppState } from "../../store";
-import { ICard } from "./Card.types";
+import { IErrors } from "./Card.types";
 
 export const getStatus = (state: AppState) => state.critera.status;
 
@@ -11,8 +11,8 @@ export const getStartDate = (state: AppState) =>
 
 export const getEndDate = (state: AppState) => state.priceBase.duration.endDate;
 
-export const getPBB1 = (state: AppState) => state.priceBase.pbb1;
-export const getPBB2 = (state: AppState) => state.priceBase.pbb2;
+export const getPBB1 = (state: AppState) => state.priceBase.pbb1 || 0;
+export const getPBB2 = (state: AppState) => state.priceBase.pbb2 || 0;
 
 export const getSalaryModel = (state: AppState): string =>
   state.salaryInfo.salaryModel || "";
@@ -20,22 +20,7 @@ export const getSalaryModel = (state: AppState): string =>
 export const getBasicSalary = (state: AppState): number =>
   state.salaryInfo.basicSalary || 0;
 
-// Errors
-export const getBasicSalaryError = (state: AppState) =>
-  state.errors.basicSalary;
-
-export const getSalaryModelError = (state: AppState) =>
-  state.errors.salaryModel;
-
-export const getPBBError = (state: AppState) => state.errors.pbb;
-
-export const getEndDateError = (state: AppState) => state.errors.endDate;
-
-export const getStartDateError = (state: AppState) => state.errors.startDate;
-
-export const getBirthdayError = (state: AppState) => state.errors.birthday;
-
-export const getStatusError = (state: AppState) => state.errors.status;
+export const getCardStatus = (state: AppState): boolean => state.cards.loaded;
 
 export const getCards = createSelector(
   [getPBB1, getPBB2, getSalaryModel, getBasicSalary],
@@ -55,25 +40,28 @@ const generateCard = (
   pbb: number,
   basicSalary: number,
   salaryModel: string
-): ICard => {
-  const yearlySalary = basicSalary * 12;
-
+) => {
   const ConvertedBasicSalary =
-    salaryModel === "Rörlig" ? basicSalary * 1.235 : basicSalary;
+    salaryModel === "Rörlig" ? Math.round(basicSalary * 1.235) : basicSalary;
+  const yearlySalary = ConvertedBasicSalary * 12;
   const max10PBB = pbb * 10;
   const max15PBB = pbb * 15;
   const parentalSalaryUpto10PBB =
     yearlySalary > max10PBB
-      ? max10PBB * ((0.1 / 365) * 30)
-      : yearlySalary * ((0.1 / 365) * 30);
+      ? Math.round(max10PBB * ((0.1 / 365) * 30))
+      : Math.round(yearlySalary * ((0.1 / 365) * 30));
   const excessFixedSalary =
-    yearlySalary > max10PBB ? Math.min(yearlySalary, max15PBB) - max10PBB : 0;
+    yearlySalary > max10PBB
+      ? Math.round(Math.min(yearlySalary, max15PBB) - max10PBB)
+      : 0;
 
-  const parentalSalaryAbove10PBB = excessFixedSalary * ((0.9 / 365) * 30);
+  const parentalSalaryAbove10PBB = Math.round(
+    excessFixedSalary * ((0.9 / 365) * 30)
+  );
   const monthlyTotal =
     parentalSalaryAbove10PBB <= 0
-      ? parentalSalaryAbove10PBB
-      : parentalSalaryAbove10PBB + parentalSalaryAbove10PBB;
+      ? parentalSalaryUpto10PBB
+      : parentalSalaryAbove10PBB + parentalSalaryUpto10PBB;
 
   return {
     ConvertedBasicSalary,
@@ -85,3 +73,48 @@ const generateCard = (
     monthlyTotal
   };
 };
+
+// Errors
+/*export const getBasicSalaryError = (state: AppState) =>
+        state.salaryInfo.basicSalary;
+      
+      export const getSalaryModelError = (state: AppState) =>
+        state.salaryInfo.errors.salaryModel;*/
+
+export const getPBB1Error = (state: AppState) => state.priceBase.errors.pbb1;
+export const getPBB2Error = (state: AppState) => state.priceBase.errors.pbb2;
+
+export const getStartDateError = (state: AppState) =>
+  state.priceBase.errors.startDate;
+export const getEndDateError = (state: AppState) =>
+  state.priceBase.errors.endDate;
+
+export const getBirthdayError = (state: AppState) =>
+  state.critera.errors.birthday;
+
+export const getStatusError = (state: AppState) => state.critera.errors.status;
+
+export const getErrors = createSelector(
+  [
+    getPBB1Error,
+    getPBB2Error,
+    getStartDateError,
+    getEndDateError,
+    getBirthdayError,
+    getStatusError
+  ],
+  (pbb1, pbb2, startDate, endDate, birthday, status) => {
+    let errors: IErrors = {
+      basicSalary: "",
+      salaryModel: "",
+      pbb1: pbb1 ? pbb1 : "",
+      pbb2: pbb2 ? pbb2 : "",
+      startDate: startDate ? startDate : "",
+      endDate: endDate ? endDate : "",
+      birthday: birthday ? birthday : "",
+      status: status ? status : ""
+    };
+
+    return errors;
+  }
+);

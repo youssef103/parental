@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import TextBox from "../../../common/ui/textbox";
 
-import {
-  hintMessages,
-  errorMessages
-} from "../../../utilities/config/messages.config";
+import { hintMessages } from "../../../utilities/config/messages.config";
 
 interface Props {
   year?: string;
+  value: string;
+  error: string;
+  onChange: any;
 }
 
-const BasicAmount: React.FC<Props & any> = props => {
+const BasicAmount: React.FC<Props> = props => {
   const [toggleState, setToggleState] = useState(false);
   const { year, value, onChange, error } = props;
   return (

@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import { ErrorReducer } from "./middlewares/error";
 import {
   CardReducer,
   CriteriaReducer,
@@ -11,6 +10,5 @@ export default combineReducers({
   critera: CriteriaReducer,
   priceBase: PriceBaseReducer,
   salaryInfo: SalaryInfoReducer,
-  cards: CardReducer,
-  errors: ErrorReducer
+  cards: CardReducer
 });
