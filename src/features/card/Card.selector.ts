@@ -56,24 +56,32 @@ const generateCard = (
   basicSalary: number,
   salaryModel: string
 ): ICard => {
-  const yearlySalary = basicSalary * 12;
+  const yearlySalary: number = basicSalary * 12;
 
-  const ConvertedBasicSalary =
-    salaryModel === "Rörlig" ? basicSalary * 1.235 : basicSalary;
-  const max10PBB = pbb * 10;
-  const max15PBB = pbb * 15;
+  const ConvertedBasicSalary: number =
+    salaryModel === "Rörlig" ? round(basicSalary * 1.235) : round(basicSalary);
+
+  const max10PBB: number = pbb * 10;
+  const max15PBB: number = pbb * 15;
+
   const parentalSalaryUpto10PBB =
     yearlySalary > max10PBB
-      ? max10PBB * ((0.1 / 365) * 30)
-      : yearlySalary * ((0.1 / 365) * 30);
-  const excessFixedSalary =
-    yearlySalary > max10PBB ? Math.min(yearlySalary, max15PBB) - max10PBB : 0;
+      ? round(max10PBB * ((0.1 / 365) * 30))
+      : round(yearlySalary * ((0.1 / 365) * 30));
 
-  const parentalSalaryAbove10PBB = excessFixedSalary * ((0.9 / 365) * 30);
-  const monthlyTotal =
+  const excessFixedSalary: number =
+    yearlySalary > max10PBB
+      ? round(Math.min(yearlySalary, max15PBB) - max10PBB)
+      : 0;
+
+  const parentalSalaryAbove10PBB: number = round(
+    excessFixedSalary * ((0.9 / 365) * 30),
+    2
+  );
+  const monthlyTotal: number =
     parentalSalaryAbove10PBB <= 0
       ? parentalSalaryAbove10PBB
-      : parentalSalaryAbove10PBB + parentalSalaryAbove10PBB;
+      : round(parentalSalaryAbove10PBB + parentalSalaryAbove10PBB);
 
   return {
     ConvertedBasicSalary,
@@ -85,3 +93,10 @@ const generateCard = (
     monthlyTotal
   };
 };
+
+/* tslint:disable */
+let round = (value: number, decimals: number = 2): number => {
+  let num: any = value + "e" + decimals;
+  return Number(Math.round(num) + "e-" + decimals);
+};
+/* tslint:enable */
