@@ -21,21 +21,26 @@ export const getBasicSalary = (state: AppState): number =>
   state.salaryInfo.basicSalary || 0;
 
 // Errors
-export const getBasicSalaryError = (state: AppState) =>
-  state.errors.basicSalary;
+export const getStatusError = (state: AppState) =>
+  state.cards.errors?.status || null;
+export const getBirthdayError = (state: AppState) =>
+  state.cards.errors?.birthday || null;
+
+export const getStartDateError = (state: AppState) =>
+  state.cards.errors?.startDate || null;
+
+export const getEndDateError = (state: AppState) =>
+  state.cards.errors?.endDate || null;
+
+export const getPBB1Error = (state: AppState) =>
+  state.cards.errors?.pbb1 || null;
+export const getPBB2Error = (state: AppState) =>
+  state.cards.errors?.pbb2 || null;
 
 export const getSalaryModelError = (state: AppState) =>
-  state.errors.salaryModel;
-
-export const getPBBError = (state: AppState) => state.errors.pbb;
-
-export const getEndDateError = (state: AppState) => state.errors.endDate;
-
-export const getStartDateError = (state: AppState) => state.errors.startDate;
-
-export const getBirthdayError = (state: AppState) => state.errors.birthday;
-
-export const getStatusError = (state: AppState) => state.errors.status;
+  state.cards.errors?.salaryModel || null;
+export const getBasicSalaryError = (state: AppState) =>
+  state.cards.errors?.basicSalary || null;
 
 export const getCards = createSelector(
   [getPBB1, getPBB2, getSalaryModel, getBasicSalary],
@@ -61,8 +66,8 @@ const generateCard = (
   const ConvertedBasicSalary: number =
     salaryModel === "Rörlig" ? round(basicSalary * 1.235) : round(basicSalary);
 
-  const max10PBB: number = pbb * 10;
-  const max15PBB: number = pbb * 15;
+  const max10PBB: number = round(pbb * 10);
+  const max15PBB: number = round(pbb * 15);
 
   const parentalSalaryUpto10PBB =
     yearlySalary > max10PBB
@@ -94,9 +99,7 @@ const generateCard = (
   };
 };
 
-/* tslint:disable */
 let round = (value: number, decimals: number = 2): number => {
   let num: any = value + "e" + decimals;
   return Number(Math.round(num) + "e-" + decimals);
 };
-/* tslint:enable */

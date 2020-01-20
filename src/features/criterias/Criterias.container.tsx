@@ -3,15 +3,9 @@ import { connect } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { EmployeeStatusComponent, DatePickerComponent } from "./components";
 
-import { AppState } from "../../store";
-import {
-  getBirthday,
-  getStatusError,
-  getBirthdayError
-} from "./Criterias.Selector";
-import { setStatus, setBirtDate } from "./Criterias.action";
-
 import { Row } from "../../utilities/styles/layout";
+import { AppState } from "../../store";
+import { setStatus, setBirtDate } from "./Criterias.action";
 
 import {
   EmployeeStatusProps,
@@ -20,6 +14,12 @@ import {
   IMapStateToProps,
   IMapDispatchProps
 } from "./Criterias.types";
+
+import {
+  getBirthday,
+  getStatusError,
+  getBirthdayError
+} from "./Criterias.Selector";
 
 type IProps = EmployeeStatusProps &
   DatePickerProps &

@@ -1,3 +1,4 @@
+// components data
 export const salaryModels = [
   { value: "", text: "Välj din lönemodell" },
   { value: "Rörlig", text: "Rörlig" },
@@ -9,7 +10,8 @@ export const employeeStatus = [
   { value: "mer än ett år", text: "mer än ett år" },
   { value: "mer än tre år", text: "mer än tre år" }
 ];
-// Text of Components
+
+// Components Text
 export const criteriaText = {
   datePickerLabelText: "Födelse av ditt barn",
   employeeStatusLabelText: "Jag är en sammanhängande anställning på Dynabyte i"
@@ -35,6 +37,7 @@ export const cardText = {
   monthlyTotal: "Total föräldralön/mån:"
 };
 
+// Help and errors messages
 const sharedMessages = {
   period:
     "Din föräldraledighet måste tas ut inom 24 månader efter barnets födelse eller adoption.",
@@ -46,7 +49,9 @@ export const errorMessages = {
   ...sharedMessages,
   notFoundPBB: "Tyvärr kunde inte hitta PBB för ",
   statusIsRequired: "Välj värdet från listan.",
-  birthdayIsRequired: "Barn födelsedag fält krävs"
+  birthdayIsRequired: "Barn födelsedag fält krävs",
+  startDateIsRequired: "Start datum är krävs",
+  endDateIsRequired: "slut datum är krävs"
 };
 
 export const hintMessages = {

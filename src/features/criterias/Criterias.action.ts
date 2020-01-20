@@ -1,15 +1,9 @@
-import { ThunkDispatch } from "redux-thunk";
-import { ThunkActionType } from "../../store";
-import {
-  SET_BIRTHDAY,
-  SET_STATUS,
-  CriteriaActionTypes,
-  CriteriaState
-} from "./Criterias.types";
+import { ThunkActionType, ThunkDispatchType } from "../../store";
 import { errorMessages } from "../../utilities/config/text.config";
+import { SET_BIRTHDAY, SET_STATUS } from "./Criterias.types";
 
 export const setBirtDate = (birthday: string | null): ThunkActionType => (
-  dispatch: ThunkDispatch<CriteriaState, any, CriteriaActionTypes>
+  dispatch: ThunkDispatchType
 ): void => {
   dispatch({
     type: SET_BIRTHDAY,
@@ -19,7 +13,7 @@ export const setBirtDate = (birthday: string | null): ThunkActionType => (
 };
 
 export const setStatus = (status: string): ThunkActionType => (
-  dispatch: ThunkDispatch<CriteriaState, any, CriteriaActionTypes>
+  dispatch: ThunkDispatchType
 ): void => {
   dispatch({
     type: SET_STATUS,

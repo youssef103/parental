@@ -8,25 +8,30 @@ import {
 
 export const initialState: CardState = {
   loaded: false,
-  data: []
+  data: [],
+  errors: {}
 };
 
 export default (state = initialState, action: CardActionTypes): CardState => {
   switch (action.type) {
     case LOAD_CARD:
       return {
-        loaded: true,
-        data: [...state.data]
+        loaded: false,
+        data: [],
+        errors: {}
       };
     case LOAD_CARD_SECCUSS:
       return {
-        loaded: false,
-        data: [...state.data, action.payload]
+        ...state,
+        loaded: true,
+        data: [...action.data]
       };
     case LOAD_CARD_FAILURE:
       return {
+        ...state,
         loaded: false,
-        data: []
+        data: [],
+        errors: { ...action.errors }
       };
 
     default:

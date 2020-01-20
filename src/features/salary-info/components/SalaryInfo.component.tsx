@@ -3,20 +3,28 @@ import { ThunkDispatch } from "redux-thunk";
 import { connect } from "react-redux";
 import Slider from "react-input-slider";
 
-import { SelectBox, TextBox } from "../../../common/ui";
+import { AppState, AppActions } from "../../../store";
+import { setBasicSalary, setSalaryModel } from "../SalaryInfo.action";
+import {
+  ISalaryInfo,
+  IMapSalaryInfoStateToProps,
+  IMapSalaryInfoStateToDispatch
+} from "../SalaryInfo.types";
 
+import { SelectBox, TextBox } from "../../../common/ui";
 import { Row } from "../../../utilities/styles/layout";
+
 import { colors, styling } from "../../../utilities/config";
 import {
   salaryModels,
   hintMessages,
   salaryInfoText
 } from "../../../utilities/config/text.config";
-import { AppState, AppActions } from "../../../store";
-import { setBasicSalary, setSalaryModel } from "../SalaryInfo.action";
-import { ISalaryInfo } from "../SalaryInfo.types";
 
-const BasicSalaryComponent: React.FC<ISalaryInfo & any> = props => {
+const BasicSalaryComponent: React.FC<ISalaryInfo &
+  IMapSalaryInfoStateToProps &
+  IMapSalaryInfoStateToDispatch &
+  any> = props => {
   const {
     basiceSalaryValue,
     basiceSalaryChangeHandler,
@@ -74,17 +82,16 @@ const BasicSalaryComponent: React.FC<ISalaryInfo & any> = props => {
   );
 };
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: AppState): IMapSalaryInfoStateToProps => ({
   basiceSalaryValue: state.salaryInfo.basicSalary,
   salaryModels: state.salaryInfo.salaryModel
 });
 
 const mapStateToDispatch = (
   dispatch: ThunkDispatch<AppState, any, AppActions>
-) => ({
-  basiceSalaryChangeHandler: (salary: number) =>
-    dispatch(setBasicSalary(salary)),
-  setSalaryModelChangeHandler: (salaryModel: string) =>
+): IMapSalaryInfoStateToDispatch => ({
+  basiceSalaryChangeHandler: salary => dispatch(setBasicSalary(salary)),
+  setSalaryModelChangeHandler: salaryModel =>
     dispatch(setSalaryModel(salaryModel))
 });
 

@@ -18,14 +18,14 @@ export interface CriteriaState {
 export interface DatePickerProps {
   readonly birthday: moment.Moment | null;
   readonly changeDateHandler: (date: moment.Moment | null) => void;
-  readonly error: string;
+  readonly error?: string;
 }
 
 export interface EmployeeStatusProps {
   readonly changeSalaryHandler: (
     e: React.ChangeEvent<HTMLInputElement>
   ) => void;
-  readonly error: string;
+  readonly error?: string;
 }
 
 export type IMapStateToProps = {
@@ -39,7 +39,7 @@ export type IMapDispatchProps = {
   changeDateHandler: (date: string) => void;
 };
 
-interface setSalaryModelAction extends Action {
+interface setStatusAction extends Action {
   readonly type: typeof SET_STATUS;
   readonly status: string;
   readonly error: string;
@@ -51,4 +51,4 @@ interface setChildBirthdayAction extends Action {
   readonly error: string;
 }
 
-export type CriteriaActionTypes = setChildBirthdayAction | setSalaryModelAction;
+export type CriteriaActionTypes = setChildBirthdayAction | setStatusAction;

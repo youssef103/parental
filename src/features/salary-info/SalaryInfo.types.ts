@@ -8,6 +8,16 @@ export interface ISalaryInfo {
   basicSalary?: number;
 }
 
+export interface IMapSalaryInfoStateToDispatch {
+  basiceSalaryChangeHandler: (salary: number) => void;
+  setSalaryModelChangeHandler: (salaryModel: string) => void;
+}
+
+export interface IMapSalaryInfoStateToProps {
+  basiceSalaryValue: number | undefined;
+  salaryModels: string | undefined;
+}
+
 interface setBasicSalaryAction extends Action {
   type: typeof SET_BASIC_SALARY;
   basicSalary: number;

@@ -44,6 +44,8 @@ const setStartDate = (startDate: string): ThunkActionType => (
       startDate
   )
     ? errorMessages.period
+    : "" || !startDate
+    ? errorMessages.startDateIsRequired
     : "";
 
   dispatch({
@@ -58,14 +60,16 @@ const setEndDate = (endDate: string): ThunkActionType => (
   getState: () => AppState
 ): void => {
   let startDate: any = getState().priceBase.duration.startDate;
+  let error = !endDate
+    ? errorMessages.endDateIsRequired
+    : "" || moment(endDate).diff(startDate, "days") <= 29
+    ? errorMessages.minPeriod
+    : "";
 
   dispatch({
     type: SET_END_DATE,
     endDate,
-    error:
-      moment(endDate).diff(startDate, "days") <= 29
-        ? errorMessages.minPeriod
-        : ""
+    error
   });
 };
 

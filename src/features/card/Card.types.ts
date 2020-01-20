@@ -10,15 +10,31 @@ export interface ICard {
   monthlyTotal: number;
 }
 
+export interface ICardsErrors {
+  status?: string | null;
+  birthday?: string | null;
+  startDate?: string | null;
+  endDate?: string | null;
+  pbb1?: string | null;
+  pbb2?: string | null;
+  salaryModel?: string | null;
+  basicSalary?: string | null;
+}
+
+export interface ICardProps {
+  cards?: ICard[];
+  errors?: ICardsErrors;
+}
+
 export interface IMapCardStateToProps {
-  pbb1: number;
-  pbb2: number;
-  cards: ICard[];
+  pbb1?: number;
+  pbb2?: number;
 }
 
 export interface CardState {
   loaded: boolean;
-  data: ICard[];
+  data?: ICard[];
+  errors?: ICardsErrors;
 }
 
 // Describing the different ACTION NAMES available
@@ -31,11 +47,11 @@ interface loadCardAction extends Action {
 }
 interface loadCardSeccussAction extends Action {
   type: typeof LOAD_CARD_SECCUSS;
-  payload: ICard;
+  data: ICard[];
 }
 interface loadCardFailureAction extends Action {
   type: typeof LOAD_CARD_FAILURE;
-  payload: string;
+  errors: ICardsErrors;
 }
 
 export type CardActionTypes =

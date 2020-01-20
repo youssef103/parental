@@ -5,7 +5,6 @@ import thunk, {
   ThunkAction,
   ThunkDispatch
 } from "redux-thunk";
-import { ErrorActionTypes, errorMiddleWare } from "./middlewares";
 
 import rootReducers from "./rootReducers";
 import {
@@ -15,10 +14,7 @@ import {
   CardActionTypes
 } from "../features";
 
-const middlewares = [
-  thunk as ThunkMiddleware<AppState, AppActions>,
-  errorMiddleWare as ThunkMiddleware<AppState, AppActions>
-];
+const middlewares = [thunk as ThunkMiddleware<AppState, AppActions>];
 const middleWareEnhancer = applyMiddleware(...middlewares);
 
 export type ThunkActionType = ThunkAction<void, AppState, null, AppActions>;
@@ -30,8 +26,7 @@ export type AppActions =
   | CriteriaActionTypes
   | PriceBaseActionTypes
   | SalaryInfoActionTypes
-  | CardActionTypes
-  | ErrorActionTypes;
+  | CardActionTypes;
 
 export const store: Store<AppState> = createStore(
   rootReducers,
