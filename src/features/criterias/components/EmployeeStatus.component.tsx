@@ -4,7 +4,8 @@ import { SelectBox } from "../../../common/ui";
 import { EmployeeStatusProps } from "../Criterias.types";
 import {
   employeeStatus,
-  hintMessages
+  hintMessages,
+  criteriaText
 } from "../../../utilities/config/text.config";
 
 const EmployeeStatusComponent: React.FC<EmployeeStatusProps & {
@@ -14,7 +15,7 @@ const EmployeeStatusComponent: React.FC<EmployeeStatusProps & {
     <SelectBox
       name="salary-type"
       options={employeeStatus}
-      labelText="Jag är en sammanhängande anställning på Dynabyte i"
+      labelText={criteriaText.employeeStatusLabelText}
       hintText={hintMessages.employeeStatus}
       onChange={changeSalaryHandler}
       error={props.error}

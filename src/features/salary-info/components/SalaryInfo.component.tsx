@@ -9,7 +9,8 @@ import { Row } from "../../../utilities/styles/layout";
 import { colors, styling } from "../../../utilities/config";
 import {
   salaryModels,
-  hintMessages
+  hintMessages,
+  salaryInfoText
 } from "../../../utilities/config/text.config";
 import { AppState, AppActions } from "../../../store";
 import { setBasicSalary, setSalaryModel } from "../SalaryInfo.action";
@@ -27,12 +28,12 @@ const BasicSalaryComponent: React.FC<ISalaryInfo & any> = props => {
         <SelectBox
           name="salary-type"
           options={salaryModels}
-          labelText="Lönemodell"
+          labelText={salaryInfoText.salaryModelLabelText}
           onChange={e => setSalaryModelChangeHandler(e.target.value)}
         />
 
         <TextBox
-          labelText="Grundlön"
+          labelText={salaryInfoText.baseSalaryLabeText}
           name="baseSalary"
           value={basiceSalaryValue}
           onChange={e => basiceSalaryChangeHandler(e.target.value)}

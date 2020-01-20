@@ -9,6 +9,22 @@ export const employeeStatus = [
   { value: "mer än ett år", text: "mer än ett år" },
   { value: "mer än tre år", text: "mer än tre år" }
 ];
+// Text of Components
+export const criteriaText = {
+  datePickerLabelText: "Födelse av ditt barn",
+  employeeStatusLabelText: "Jag är en sammanhängande anställning på Dynabyte i"
+};
+
+export const priceBaseText = {
+  durationLabelText: "Datum",
+  durationStartBatePlaceholder: "Start Datum",
+  durationEndBatePlaceholder: "Slut Datum"
+};
+
+export const salaryInfoText = {
+  salaryModelLabelText: "Lönemodell",
+  baseSalaryLabeText: "Grundlön"
+};
 
 export const cardText = {
   max10PBB: "Max 10 PBB 10%:",

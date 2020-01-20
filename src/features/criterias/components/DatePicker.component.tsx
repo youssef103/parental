@@ -3,7 +3,10 @@ import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 
 import { Label, Error } from "../../../common/ui";
-import { hintMessages } from "../../../utilities/config/text.config";
+import {
+  hintMessages,
+  criteriaText
+} from "../../../utilities/config/text.config";
 import { DatePickerProps } from "../Criterias.types";
 
 const DatePickerComponent: React.FC<DatePickerProps> = ({
@@ -19,7 +22,7 @@ const DatePickerComponent: React.FC<DatePickerProps> = ({
       <Label
         htmlFor="child-birthday"
         hintText={hintMessages.period}
-        labelText="Födelse av ditt barn"
+        labelText={criteriaText.datePickerLabelText}
       />
       <SingleDatePicker
         date={birthday} // momentPropTypes.momentObj or null

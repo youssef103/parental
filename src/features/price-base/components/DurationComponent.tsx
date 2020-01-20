@@ -2,7 +2,10 @@ import * as React from "react";
 import { DateRangePicker } from "react-dates";
 import moment from "moment";
 import { Label, Error } from "../../../common/ui";
-import { hintMessages } from "../../../utilities/config/text.config";
+import {
+  hintMessages,
+  priceBaseText
+} from "../../../utilities/config/text.config";
 
 export interface IDurationProps {}
 
@@ -31,7 +34,7 @@ class Duration extends React.Component<any, any> {
       <div>
         <Label
           htmlFor="startDate"
-          labelText="Datum"
+          labelText={priceBaseText.durationLabelText}
           hintText={hintMessages.minPeriod}
         />
 
@@ -52,8 +55,8 @@ class Duration extends React.Component<any, any> {
           }
           showDefaultInputIcon
           displayFormat="YYYY-MM-DD"
-          startDatePlaceholderText="Start Datum"
-          endDatePlaceholderText="Slut Datum"
+          startDatePlaceholderText={priceBaseText.durationStartBatePlaceholder}
+          endDatePlaceholderText={priceBaseText.durationEndBatePlaceholder}
           //onClose={onClose}
           hideKeyboardShortcutsPanel={true}
           showClearDates
@@ -64,7 +67,7 @@ class Duration extends React.Component<any, any> {
         />
         {error.startDate && <Error error={error.startDate} />}
         {error.endDate && <Error error={error.endDate} />}
-        {countOfDays && !error && (
+        {countOfDays && (
           <Label
             labelText={
               countOfDays === 1 ? countOfDays + " Dag" : countOfDays + " Dagar"
