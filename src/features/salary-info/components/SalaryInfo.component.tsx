@@ -1,10 +1,6 @@
 import React from "react";
-import { ThunkDispatch } from "redux-thunk";
-import { connect } from "react-redux";
 import Slider from "react-input-slider";
 
-import { AppState, AppActions } from "../../../store";
-import { setBasicSalary, setSalaryModel } from "../SalaryInfo.action";
 import {
   ISalaryInfo,
   IMapSalaryInfoStateToProps,
@@ -21,7 +17,7 @@ import {
   salaryInfoText
 } from "../../../utilities/config/text.config";
 
-const BasicSalaryComponent: React.FC<ISalaryInfo &
+export const SalaryInfoComponent: React.FC<ISalaryInfo &
   IMapSalaryInfoStateToProps &
   IMapSalaryInfoStateToDispatch &
   any> = props => {
@@ -30,6 +26,7 @@ const BasicSalaryComponent: React.FC<ISalaryInfo &
     basiceSalaryChangeHandler,
     setSalaryModelChangeHandler
   } = props;
+
   return (
     <>
       <Row col={2}>
@@ -81,21 +78,3 @@ const BasicSalaryComponent: React.FC<ISalaryInfo &
     </>
   );
 };
-
-const mapStateToProps = (state: AppState): IMapSalaryInfoStateToProps => ({
-  basiceSalaryValue: state.salaryInfo.basicSalary,
-  salaryModels: state.salaryInfo.salaryModel
-});
-
-const mapStateToDispatch = (
-  dispatch: ThunkDispatch<AppState, any, AppActions>
-): IMapSalaryInfoStateToDispatch => ({
-  basiceSalaryChangeHandler: salary => dispatch(setBasicSalary(salary)),
-  setSalaryModelChangeHandler: salaryModel =>
-    dispatch(setSalaryModel(salaryModel))
-});
-
-export default connect(
-  mapStateToProps,
-  mapStateToDispatch
-)(BasicSalaryComponent);

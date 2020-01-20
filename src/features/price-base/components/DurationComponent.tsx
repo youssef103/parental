@@ -8,8 +8,11 @@ import {
 } from "../../../utilities/config/text.config";
 import { useState } from "react";
 import { IDuration, IMapDurationStateToDispatch } from "../PriceBase.types";
+import { Row } from "../../../utilities/styles/layout";
 
-const Duration: React.FC<IDuration & IMapDurationStateToDispatch & any> = ({
+export const Duration: React.FC<IDuration &
+  IMapDurationStateToDispatch &
+  any> = ({
   birthday,
   startDate,
   endDate,
@@ -53,8 +56,10 @@ const Duration: React.FC<IDuration & IMapDurationStateToDispatch & any> = ({
         //regular
         //block
       />
-      {error.startDate && <Error error={error.startDate} />}
-      {error.endDate && <Error error={error.endDate} />}
+      <Row col={2}>
+        {error.startDate && <Error error={error.startDate} />}
+        {error.endDate && <Error error={error.endDate} />}
+      </Row>
       {countOfDays && (
         <Label
           labelText={
@@ -65,5 +70,3 @@ const Duration: React.FC<IDuration & IMapDurationStateToDispatch & any> = ({
     </div>
   );
 };
-
-export default Duration;

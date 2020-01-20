@@ -7,7 +7,7 @@ import {
   priceBaseText
 } from "../../../utilities/config/text.config";
 
-const BasicAmount: React.FC<IBasicAmount> = props => {
+export const BasicAmount: React.FC<IBasicAmount> = props => {
   const [toggleState, setToggleState] = useState(false);
   const { year, value, onChange, error } = props;
 
@@ -26,5 +26,3 @@ const BasicAmount: React.FC<IBasicAmount> = props => {
     />
   );
 };
-
-export default BasicAmount;

@@ -20,6 +20,8 @@ export const getSalaryModel = (state: AppState): string =>
 export const getBasicSalary = (state: AppState): number =>
   state.salaryInfo.basicSalary || 0;
 
+export const checkCardDState = (state: AppState): boolean => state.cards.loaded;
+
 // Errors
 export const getStatusError = (state: AppState) =>
   state.cards.errors?.status || null;

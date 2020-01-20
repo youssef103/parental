@@ -3,7 +3,7 @@ import "react-dates/initialize";
 
 import { Criteria } from "../criterias";
 import { PriceBase } from "../price-base";
-import BasicSalary from "../salary-info/components/SalaryInfo.component";
+import { SalaryInfo } from "../salary-info";
 import { Card } from "../card";
 
 import { localDateConfig } from "../../utilities/config";
@@ -27,7 +27,7 @@ const AppComponent: React.FC = () => {
       <Title>Prisbasbeloppet</Title>
       <PriceBase />
 
-      <BasicSalary />
+      <SalaryInfo />
 
       <Card />
     </Container>

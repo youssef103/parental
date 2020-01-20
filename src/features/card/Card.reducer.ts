@@ -7,7 +7,7 @@ import {
 } from "./Card.types";
 
 export const initialState: CardState = {
-  loaded: false,
+  loaded: true,
   data: [],
   errors: {}
 };
