@@ -13,7 +13,7 @@ exports[`Test ParentalCompensationApp Component should render ParentalCompensati
     Prisbasbeloppet
   </styled.h3>
   <Connect(PriceBase) />
-  <Connect(BasicSalaryComponent) />
+  <SalaryInfoComponent />
   <Connect(CardComponent) />
 </styled.div>
 `;
