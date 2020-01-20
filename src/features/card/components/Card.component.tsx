@@ -8,12 +8,13 @@ import StyledCard from "../style";
 
 import { cardText } from "../../../utilities/config/text.config";
 
-export const CardComponent: React.FC<ICardProps> = ({ cards }) => {
-  const error: boolean = false;
-  const loading: boolean = false;
-
-  if (loading) return <Spinner size={5} />;
-  if (error && !loading) return <Error errors={{ t: "hghh", jj: "Test" }} bg />;
+export const CardComponent: React.FC<ICardProps> = ({
+  cards,
+  errors,
+  loaded
+}) => {
+  if (!loaded) return <Spinner size={5} />;
+  if (errors && loaded) return <Error errors={errors} bg />;
 
   return (
     <Row col={cards && cards.length === 2 ? 2 : 1}>

@@ -20,7 +20,8 @@ export const criteriaText = {
 export const priceBaseText = {
   durationLabelText: "Datum",
   durationStartBatePlaceholder: "Start Datum",
-  durationEndBatePlaceholder: "Slut Datum"
+  durationEndBatePlaceholder: "Slut Datum",
+  basicAmountLabelText: "Basbelopp för"
 };
 
 export const salaryInfoText = {

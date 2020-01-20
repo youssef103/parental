@@ -22,6 +22,7 @@ export interface ICardsErrors {
 }
 
 export interface ICardProps {
+  loaded?: boolean;
   cards?: ICard[];
   errors?: ICardsErrors;
 }
