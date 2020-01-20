@@ -80,8 +80,8 @@ const generateCard = (
   );
   const monthlyTotal: number =
     parentalSalaryAbove10PBB <= 0
-      ? parentalSalaryAbove10PBB
-      : round(parentalSalaryAbove10PBB + parentalSalaryAbove10PBB);
+      ? parentalSalaryUpto10PBB
+      : round(parentalSalaryUpto10PBB + parentalSalaryAbove10PBB);
 
   return {
     ConvertedBasicSalary,

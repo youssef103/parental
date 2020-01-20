@@ -5,8 +5,7 @@ import {
   SET_PBB1,
   SET_PBB2,
   SET_START_DATE,
-  SET_END_DATE,
-  PriceBaseActionTypes
+  SET_END_DATE
 } from "./PriceBase.types";
 import { PBB } from "../../constants/pbb";
 import { errorMessages } from "../../utilities/config/text.config";

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import TextBox from "../../../common/ui/textbox";
 
-import {
-  hintMessages,
-  errorMessages
-} from "../../../utilities/config/text.config";
+import { hintMessages } from "../../../utilities/config/text.config";
 
 interface Props {
   year?: string;
