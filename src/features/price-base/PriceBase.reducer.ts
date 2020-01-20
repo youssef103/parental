@@ -9,7 +9,7 @@ import {
 } from "./PriceBase.types";
 import { PBB } from "../../constants";
 
-const initialState: any = {
+const initialState: IPriceBase = {
   pbb1: PBB[moment().year()],
   pbb2: 0,
   duration: {
@@ -17,7 +17,12 @@ const initialState: any = {
     endDate: null,
     countOfDays: undefined
   },
-  errors: {}
+  errors: {
+    startDate: "",
+    endDate: "",
+    pbb1: "",
+    pbb2: ""
+  }
 };
 
 export default (
@@ -29,7 +34,7 @@ export default (
       return {
         ...state,
         pbb1: action.pbb1,
-        pbb2: 0,
+        //pbb2: 0,
         errors: { ...state.errors, pbb1: action.error }
       };
 

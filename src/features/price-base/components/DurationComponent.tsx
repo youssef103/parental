@@ -1,12 +1,8 @@
 import * as React from "react";
 import { DateRangePicker } from "react-dates";
-import { Label } from "../../../common/ui";
-import { hintMessages } from "../../../utilities/config/messages.config";
-import { connect } from "react-redux";
-import { ThunkDispatch } from "redux-thunk";
-import { AppState, AppActions } from "../../../store";
-import { setDuration } from "../PriceBase.action";
 import moment from "moment";
+import { Label, Error } from "../../../common/ui";
+import { hintMessages } from "../../../utilities/config/messages.config";
 
 export interface IDurationProps {}
 
@@ -18,12 +14,19 @@ interface IDurationState {
 
 class Duration extends React.Component<any, any> {
   state = {
-    focusedInput: null,
-    countOfDays: undefined
+    focusedInput: null
   };
 
   public render() {
-    const { countOfDays } = this.state;
+    const {
+      birthday,
+      startDate,
+      endDate,
+      countOfDays,
+      onDatesChange,
+      error
+    } = this.props;
+    console.log(this.props);
     return (
       <div>
         <Label
@@ -33,22 +36,19 @@ class Duration extends React.Component<any, any> {
         />
 
         <DateRangePicker
-          startDate={this.props.startDate} // momentPropTypes.momentObj or null,
+          startDate={startDate} // momentPropTypes.momentObj or null,
           startDateId="startDate" // PropTypes.string.isRequired,
-          endDate={this.props.endDate} // momentPropTypes.momentObj or null,
+          endDate={endDate} // momentPropTypes.momentObj or null,
           endDateId="endDate" // PropTypes.string.isRequired,
-          onDatesChange={({ startDate, endDate }) => {
-            this.props.onDatesChange(startDate, endDate);
-            /* this.props.endDate &&
-              this.props.startDate &&
-              this.setState({ countOfDays: endDate.diff(startDate, "days") });*/
-          }}
+          onDatesChange={({ startDate, endDate }) =>
+            onDatesChange(startDate, endDate)
+          }
           focusedInput={this.state.focusedInput}
           onFocusChange={focusedInput => this.setState({ focusedInput })}
           //numberOfMonths={1}
           isOutsideRange={day =>
-            day.isBefore(moment(this.props.birthday)) ||
-            day.isAfter(moment(this.props.birthday).add(2, "years"))
+            day.isBefore(moment(birthday)) ||
+            day.isAfter(moment(birthday).add(2, "years"))
           }
           showDefaultInputIcon
           displayFormat="YYYY-MM-DD"
@@ -62,11 +62,12 @@ class Duration extends React.Component<any, any> {
           //regular
           //block
         />
-        {countOfDays && (
+        {error.startDate && <Error error={error.startDate} />}
+        {error.endDate && <Error error={error.endDate} />}
+        {countOfDays && !error && (
           <Label
             labelText={
-              ""
-              /*countOfDays <= 1 ? countOfDays + " Dag" : countOfDays + " Dagar"*/
+              countOfDays === 1 ? countOfDays + " Dag" : countOfDays + " Dagar"
             }
           />
         )}
@@ -75,18 +76,4 @@ class Duration extends React.Component<any, any> {
   }
 }
 
-const mapStateToProps = (state: AppState) => ({
-  startDate: state.priceBase.duration.startDate,
-  endDate: state.priceBase.duration.endDate,
-  birthday: state.critera.birthday
-});
-
-const mapStateToDispatch = (
-  dispatch: ThunkDispatch<AppState, any, AppActions>
-) => ({
-  onDatesChange: (strD: string, endD: string) => {
-    dispatch(setDuration(strD, endD));
-  }
-});
-
-export default connect(mapStateToProps, mapStateToDispatch)(Duration);
+export default Duration;

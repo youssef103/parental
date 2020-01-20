@@ -16,3 +16,8 @@ export const getYears = (state: AppState) => {
   }
   return years;
 };
+
+export const getCountOfDays = (state: AppState) => {
+  let { startDate, endDate }: any = state.priceBase.duration;
+  return startDate && endDate && endDate.diff(startDate, "days");
+};

@@ -1,15 +1,19 @@
 import { Action } from "redux";
 
 export interface ICard {
+  ConvertedBasicSalary: number;
   max10PBB: number;
-  max15PBB90: number;
+  max15PBB: number;
   excessFixedSalary: number;
-  parentalSalaryUpto10PBB: number;
+  parentalSalaryUpto10PBB: any;
   parentalSalaryAbove10PBB: number;
+  monthlyTotal: number;
 }
 
-export interface ICardProps {
-  arrData?: ICard;
+export interface IMapCardStateToProps {
+  pbb1: number;
+  pbb2: number;
+  cards: ICard[];
 }
 
 export interface CardState {

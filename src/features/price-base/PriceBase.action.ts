@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { ThunkActionType, ThunkDispatchType } from "../../store";
+import { ThunkActionType, ThunkDispatchType, AppState } from "../../store";
 import {
   SET_PBB1,
   SET_PBB2,
@@ -31,17 +31,44 @@ export const setPBB2 = (pbb2: number): ThunkActionType => (
   });
 };
 
-const setStartDate = (startDate: string): PriceBaseActionTypes => ({
-  type: SET_START_DATE,
-  startDate,
-  error: ""
-});
+const setStartDate = (startDate: string): ThunkActionType => (
+  dispatch: ThunkDispatchType,
+  getState: () => AppState
+): void => {
+  let birthday: any = getState().critera.birthday;
+  let error = moment(startDate).isBetween(
+    moment(birthday),
+    moment(birthday)
+      .add(2, "years")
+      .subtract(29, "days") &&
+      birthday &&
+      startDate
+  )
+    ? errorMessages.period
+    : "";
 
-const setEndDate = (endDate: string): PriceBaseActionTypes => ({
-  type: SET_END_DATE,
-  endDate,
-  error: ""
-});
+  dispatch({
+    type: SET_START_DATE,
+    startDate,
+    error
+  });
+};
+
+const setEndDate = (endDate: string): ThunkActionType => (
+  dispatch: ThunkDispatchType,
+  getState: () => AppState
+): void => {
+  let startDate: any = getState().priceBase.duration.startDate;
+
+  dispatch({
+    type: SET_END_DATE,
+    endDate,
+    error:
+      moment(endDate).diff(startDate, "days") <= 29
+        ? errorMessages.minPeriod
+        : ""
+  });
+};
 
 export const setDuration = (
   startDate: string,
@@ -52,6 +79,7 @@ export const setDuration = (
   const sameYear: boolean = moment(startDate).isSame(endDate, "year");
 
   if (!startDate && !endDate) {
+    dispatch(setPBB2(0));
     dispatch(setEndDate(endDate));
   }
 
