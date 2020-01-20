@@ -13,7 +13,7 @@ const styling = {
     `0 2px 4px rgba(0, 0, 0, ${opacity}) ${state}`
 };
 
-export * from "./messages.config";
+export * from "./text.config";
 export * from "./moment.config";
 
 export { styling, colors, localDateConfig, mediaQuery };

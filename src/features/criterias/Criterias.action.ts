@@ -6,7 +6,7 @@ import {
   CriteriaActionTypes,
   CriteriaState
 } from "./Criterias.types";
-import { errorMessages } from "../../utilities/config/messages.config";
+import { errorMessages } from "../../utilities/config/text.config";
 
 export const setBirtDate = (birthday: string | null): ThunkActionType => (
   dispatch: ThunkDispatch<CriteriaState, any, CriteriaActionTypes>

@@ -9,7 +9,7 @@ import {
   PriceBaseActionTypes
 } from "./PriceBase.types";
 import { PBB } from "../../constants/pbb";
-import { errorMessages } from "../../utilities/config/messages.config";
+import { errorMessages } from "../../utilities/config/text.config";
 
 export const setPBB1 = (pbb1: number): ThunkActionType => (
   dispatch: ThunkDispatchType

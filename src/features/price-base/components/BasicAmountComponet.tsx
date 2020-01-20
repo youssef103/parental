@@ -4,7 +4,7 @@ import TextBox from "../../../common/ui/textbox";
 import {
   hintMessages,
   errorMessages
-} from "../../../utilities/config/messages.config";
+} from "../../../utilities/config/text.config";
 
 interface Props {
   year?: string;

@@ -2,7 +2,7 @@ import * as React from "react";
 import { DateRangePicker } from "react-dates";
 import moment from "moment";
 import { Label, Error } from "../../../common/ui";
-import { hintMessages } from "../../../utilities/config/messages.config";
+import { hintMessages } from "../../../utilities/config/text.config";
 
 export interface IDurationProps {}
 

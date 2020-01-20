@@ -4,6 +4,7 @@ import { Spinner, Error } from "../../../common/ui";
 import StyledCard from "../style";
 import { ICard, IMapCardStateToProps } from "../Card.types";
 import { Row } from "../../../utilities/styles/layout";
+import { cardText } from "../../../utilities/config/text.config";
 
 export const CardComponent: React.FC<IMapCardStateToProps & any> = ({
   cards,
@@ -21,33 +22,33 @@ export const CardComponent: React.FC<IMapCardStateToProps & any> = ({
         <StyledCard key={index}>
           <StyledCard.Body>
             <StyledCard.ListItem>
-              <span>Max 10 PBB 10%:</span>
+              <span>{cardText.max10PBB}</span>
               <span>{cardData.max10PBB}</span>
             </StyledCard.ListItem>
 
             <StyledCard.ListItem>
-              <span>Max 15 PBB 90%:</span>
+              <span>{cardText.max15PBB}</span>
               <span>{cardData.max15PBB}</span>
             </StyledCard.ListItem>
 
             <StyledCard.ListItem>
-              <span>Överskjutande fast lön:</span>
+              <span>{cardText.excessFixedSalary}</span>
               <span>{cardData.excessFixedSalary}</span>
             </StyledCard.ListItem>
 
             <StyledCard.ListItem>
-              <span>Föräldralön upp till 10 PBB:</span>
+              <span>{cardText.parentalSalaryUpto10PBB}</span>
               <span>{cardData.parentalSalaryUpto10PBB}</span>
             </StyledCard.ListItem>
 
             <StyledCard.ListItem>
-              <span>Föräldralön över 10 PBB:</span>
+              <span>{cardText.parentalSalaryAbove10PBB}</span>
               <span>{cardData.parentalSalaryAbove10PBB}</span>
             </StyledCard.ListItem>
           </StyledCard.Body>
 
           <StyledCard.Footer>
-            <span>Total föräldralön/mån:</span>
+            <span>{cardText.monthlyTotal}</span>
             <span>{cardData.monthlyTotal} kr</span>
           </StyledCard.Footer>
         </StyledCard>

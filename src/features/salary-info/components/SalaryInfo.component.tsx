@@ -10,7 +10,7 @@ import { colors, styling } from "../../../utilities/config";
 import {
   salaryModels,
   hintMessages
-} from "../../../utilities/config/messages.config";
+} from "../../../utilities/config/text.config";
 import { AppState, AppActions } from "../../../store";
 import { setBasicSalary, setSalaryModel } from "../SalaryInfo.action";
 import { ISalaryInfo } from "../SalaryInfo.types";

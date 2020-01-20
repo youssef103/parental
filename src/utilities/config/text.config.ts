@@ -10,6 +10,15 @@ export const employeeStatus = [
   { value: "mer än tre år", text: "mer än tre år" }
 ];
 
+export const cardText = {
+  max10PBB: "Max 10 PBB 10%:",
+  max15PBB: "Max 15 PBB 90%:",
+  excessFixedSalary: "Överskjutande fast lön:",
+  parentalSalaryUpto10PBB: "Föräldralön upp till 10 PBB:",
+  parentalSalaryAbove10PBB: "Föräldralön över 10 PBB:",
+  monthlyTotal: "Total föräldralön/mån:"
+};
+
 const sharedMessages = {
   period:
     "Din föräldraledighet måste tas ut inom 24 månader efter barnets födelse eller adoption.",

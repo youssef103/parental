@@ -5,7 +5,7 @@ import { EmployeeStatusProps } from "../Criterias.types";
 import {
   employeeStatus,
   hintMessages
-} from "../../../utilities/config/messages.config";
+} from "../../../utilities/config/text.config";
 
 const EmployeeStatusComponent: React.FC<EmployeeStatusProps & {
   error: string;
