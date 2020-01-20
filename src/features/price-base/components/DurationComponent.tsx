@@ -26,7 +26,7 @@ class Duration extends React.Component<any, any> {
       onDatesChange,
       error
     } = this.props;
-    console.log(this.props);
+
     return (
       <div>
         <Label

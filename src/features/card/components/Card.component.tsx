@@ -11,7 +11,7 @@ export const CardComponent: React.FC<IMapCardStateToProps & any> = ({
 }) => {
   const error: boolean = false;
   const loading: boolean = false;
-  console.log(cards);
+
   if (loading) return <Spinner size={5} />;
   if (error && !loading) return <Error errors={{ t: "hghh", jj: "Test" }} bg />;
 
