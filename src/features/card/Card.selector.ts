@@ -63,11 +63,10 @@ const generateCard = (
   basicSalary: number,
   salaryModel: string
 ): ICard => {
-  const yearlySalary: number = basicSalary * 12;
-
   const ConvertedBasicSalary: number =
     salaryModel === "Rörlig" ? round(basicSalary * 1.235) : round(basicSalary);
 
+  const yearlySalary: number = ConvertedBasicSalary * 12;
   const max10PBB: number = round(pbb * 10);
   const max15PBB: number = round(pbb * 15);
 
