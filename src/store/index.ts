@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, Store } from "redux";
+import { createStore, applyMiddleware, Store, StoreEnhancer } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk, {
   ThunkMiddleware,
@@ -15,7 +15,7 @@ import {
 } from "../features";
 
 const middlewares = [thunk as ThunkMiddleware<AppState, AppActions>];
-const middleWareEnhancer = applyMiddleware(...middlewares);
+const middleWareEnhancer: StoreEnhancer = applyMiddleware(...middlewares);
 
 export type ThunkActionType = ThunkAction<void, AppState, null, AppActions>;
 export type ThunkDispatchType = ThunkDispatch<AppState, any, AppActions>;

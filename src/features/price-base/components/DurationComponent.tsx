@@ -57,8 +57,8 @@ export const Duration: React.FC<IDuration &
         //block
       />
       <Row col={2}>
-        {error.startDate && <Error error={error.startDate} />}
-        {error.endDate && <Error error={error.endDate} />}
+        {error && error.startDate && <Error error={error.startDate} />}
+        {error && error.endDate && <Error error={error.endDate} />}
       </Row>
       {countOfDays && (
         <Label
