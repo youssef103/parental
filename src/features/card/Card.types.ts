@@ -7,7 +7,7 @@ export interface ICard {
   excessFixedSalary: number;
   parentalSalaryUpto10PBB: any;
   parentalSalaryAbove10PBB: number;
-  monthlyTotal: number;
+  total: number;
 }
 
 export interface ICardsErrors {

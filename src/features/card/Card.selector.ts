@@ -85,7 +85,7 @@ const generateCard = (
     excessFixedSalary * ((0.9 / 365) * 30),
     2
   );
-  const monthlyTotal: number =
+  const total: number =
     parentalSalaryAbove10PBB <= 0
       ? parentalSalaryUpto10PBB
       : round(parentalSalaryUpto10PBB + parentalSalaryAbove10PBB);
@@ -97,7 +97,7 @@ const generateCard = (
     excessFixedSalary,
     parentalSalaryUpto10PBB,
     parentalSalaryAbove10PBB,
-    monthlyTotal
+    total
   };
 };
 

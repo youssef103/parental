@@ -35,7 +35,7 @@ export const cardText = {
   excessFixedSalary: "Överskjutande fast lön:",
   parentalSalaryUpto10PBB: "Föräldralön upp till 10 PBB:",
   parentalSalaryAbove10PBB: "Föräldralön över 10 PBB:",
-  monthlyTotal: "Total föräldralön/mån:"
+  total: "Total föräldralön/mån:"
 };
 
 // Help and errors messages

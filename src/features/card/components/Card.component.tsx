@@ -49,8 +49,8 @@ export const CardComponent: React.FC<ICardProps> = ({
             </StyledCard.Body>
 
             <StyledCard.Footer>
-              <span>{cardText.monthlyTotal}</span>
-              <span>{cardData.monthlyTotal} kr</span>
+              <span>{cardText.total}</span>
+              <span>{cardData.total} kr</span>
             </StyledCard.Footer>
           </StyledCard>
         ))}
