@@ -7,6 +7,6 @@ export default {
   th: lighten(0.3, "#DB3E77"),
   danger: darken(0.2, "#DB3E77"),
   white: "#FFFFFF",
-  lightGray: "#EDEDED",
+  lightGray: "##f9f8fa",
   darkGray: "#CCCCCC"
 };
