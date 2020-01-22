@@ -9,14 +9,18 @@ import {
 } from "./SalaryInfo.types";
 
 const mapStateToProps = (state: AppState): IMapSalaryInfoStateToProps => ({
-  basiceSalaryValue: state.salaryInfo.basicSalary,
-  salaryModels: state.salaryInfo.salaryModel
+  basicSalaryValue: state.salaryInfo.basicSalary,
+  salaryModels: state.salaryInfo.salaryModel,
+  errors: {
+    salaryModel: state.salaryInfo.errors?.salaryModel,
+    basicSalary: state.salaryInfo.errors?.basicSalary
+  }
 });
 
 const mapStateToDispatch = (
   dispatch: ThunkDispatch<AppState, any, AppActions>
 ): IMapSalaryInfoStateToDispatch => ({
-  basiceSalaryChangeHandler: salary => dispatch(setBasicSalary(salary)),
+  basicSalaryChangeHandler: salary => dispatch(setBasicSalary(salary)),
   setSalaryModelChangeHandler: salaryModel =>
     dispatch(setSalaryModel(salaryModel))
 });

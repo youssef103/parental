@@ -7,7 +7,11 @@ import {
 
 const initialState: ISalaryInfo = {
   basicSalary: 30000,
-  salaryModel: ""
+  salaryModel: "",
+  errors: {
+    basicSalary: "",
+    salaryModel: ""
+  }
 };
 
 export default (
@@ -16,9 +20,19 @@ export default (
 ): ISalaryInfo => {
   switch (action.type) {
     case SET_BASIC_SALARY:
-      return { ...state, basicSalary: action.basicSalary };
+      return {
+        ...state,
+        basicSalary: action.basicSalary,
+        errors: {
+          basicSalary: action.error
+        }
+      };
     case SET_SALARY_MODEL:
-      return { ...state, salaryModel: action.salaryModel };
+      return {
+        ...state,
+        salaryModel: action.salaryModel,
+        errors: { salaryModel: action.error }
+      };
     default:
       return state;
   }

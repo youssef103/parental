@@ -52,7 +52,9 @@ export const errorMessages = {
   statusIsRequired: "Välj värdet från listan.",
   birthdayIsRequired: "Barn födelsedag fält krävs",
   startDateIsRequired: "Start datum är krävs",
-  endDateIsRequired: "slut datum är krävs"
+  endDateIsRequired: "Slut datum är krävs",
+  basicSalaryIsRequired: "Grundlön är krävs",
+  salaryModelIsRequiredsalary: "Lönemodell är krävs"
 };
 
 export const hintMessages = {

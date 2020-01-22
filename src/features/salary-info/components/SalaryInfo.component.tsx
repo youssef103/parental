@@ -22,8 +22,9 @@ export const SalaryInfoComponent: React.FC<ISalaryInfo &
   IMapSalaryInfoStateToDispatch &
   any> = props => {
   const {
-    basiceSalaryValue,
-    basiceSalaryChangeHandler,
+    errors,
+    basicSalaryValue,
+    basicSalaryChangeHandler,
     setSalaryModelChangeHandler
   } = props;
 
@@ -35,15 +36,16 @@ export const SalaryInfoComponent: React.FC<ISalaryInfo &
           options={salaryModels}
           labelText={salaryInfoText.salaryModelLabelText}
           onChange={e => setSalaryModelChangeHandler(e.target.value)}
+          error={errors.salaryModel}
         />
 
         <TextBox
           labelText={salaryInfoText.baseSalaryLabeText}
           name="baseSalary"
-          value={basiceSalaryValue}
-          onChange={e => basiceSalaryChangeHandler(e.target.value)}
+          value={basicSalaryValue}
+          onChange={e => basicSalaryChangeHandler(e.target.value)}
           hintText={hintMessages.minSalary}
-          error=""
+          error={errors.basicSalary}
         />
       </Row>
       <Slider
@@ -51,8 +53,8 @@ export const SalaryInfoComponent: React.FC<ISalaryInfo &
         xstep={50}
         xmin={0}
         xmax={100000}
-        x={parseInt(basiceSalaryValue)}
-        onChange={({ x }) => basiceSalaryChangeHandler(x.toString())}
+        x={parseInt(basicSalaryValue)}
+        onChange={({ x }) => basicSalaryChangeHandler(x.toString())}
         styles={{
           track: {
             width: "100%",
