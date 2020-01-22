@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { mediaQuery } from "../../config";
 interface IProps {
   col: number;
+  reqCol?: boolean;
 }
 
 const Row = styled.div<IProps>`
@@ -10,6 +11,9 @@ const Row = styled.div<IProps>`
   ${mediaQuery.maxSizePhone} {
     grid-row-gap: 30px;
     margin-bottom: 10px;
+
+    ${({ reqCol = false }) =>
+      reqCol ? `grid-template-columns: repeat(${({ col }) => col}, 1fr);` : ""}
   }
 
   ${mediaQuery.minSizeTabletAndUp} {
