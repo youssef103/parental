@@ -24,6 +24,7 @@ export default (
         ...state,
         basicSalary: action.basicSalary,
         errors: {
+          ...state.errors,
           basicSalary: action.error
         }
       };
@@ -31,7 +32,7 @@ export default (
       return {
         ...state,
         salaryModel: action.salaryModel,
-        errors: { salaryModel: action.error }
+        errors: { ...state.errors, salaryModel: action.error }
       };
     default:
       return state;
