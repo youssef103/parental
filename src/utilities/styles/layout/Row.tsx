@@ -12,8 +12,8 @@ const Row = styled.div<IProps>`
     grid-row-gap: 30px;
     margin-bottom: 10px;
 
-    ${({ reqCol = false }) =>
-      reqCol ? `grid-template-columns: repeat(${({ col }) => col}, 1fr);` : ""}
+    ${({ reqCol = false, col }) =>
+      reqCol ? `grid-template-columns: repeat(${col}, 1fr);` : ""}
   }
 
   ${mediaQuery.minSizeTabletAndUp} {
