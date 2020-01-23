@@ -6,7 +6,7 @@ import {
   LOAD_CARD_FAILURE,
   CardActionTypes
 } from "./Card.types";
-import { getCards, getErrors } from "../../store/selector";
+import { setCardsData, getErrors } from "../../store/selector";
 
 export const loadingCard = (): CardActionTypes => ({
   type: LOAD_CARD
@@ -27,7 +27,7 @@ export const startLoadCard = (): ThunkActionType => (
 ) => {
   dispatch(loadingCard());
 
-  const data = getCards(getState());
+  const data = setCardsData(getState());
   const errors = getErrors(getState());
 
   setTimeout(() => {

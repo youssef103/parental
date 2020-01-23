@@ -5,26 +5,16 @@ export interface ICard {
   max10PBB: number;
   max15PBB: number;
   excessFixedSalary: number;
-  parentalSalaryUpto10PBB: any;
+  parentalSalaryUpto10PBB: number;
   parentalSalaryAbove10PBB: number;
   total: number;
-}
-
-export interface ICardsErrors {
-  status?: string | null;
-  birthday?: string | null;
-  startDate?: string | null;
-  endDate?: string | null;
-  pbb1?: string | null;
-  pbb2?: string | null;
-  salaryModel?: string | null;
-  basicSalary?: string | null;
 }
 
 export interface ICardProps {
   loaded?: boolean;
   cards?: ICard[];
-  errors?: ICardsErrors;
+  compensationPeriod?: string;
+  errors?: string[];
 }
 
 export interface IMapCardStateToProps {

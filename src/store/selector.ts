@@ -46,7 +46,9 @@ export const getSalaryModelError = (state: AppState) =>
 export const getBasicSalaryError = (state: AppState) =>
   state.salaryInfo.errors?.basicSalary;
 
-export const getCards = createSelector(
+export const getCardsData = (state: AppState) => state.cards.data;
+
+export const setCardsData = createSelector(
   [getPBB1, getPBB2, getSalaryModel, getBasicSalary],
   (PBB1, PBB2, SalaryModel, BasicSalary) => {
     let cards = [];

@@ -18,7 +18,10 @@ export const Duration: React.FC<IDuration &
   onDatesChanges,
   error
 }) => {
-  const [focusedInput, setFocusedInput] = useState(null);
+  const [focusedInput, setFocusedInput] = useState<
+    "startDate" | "endDate" | null
+  >(null);
+
   return (
     <div>
       <Label
@@ -36,7 +39,7 @@ export const Duration: React.FC<IDuration &
           onDatesChanges(startDate, endDate)
         }
         focusedInput={focusedInput}
-        onFocusChange={(focusInput: any) => setFocusedInput(focusInput)}
+        onFocusChange={focusInput => setFocusedInput(focusInput)}
         //numberOfMonths={1}
         isOutsideRange={day =>
           day.isBefore(moment(birthday)) ||
