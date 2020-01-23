@@ -4,10 +4,7 @@ import { SingleDatePicker } from "react-dates";
 
 import { Label, Error } from "../../../common/ui";
 import { DatePickerProps } from "../Criterias.types";
-import {
-  hintMessages,
-  criteriaText
-} from "../../../utilities/config/text.config";
+import { hintMessages, criteriaText } from "../../../utilities/config";
 
 const DatePickerComponent: React.FC<DatePickerProps> = ({
   error,

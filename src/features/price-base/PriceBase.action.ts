@@ -8,7 +8,7 @@ import {
   SET_END_DATE
 } from "./PriceBase.types";
 import { PBB } from "../../constants/pbb";
-import { errorMessages } from "../../utilities/config/text.config";
+import { errorMessages } from "../../utilities/config";
 
 export const setPBB1 = (pbb1: number): ThunkActionType => (
   dispatch: ThunkDispatchType

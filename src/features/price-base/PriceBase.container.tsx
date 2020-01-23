@@ -19,7 +19,7 @@ import {
   getPBB1,
   getPBB2,
   getBirthday
-} from "../card/Card.selector";
+} from "../../store/selector";
 
 import {
   getYears,

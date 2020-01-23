@@ -1,5 +1,5 @@
 import { ThunkActionType, ThunkDispatchType } from "../../store";
-import { errorMessages } from "../../utilities/config/text.config";
+import { errorMessages, hintMessages } from "../../utilities/config";
 import { SET_BIRTHDAY, SET_STATUS } from "./Criterias.types";
 
 export const setBirtDate = (birthday: string | null): ThunkActionType => (
@@ -15,9 +15,17 @@ export const setBirtDate = (birthday: string | null): ThunkActionType => (
 export const setStatus = (status: string): ThunkActionType => (
   dispatch: ThunkDispatchType
 ): void => {
+  const compensationPeriod =
+    status === "mer än ett år"
+      ? hintMessages.employedMoreThanOneYear
+      : "" || status === "mer än tre år"
+      ? hintMessages.employedMoreThanThreeYear
+      : "";
+
   dispatch({
     type: SET_STATUS,
     status,
-    error: status === "" ? errorMessages.statusIsRequired : ""
+    error: status === "" ? errorMessages.statusIsRequired : "",
+    compensationPeriod
   });
 };

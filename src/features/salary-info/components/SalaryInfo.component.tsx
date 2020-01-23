@@ -10,12 +10,13 @@ import {
 import { SelectBox, TextBox } from "../../../common/ui";
 import { Row } from "../../../utilities/styles/layout";
 
-import { colors, styling } from "../../../utilities/config";
 import {
+  colors,
+  styling,
   salaryModels,
   hintMessages,
   salaryInfoText
-} from "../../../utilities/config/text.config";
+} from "../../../utilities/config";
 
 export const SalaryInfoComponent: React.FC<ISalaryInfo &
   IMapSalaryInfoStateToProps &

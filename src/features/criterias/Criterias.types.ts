@@ -9,6 +9,7 @@ export const SET_BIRTHDAY_ERROR = "[CRITERIAS] SET_BIRTHDAY_ERROR";
 export interface CriteriaState {
   readonly birthday?: null | string;
   readonly status?: string;
+  readonly compensationPeriod: string;
   readonly errors: {
     readonly birthday?: string;
     readonly status?: string;
@@ -42,6 +43,7 @@ export type IMapDispatchProps = {
 interface setStatusAction extends Action {
   readonly type: typeof SET_STATUS;
   readonly status: string;
+  readonly compensationPeriod: string;
   readonly error: string;
 }
 

@@ -1,14 +1,12 @@
-import * as React from "react";
-import { DateRangePicker } from "react-dates";
+import React, { useState } from "react";
 import moment from "moment";
-import { Label, Error } from "../../../common/ui";
-import {
-  hintMessages,
-  priceBaseText
-} from "../../../utilities/config/text.config";
-import { useState } from "react";
+import { DateRangePicker } from "react-dates";
 import { IDuration, IMapDurationStateToDispatch } from "../PriceBase.types";
+
 import { Row } from "../../../utilities/styles/layout";
+import { Label, Error } from "../../../common/ui";
+
+import { hintMessages, priceBaseText } from "../../../utilities/config";
 
 export const Duration: React.FC<IDuration &
   IMapDurationStateToDispatch &

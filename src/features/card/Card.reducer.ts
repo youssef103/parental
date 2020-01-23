@@ -8,8 +8,7 @@ import {
 
 export const initialState: CardState = {
   loaded: true,
-  data: [],
-  errors: {}
+  data: []
 };
 
 export default (state = initialState, action: CardActionTypes): CardState => {
@@ -17,8 +16,7 @@ export default (state = initialState, action: CardActionTypes): CardState => {
     case LOAD_CARD:
       return {
         loaded: false,
-        data: [],
-        errors: {}
+        data: []
       };
     case LOAD_CARD_SECCUSS:
       return {
@@ -29,9 +27,8 @@ export default (state = initialState, action: CardActionTypes): CardState => {
     case LOAD_CARD_FAILURE:
       return {
         ...state,
-        loaded: false,
-        data: [],
-        errors: { ...action.errors }
+        loaded: true,
+        data: []
       };
 
     default:

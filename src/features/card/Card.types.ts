@@ -35,7 +35,6 @@ export interface IMapCardStateToProps {
 export interface CardState {
   loaded: boolean;
   data?: ICard[];
-  errors?: ICardsErrors;
 }
 
 // Describing the different ACTION NAMES available
@@ -52,7 +51,6 @@ interface loadCardSeccussAction extends Action {
 }
 interface loadCardFailureAction extends Action {
   type: typeof LOAD_CARD_FAILURE;
-  errors: ICardsErrors;
 }
 
 export type CardActionTypes =

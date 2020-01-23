@@ -43,7 +43,11 @@ const sharedMessages = {
   period:
     "Din föräldraledighet måste tas ut inom 24 månader efter barnets födelse eller adoption.",
   minPeriod: "Perioden måste vara mer än 30 dagar.",
-  minSalary: "Lönen måste vara minst 30000 kr"
+  minSalary: "Lönen måste vara minst 30000 kr",
+  employedMoreThanOneYear:
+    "Dynabyte ersätter dig med upp till två månaders föräldralön.",
+  employedMoreThanThreeYear:
+    "Dynabyte ersätter dig med upp till sex månaders föräldralön."
 };
 
 export const errorMessages = {

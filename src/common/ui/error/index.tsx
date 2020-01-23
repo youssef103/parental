@@ -8,8 +8,8 @@ const Error: React.FC<IError> = ({ error, bg, ...props }) => {
       <StyledError.Icon />
       <StyledError.Text>
         {error}
-        {typeof props.errors === "object"
-          ? Object.values(props.errors).map((value: any, index) => (
+        {props.errors && props.errors.length > 0
+          ? props.errors.map((value: string, index: number) => (
               <p key={index}>{value}</p>
             ))
           : props.children}

@@ -1,6 +1,7 @@
 import { createSelector } from "reselect";
-import { AppState } from "../../store";
-import { ICard } from "./Card.types";
+import { AppState } from ".";
+import { ICard } from "../features/card/Card.types";
+import { round } from "../utilities/config";
 
 export const getStatus = (state: AppState) => state.critera.status;
 
@@ -20,29 +21,30 @@ export const getSalaryModel = (state: AppState): string =>
 export const getBasicSalary = (state: AppState): number =>
   state.salaryInfo.basicSalary || 0;
 
+export const getCompensationPeriod = (state: AppState) =>
+  state.critera.compensationPeriod;
+
 export const checkCardDState = (state: AppState): boolean => state.cards.loaded;
 
 // Errors
-export const getStatusError = (state: AppState) =>
-  state.cards.errors?.status || null;
+export const getStatusError = (state: AppState) => state.critera.errors.status;
+
 export const getBirthdayError = (state: AppState) =>
-  state.cards.errors?.birthday || null;
+  state.critera.errors.birthday;
 
 export const getStartDateError = (state: AppState) =>
-  state.cards.errors?.startDate || null;
+  state.priceBase.errors.startDate;
 
 export const getEndDateError = (state: AppState) =>
-  state.cards.errors?.endDate || null;
+  state.priceBase.errors.endDate;
 
-export const getPBB1Error = (state: AppState) =>
-  state.cards.errors?.pbb1 || null;
-export const getPBB2Error = (state: AppState) =>
-  state.cards.errors?.pbb2 || null;
+export const getPBB1Error = (state: AppState) => state.priceBase.errors.pbb1;
+export const getPBB2Error = (state: AppState) => state.priceBase.errors.pbb2;
 
 export const getSalaryModelError = (state: AppState) =>
-  state.cards.errors?.salaryModel || null;
+  state.salaryInfo.errors?.salaryModel;
 export const getBasicSalaryError = (state: AppState) =>
-  state.cards.errors?.basicSalary || null;
+  state.salaryInfo.errors?.basicSalary;
 
 export const getCards = createSelector(
   [getPBB1, getPBB2, getSalaryModel, getBasicSalary],
@@ -100,7 +102,46 @@ const generateCard = (
   };
 };
 
-let round = (value: number, decimals: number = 2): number => {
-  let num: any = value + "e" + decimals;
-  return Number(Math.round(num) + "e-" + decimals);
-};
+export const getErrors = createSelector(
+  [
+    getStatusError,
+    getBirthdayError,
+    getStartDateError,
+    getEndDateError,
+    getPBB1Error,
+    getPBB2Error,
+    getSalaryModelError,
+    getBasicSalaryError
+  ],
+  (
+    statusError,
+    birthdayError,
+    sartDateError,
+    endDateError,
+    PBB1Error,
+    PBB2Error,
+    salaryModelError,
+    basicSalaryError
+  ) => {
+    const allErrors = {
+      statusError,
+      birthdayError,
+      sartDateError,
+      endDateError,
+      PBB1Error,
+      PBB2Error,
+      salaryModelError,
+      basicSalaryError
+    };
+
+    const errorsFilter: string[] = [];
+    const errorsObj = Object.entries(allErrors);
+    // eslint-disable-next-line
+    errorsObj.map((err: string | any) => {
+      err[1] &&
+        (err[1] !== undefined || err[1] !== "") &&
+        errorsFilter.push(err[1]);
+    });
+    return errorsFilter;
+  }
+);

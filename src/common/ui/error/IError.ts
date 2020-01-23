@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export type IError = {
   error?: string;
-  errors?: {};
+  errors?: [];
   children?: ReactNode;
   bg?: boolean;
 };

@@ -1,10 +1,9 @@
 import { SET_BASIC_SALARY, SET_SALARY_MODEL } from "./SalaryInfo.types";
 import { AppState, ThunkActionType, ThunkDispatchType } from "../../store";
-import { errorMessages } from "../../utilities/config/text.config";
+import { errorMessages } from "../../utilities/config";
 
 export const setBasicSalary = (basicSalary: number): ThunkActionType => (
-  dispatch: ThunkDispatchType,
-  getState: () => AppState
+  dispatch: ThunkDispatchType
 ) => {
   return dispatch({
     type: SET_BASIC_SALARY,
