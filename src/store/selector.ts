@@ -54,7 +54,7 @@ export const setCardsData = createSelector(
     let cards = [];
     cards[0] = generateCard(PBB1, BasicSalary, SalaryModel);
 
-    if (PBB2 > 0) {
+    if (PBB2 && PBB2 > 0) {
       cards[1] = generateCard(PBB2, BasicSalary, SalaryModel);
     }
 

@@ -1,4 +1,5 @@
 import moment from "moment";
+import { PBB } from "../../constants";
 import {
   PriceBaseActionTypes,
   SET_PBB1,
@@ -7,11 +8,10 @@ import {
   SET_START_DATE,
   SET_END_DATE
 } from "./PriceBase.types";
-import { PBB } from "../../constants";
 
 const initialState: IPriceBase = {
   pbb1: PBB[moment().year()],
-  pbb2: 0,
+  pbb2: undefined,
   duration: {
     startDate: null,
     endDate: null,

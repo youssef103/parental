@@ -32,8 +32,8 @@ export interface IBasicAmountConnectedComponent {
 }
 
 export interface IMapBasicAmountToState {
-  readonly pbb1: number;
-  readonly pbb2: number;
+  readonly pbb1: number | undefined;
+  readonly pbb2: number | undefined;
   readonly years: number[];
 }
 
@@ -61,7 +61,7 @@ export type IMapPriceBaseStateToDispatch = IMapBasicAmountToDispatch &
   IMapDurationStateToDispatch;
 export interface IPriceBase {
   readonly pbb1: number;
-  readonly pbb2: number;
+  readonly pbb2: number | undefined;
   readonly duration: IDuration;
   readonly errors: {
     readonly pbb1: string;
@@ -79,7 +79,7 @@ interface setPBB1Action extends Action {
 
 interface setPBB2Action extends Action {
   type: typeof SET_PBB2;
-  pbb2: number;
+  pbb2: number | undefined;
   error: string;
 }
 

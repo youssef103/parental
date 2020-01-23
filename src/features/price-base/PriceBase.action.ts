@@ -11,22 +11,37 @@ import { PBB } from "../../constants/pbb";
 import { errorMessages } from "../../utilities/config";
 
 export const setPBB1 = (pbb1: number): ThunkActionType => (
-  dispatch: ThunkDispatchType
+  dispatch: ThunkDispatchType,
+  getState: () => AppState
 ): void => {
+  const { startDate }: any = getState().priceBase.duration;
+  const firstYear = moment(startDate).year();
+
   dispatch({
     type: SET_PBB1,
     pbb1,
-    error: !pbb1 ? errorMessages.notFoundPBB : ""
+    error: !pbb1 ? `${errorMessages.notFoundPBB} ${firstYear}` : ""
   });
 };
 
-export const setPBB2 = (pbb2: number): ThunkActionType => (
-  dispatch: ThunkDispatchType
+export const setPBB2 = (pbb2: number | undefined): ThunkActionType => (
+  dispatch: ThunkDispatchType,
+  getState: () => AppState
 ): void => {
+  const { startDate, endDate }: any = getState().priceBase.duration;
+  const firstYear = moment(startDate).year();
+  const secondYear = moment(endDate).year();
+  const sameYear: boolean = moment(startDate).isSame(endDate, "year");
+
+  let error =
+    !pbb2 && startDate && endDate && !sameYear
+      ? `${errorMessages.notFoundPBB} ${secondYear}`
+      : "";
+
   dispatch({
     type: SET_PBB2,
     pbb2,
-    error: !pbb2 ? errorMessages.notFoundPBB : ""
+    error
   });
 };
 
@@ -76,25 +91,24 @@ const setEndDate = (endDate: string): ThunkActionType => (
 export const setDuration = (
   startDate: string,
   endDate: string
-): ThunkActionType => (dispatch: ThunkDispatchType): void => {
+): ThunkActionType => (dispatch: ThunkDispatchType) => {
   const firstYear: number = moment(startDate).year();
   const secondYear: number = moment(endDate).year();
   const sameYear: boolean = moment(startDate).isSame(endDate, "year");
 
-  if (!startDate && !endDate) {
-    dispatch(setPBB2(0));
+  dispatch(setStartDate(startDate));
+
+  if ((!startDate && !endDate) || sameYear) {
     dispatch(setEndDate(endDate));
+    dispatch(setPBB2(undefined));
   }
 
-  if (!endDate) {
-    dispatch(setStartDate(startDate));
+  if (!isNaN(firstYear) && startDate) {
+    dispatch(setPBB1(PBB[firstYear] || 0));
   }
 
   if (endDate) {
     dispatch(setEndDate(endDate));
-    if (!isNaN(firstYear)) {
-      dispatch(setPBB1(PBB[firstYear]));
-    }
 
     if (!sameYear && !isNaN(firstYear) && !isNaN(secondYear)) {
       dispatch(setPBB2(PBB[secondYear]));

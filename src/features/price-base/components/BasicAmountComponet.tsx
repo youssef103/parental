@@ -19,7 +19,7 @@ export const BasicAmount: React.FC<IBasicAmount> = props => {
       toggleName={`basic-amount-${year}`}
       toggleState={toggleState}
       handleToggle={() => setToggleState(!toggleState)}
-      error={error && `${error} ${year}`}
+      error={error && error}
     />
   );
 };

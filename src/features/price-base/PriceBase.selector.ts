@@ -1,5 +1,5 @@
-import { AppState } from "../../store";
 import moment from "moment";
+import { AppState } from "../../store";
 
 export const getPriceBaseErrors = (state: AppState) => state.priceBase.errors;
 
