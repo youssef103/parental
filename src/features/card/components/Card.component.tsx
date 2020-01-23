@@ -6,18 +6,21 @@ import { Spinner, Error } from "../../../common/ui";
 import { Row } from "../../../utilities/styles/layout";
 import StyledCard from "../style";
 
-import { cardText } from "../../../utilities/config/text.config";
+import { cardText } from "../../../utilities/config";
+import { Title } from "../../app/style";
 
-export const CardComponent: React.FC<ICardProps> = ({
+export const CardComponent: React.FC<ICardProps & any> = ({
   cards,
   errors,
-  loaded
+  loaded,
+  compensationPeriod
 }) => {
   if (!loaded) return <Spinner size={5} />;
-  if (errors && loaded) return <Error errors={errors} bg />;
+  if (errors.length > 0 && loaded) return <Error errors={errors} bg />;
 
   return (
     <Row col={cards && cards.length === 2 ? 2 : 1}>
+      {compensationPeriod && <Title>{compensationPeriod}</Title>}
       {cards &&
         cards.map((cardData: ICard, index: number) => (
           <StyledCard key={index}>

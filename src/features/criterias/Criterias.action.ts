@@ -1,6 +1,6 @@
 import { ThunkActionType, ThunkDispatchType } from "../../store";
-import { errorMessages, hintMessages } from "../../utilities/config";
 import { SET_BIRTHDAY, SET_STATUS } from "./Criterias.types";
+import { errorMessages, hintMessages } from "../../utilities/config";
 
 export const setBirtDate = (birthday: string | null): ThunkActionType => (
   dispatch: ThunkDispatchType

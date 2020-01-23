@@ -1,14 +1,12 @@
-import { Dispatch } from "react";
-import { ThunkAction } from "redux-thunk";
-import { AppState } from "../../store";
+import { AppState, ThunkActionType, ThunkDispatchType } from "../../store";
 import {
   ICard,
   LOAD_CARD,
   LOAD_CARD_SECCUSS,
   LOAD_CARD_FAILURE,
-  CardActionTypes,
-  ICardsErrors
+  CardActionTypes
 } from "./Card.types";
+import { getCards, getErrors } from "../../store/selector";
 
 export const loadingCard = (): CardActionTypes => ({
   type: LOAD_CARD
@@ -19,23 +17,23 @@ export const loadedCardSeccuss = (data: ICard[]): CardActionTypes => ({
   data
 });
 
-export const loadedCardFailure = (errors: ICardsErrors): CardActionTypes => ({
-  type: LOAD_CARD_FAILURE,
-  errors
+export const loadedCardFailure = (): CardActionTypes => ({
+  type: LOAD_CARD_FAILURE
 });
 
-export const startLoadCard = (
-  data: ICard[]
-): ThunkAction<void, AppState, null, CardActionTypes> => (
-  dispatch: Dispatch<CardActionTypes>,
+export const startLoadCard = (): ThunkActionType => (
+  dispatch: ThunkDispatchType,
   getState: () => AppState
-): void => {
+) => {
   dispatch(loadingCard());
 
-  //const {errors}= getState().cards;
-  try {
+  const data = getCards(getState());
+  const errors = getErrors(getState());
+
+  setTimeout(() => {
+    if (errors && Object.keys(errors).length > 0) {
+      return dispatch(loadedCardFailure());
+    }
     dispatch(loadedCardSeccuss(data));
-  } catch (err) {
-    dispatch(loadedCardFailure(err.message));
-  }
+  }, 700);
 };

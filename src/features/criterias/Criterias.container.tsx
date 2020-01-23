@@ -19,7 +19,7 @@ import {
   getBirthday,
   getStatusError,
   getBirthdayError
-} from "./Criterias.Selector";
+} from "../../store/selector";
 
 type IProps = EmployeeStatusProps &
   DatePickerProps &

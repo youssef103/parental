@@ -6,6 +6,8 @@ import thunk, {
   ThunkDispatch
 } from "redux-thunk";
 
+import { dataFetching } from "./middlewares";
+
 import rootReducers from "./rootReducers";
 import {
   SalaryInfoActionTypes,
@@ -14,7 +16,10 @@ import {
   CardActionTypes
 } from "../features";
 
-const middlewares = [thunk as ThunkMiddleware<AppState, AppActions>];
+const middlewares = [
+  thunk as ThunkMiddleware<AppState, AppActions>,
+  dataFetching as ThunkMiddleware<AppState, AppActions>
+];
 const middleWareEnhancer: StoreEnhancer = applyMiddleware(...middlewares);
 
 export type ThunkActionType = ThunkAction<void, AppState, null, AppActions>;
