@@ -21,7 +21,7 @@ export const CardComponent: React.FC<ICardProps> = ({
 
   return (
     <>
-      {cards && compensationPeriod && (
+      {cards && cards.length > 0 && compensationPeriod && (
         <Title md={5} color={colors.primary}>
           {compensationPeriod}
         </Title>

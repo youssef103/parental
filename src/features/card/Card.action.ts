@@ -25,15 +25,28 @@ export const startLoadCard = (): ThunkActionType => (
   dispatch: ThunkDispatchType,
   getState: () => AppState
 ) => {
-  dispatch(loadingCard());
-
   const data = setCardsData(getState());
   const errors = getErrors(getState());
 
-  setTimeout(() => {
-    if (errors && Object.keys(errors).length > 0) {
-      return dispatch(loadedCardFailure());
-    }
-    dispatch(loadedCardSeccuss(data));
-  }, 700);
+  const { status, birthday } = getState().critera;
+  const { pbb1, duration } = getState().priceBase;
+  const { salaryModel } = getState().salaryInfo;
+
+  if (
+    status !== "" &&
+    birthday &&
+    pbb1 > 0 &&
+    duration.startDate &&
+    duration.endDate &&
+    salaryModel !== ""
+  ) {
+    dispatch(loadingCard());
+
+    setTimeout(() => {
+      if (errors && errors.length > 0) {
+        return dispatch(loadedCardFailure());
+      }
+      dispatch(loadedCardSeccuss(data));
+    }, 700);
+  }
 };
