@@ -13,8 +13,7 @@ export const Label: React.FC<ILabel & ILabelSharedProps & ILabelToggle> = ({
   children,
   handleToggle,
   toggleName,
-  toggleState = false,
-  ...rest
+  toggleState = false
 }) => {
   return (
     <LabelWrap>

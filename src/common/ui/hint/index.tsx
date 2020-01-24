@@ -2,11 +2,11 @@ import React from "react";
 import StyledHint from "./style";
 import { IHint } from "./IHint";
 
-const Hint: React.FC<IHint> = ({ hintText, diraction = "left" }) => {
+const Hint: React.FC<IHint> = ({ hintText }) => {
   return (
     <StyledHint>
       <StyledHint.Icon>i</StyledHint.Icon>
-      <StyledHint.Text diraction={diraction}>{hintText}</StyledHint.Text>
+      <StyledHint.Text>{hintText}</StyledHint.Text>
     </StyledHint>
   );
 };
