@@ -29,7 +29,6 @@ export const setPBB2 = (pbb2: number | undefined): ThunkActionType => (
   getState: () => AppState
 ): void => {
   const { startDate, endDate }: any = getState().priceBase.duration;
-  const firstYear = moment(startDate).year();
   const secondYear = moment(endDate).year();
   const sameYear: boolean = moment(startDate).isSame(endDate, "year");
 
