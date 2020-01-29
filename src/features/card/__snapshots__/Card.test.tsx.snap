@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testin Card Component Should render empty div if cards array is empty 1`] = `
-<div
-  class="sc-bZQynM dsMJur"
-  size="5"
+<styled.div
+  size={5}
 />
 `;

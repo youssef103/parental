@@ -14,7 +14,7 @@ describe("Testin Card Component", () => {
   let wrapper: any;
   let props: any;
   beforeEach(() => {
-    wrapper = render(<CardComponent {...props} />);
+    wrapper = shallow(<CardComponent {...props} />);
   });
 
   it("Should render empty div if cards array is empty", () => {
