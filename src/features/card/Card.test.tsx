@@ -4,12 +4,15 @@ import {
   LOAD_CARD,
   LOAD_CARD_SUCCESS,
   LOAD_CARD_FAILURE,
+  ICard
 } from "./Card.types";
 import { setCardsData } from "../../store/selector";
+import { AppState } from "../../store";
+import { AppActions } from "../../store";
 
 describe("Testin Card Component", () => {
-  let wrapper;
-  let props;
+  let wrapper: any;
+  let props: any;
   beforeEach(() => {
     wrapper = render(<CardComponent {...props} />);
   });
@@ -20,56 +23,29 @@ describe("Testin Card Component", () => {
 });
 
 describe("Testin CardReducer", () => {
-  it("should setup default card values", ()=>{
-    const state= CardrReducer(undefined, {type:"@@INIT"});
+  it("should setup default card values", () => {
+    const state = CardrReducer(undefined, { type: "@@INIT" });
 
     expect(state).toEqual({
       loaded: true,
       data: []
     });
-  })
+  });
 
   it("should load cards successfully", () => {
-    const currentState = {
-      critera: {
-        birthday: '2020-01-01T11:00:00.000Z',
-        status: 'mer än ett år',
-        compensationPeriod: 'Dynabyte ersätter dig med upp till två månaders föräldralön.',
-        errors: {
-          status: '',
-          birthday: ''
-        }
-      },
+    const importantValuesToRenderCards: AppState = {
       priceBase: {
-        pbb1: 47300,
-        duration: {
-          startDate: '2020-01-09T11:00:00.000Z',
-          endDate: '2020-02-25T11:00:00.000Z'
-        },
-        errors: {
-          startDate: '',
-          endDate: '',
-          pbb1: '',
-          pbb2: ''
-        }
+        pbb1: 47300
       },
       salaryInfo: {
-        basicSalary: '36150',
-        salaryModel: 'Rörlig',
-        errors: {
-          basicSalary: '',
-          salaryModel: ''
-        }
-      },
-      cards: {
-        loaded: false,
-        data: []
-    }
+        basicSalary: "36150",
+        salaryModel: "Rörlig"
+      }
     };
-    const data= setCardsData(currentState);
-    const action= {type: LOAD_CARD_SUCCESS, data}
+    const data: ICard[] = setCardsData(importantValuesToRenderCards);
+    const action: AppActions = { type: LOAD_CARD_SUCCESS, data };
 
-    const state= CardrReducer(undefined,action)
+    const state = CardrReducer(undefined, action);
 
     expect(state).toEqual({
       loaded: true,
@@ -85,8 +61,7 @@ describe("Testin CardReducer", () => {
         }
       ]
     });
-      
+
     expect(state.data).toHaveLength(1);
   });
-
 });
