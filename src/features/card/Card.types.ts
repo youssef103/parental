@@ -29,14 +29,14 @@ export interface CardState {
 
 // Describing the different ACTION NAMES available
 export const LOAD_CARD = "LOAD_CARD";
-export const LOAD_CARD_SECCUSS = "LOAD_CARD_SECCUSS";
+export const LOAD_CARD_SUCCESS = "LOAD_CARD_SUCCESS";
 export const LOAD_CARD_FAILURE = "LOAD_CARD_FIALURE";
 
 interface loadCardAction extends Action {
   type: typeof LOAD_CARD;
 }
-interface loadCardSeccussAction extends Action {
-  type: typeof LOAD_CARD_SECCUSS;
+interface loadCardSuccessAction extends Action {
+  type: typeof LOAD_CARD_SUCCESS;
   data: ICard[];
 }
 interface loadCardFailureAction extends Action {
@@ -45,5 +45,5 @@ interface loadCardFailureAction extends Action {
 
 export type CardActionTypes =
   | loadCardAction
-  | loadCardSeccussAction
+  | loadCardSuccessAction
   | loadCardFailureAction;

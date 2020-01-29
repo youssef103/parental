@@ -1,7 +1,7 @@
 import {
   CardState,
   LOAD_CARD,
-  LOAD_CARD_SECCUSS,
+  LOAD_CARD_SUCCESS,
   LOAD_CARD_FAILURE,
   CardActionTypes
 } from "./Card.types";
@@ -18,7 +18,7 @@ export default (state = initialState, action: CardActionTypes): CardState => {
         loaded: false,
         data: []
       };
-    case LOAD_CARD_SECCUSS:
+    case LOAD_CARD_SUCCESS:
       return {
         ...state,
         loaded: true,

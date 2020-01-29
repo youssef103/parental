@@ -2,7 +2,7 @@ import { AppState, ThunkActionType, ThunkDispatchType } from "../../store";
 import {
   ICard,
   LOAD_CARD,
-  LOAD_CARD_SECCUSS,
+  LOAD_CARD_SUCCESS,
   LOAD_CARD_FAILURE,
   CardActionTypes
 } from "./Card.types";
@@ -12,8 +12,8 @@ export const loadingCard = (): CardActionTypes => ({
   type: LOAD_CARD
 });
 
-export const loadedCardSeccuss = (data: ICard[]): CardActionTypes => ({
-  type: LOAD_CARD_SECCUSS,
+export const loadedCardSuccess = (data: ICard[]): CardActionTypes => ({
+  type: LOAD_CARD_SUCCESS,
   data
 });
 
@@ -46,7 +46,7 @@ export const startLoadCard = (): ThunkActionType => (
       if (errors && errors.length > 0) {
         return dispatch(loadedCardFailure());
       }
-      dispatch(loadedCardSeccuss(data));
+      dispatch(loadedCardSuccess(data));
     }, 700);
   }
 };
