@@ -1,3 +1,27 @@
+# Föräldrakollen
+
+At Dynabyte, we offer our employees a strengthened parental salary, which means that we increase the `Försäkringskassan's` compensation when you are at home with your child.
+
+---
+
+## Tools and Library
+
+| Tools                                                   | Description                                                                                                                                                                       |
+| ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [**React**](https://reactjs.org/)                       | JavaScript library for building user interfaces                                                                                                                                   |
+| [**Redux**](https://redux.js.org/)                      | Predictable State Container for JS Apps                                                                                                                                           |
+| [**Styled-Components**](https://styled-components.com/) | library that allows you to write actual CSS code to style your components by using CSS and ES6 💅.                                                                                |
+| [**TypeScript**](https://www.typescriptlang.org/)       | is an open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing to the language. |
+
+---
+
+## Design Patterns & Project Structures
+
+With Föräldrakollen followed `Domain-Style Structure` which is Redux-Recommended Code Structures.
+[Read more >](https://www.learnhowtoprogram.com/react/advanced-topics/react-and-redux-design-patterns)
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
