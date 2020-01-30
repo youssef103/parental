@@ -15,10 +15,64 @@ At Dynabyte, we offer our employees a strengthened parental salary, which means 
 
 ## Design Patterns & Project Structures
 
-With Föräldrakollen followed `Domain-Style Structure` which is Redux-Recommended Code Structures.
-[Read more >](https://www.learnhowtoprogram.com/react/advanced-topics/react-and-redux-design-patterns)
+With Föräldrakollen followed `Domain-Style Structure:` separate folders per feature or domain, possibly with sub-folders per file type.
+
+which is Redux-Recommended Code Structures.
+[Read more >>](https://www.learnhowtoprogram.com/react/advanced-topics/react-and-redux-design-patterns)
 
 <img alt='File Structure' src='./images/file_structure.png' width='200px'>
+
+### Common
+
+The directory containing all ui components that can use them in many places such as label, selectbox, spinner, textbox and toggle button and as usual each component or folder has index file that allows exporting all files.
+Each component has:
+
+1. **style** The directory containing styled-components components and index file.
+2. Typescript Interface which starts with I[Component-name] in our case **IHint.ts**
+3. **index.ts**
+
+### Constants
+
+It's containing all project constants such as Prisbasbelopp, fack data for testing and index.ts.
+
+- How to add new PBB
+  1. Go to src > constants
+  2. In **`pbb.ts`**
+  3. On the second-row press enter
+  4. Open double quotation and write the year then write: after that write the PBB
+     Example: `"2021": 48500,`
+
+### features
+
+As I said with Föräldrakollen followed `Domain-Style Structure:` separate folders per feature or domain, possibly with sub-folders per file type.
+
+The directory containing all features such as card, criterias, price-base and salary-info.
+
+<img alt='card' src='./images/card.png' width='200px'>
+
+- Each feature contains:
+
+  1. components: The directory containing all React components that belong to the same feature.
+  2. style: The directory containing styled-components components that belong to the same feature.
+
+  3. [feature-name].container: This file connects the react components to the Redux store. With this pattern, we can separate the React components from the Redux store.
+  4. [feature-name].reducer: each feature has a reducer.
+  5. [feature-name].action: each feature has a action that is a payload of information that send data from your application to the store.
+  6. [feature-name].type: each feature has a type file which contains all constants type and feature's interface.
+  7. [feature-name].test: each feature has a test file which contains all automation test (enzyme and jest).
+  8. index.ts: each feature has a index file which allows to export everything
+
+### store
+
+Store directory containing all major Redux files such as rootReducers, selector, middleware and index.ts
+
+- rootReducers: contains all Reducers that imported from all features.
+
+- selector: functions that can be used to efficiently compute derived data/state from the Redux store.
+
+- middleware: Redux middleware is the main execution task is the store’s dispatch function. The dispatch function is responsible for sending actions to one or many reducer functions for state changes.
+
+- index.ts: the configuration of store and exports all AppState, AppActions, and middlewares.
 
 ---
 
