@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ToggleButton } from "./Button";
 
-import { colors } from "../../../../utilities/config";
+import { colors } from "../../../../utilities";
 
 export const ToggleLabel: any = styled.label`
   display: flex;

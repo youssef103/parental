@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { styling, colors } from "../../../../utilities/config";
+import { styling, colors } from "../../../../utilities";
 
 const Input = styled.select`
   height: 60px;

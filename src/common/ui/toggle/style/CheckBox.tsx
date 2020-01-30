@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ToggleLabel } from "./Label";
 import { ToggleButton } from "./Button";
 
-import { colors } from "../../../../utilities/config";
+import { colors } from "../../../../utilities";
 
 export const CheckBox = styled.input.attrs({ type: "checkbox" })`
   height: 0;

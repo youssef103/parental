@@ -25,6 +25,9 @@ which is Redux-Recommended Code Structures.
 ### Common
 
 The directory containing all ui components that can use them in many places such as label, selectbox, spinner, textbox and toggle button and as usual each component or folder has index file that allows exporting all files.
+
+<img alt='common' src='./images/common.png' width='200px'>
+
 Each component has:
 
 1. **style** The directory containing styled-components components and index file.
@@ -34,6 +37,8 @@ Each component has:
 ### Constants
 
 It's containing all project constants such as Prisbasbelopp, fack data for testing and index.ts.
+
+<img alt='constans' src='./images/constans.png' width='200px'>
 
 - How to add new PBB
   1. Go to src > constants
@@ -48,7 +53,7 @@ As I said with Föräldrakollen followed `Domain-Style Structure:` separate fold
 
 The directory containing all features such as card, criterias, price-base and salary-info.
 
-<img alt='card' src='./images/card.png' width='200px'>
+<img alt='feature' src='./images/features.png' width='200px'> <img alt='card' src='./images/card.png' width='200px'>
 
 - Each feature contains:
 
@@ -64,7 +69,9 @@ The directory containing all features such as card, criterias, price-base and sa
 
 ### store
 
-Store directory containing all major Redux files such as rootReducers, selector, middleware and index.ts
+The directory containing all major Redux files such as rootReducers, selector, middleware and index.ts
+
+<img alt='store' src='./images/store.png' width='200px'>
 
 - rootReducers: contains all Reducers that imported from all features.
 
@@ -73,6 +80,14 @@ Store directory containing all major Redux files such as rootReducers, selector,
 - middleware: Redux middleware is the main execution task is the store’s dispatch function. The dispatch function is responsible for sending actions to one or many reducer functions for state changes.
 
 - index.ts: the configuration of store and exports all AppState, AppActions, and middlewares.
+
+### utilities
+
+The directory containing all project configurations and global layout and style.
+
+<img alt='utilities' src='./images/utilities.png' width='200px'>
+
+<img alt='config' src='./images/config.png' width='200px'>
 
 ---
 

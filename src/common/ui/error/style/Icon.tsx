@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../../../utilities/config";
+import { colors } from "../../../../utilities";
 
 export const Icon = styled.span`
   border: 3px solid ${colors.danger};

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mediaQuery } from "../../../../utilities/config";
+import { mediaQuery } from "../../../../utilities";
 
 const LebalWrap: any = styled.div`
   display: flex;

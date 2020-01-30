@@ -7,7 +7,7 @@ import { Row } from "../../../utilities/styles/layout";
 import { Title } from "../../app/style";
 import StyledCard from "../style";
 
-import { cardText, colors } from "../../../utilities/config";
+import { cardText, colors } from "../../../utilities";
 
 export const CardComponent: React.FC<ICardProps> = ({
   cards,

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, styling } from "../../../../utilities/config";
+import { colors, styling } from "../../../../utilities";
 import { IError } from "../IError";
 
 export const Text = styled.span<IError>`

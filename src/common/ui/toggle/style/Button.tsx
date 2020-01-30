@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../../../utilities/config";
+import { colors } from "../../../../utilities";
 import { IToggle } from "../IToggle";
 
 export const ToggleButton = styled.span<IToggle>`

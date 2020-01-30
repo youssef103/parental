@@ -16,7 +16,7 @@ import {
   salaryModels,
   hintMessages,
   salaryInfoText
-} from "../../../utilities/config";
+} from "../../../utilities";
 
 export const SalaryInfoComponent: React.FC<ISalaryInfo &
   IMapSalaryInfoStateToProps &

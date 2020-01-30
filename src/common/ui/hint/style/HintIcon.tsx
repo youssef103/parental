@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { HintText } from "./HintText";
-import { colors } from "../../../../utilities/config";
+import { colors } from "../../../../utilities";
 
 export const HintIcon = styled.span`
   background: ${colors.primary};

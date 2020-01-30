@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../../utilities/config";
+import { colors } from "../../../utilities";
 
 export const Body = styled.ul`
   list-style: none;

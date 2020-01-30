@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { IHint } from "../IHint";
-import { colors, mediaQuery } from "../../../../utilities/config";
+import { colors, mediaQuery } from "../../../../utilities";
 
 export const HintText = styled.p<IHint>`
   position: absolute;

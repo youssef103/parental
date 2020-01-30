@@ -4,7 +4,7 @@ import { IError } from "../IError";
 import { Icon } from "./Icon";
 import { Text } from "./Text";
 
-import { colors, styling } from "../../../../utilities/config";
+import { colors, styling } from "../../../../utilities";
 
 const StyledError: any = styled.div<IError>`
   margin-top: 10px;

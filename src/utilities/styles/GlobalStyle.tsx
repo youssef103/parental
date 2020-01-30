@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { styling, colors } from "../config";
+import { styling, colors } from "./index";
 import { normalize } from "polished";
 
 const GlobalStyle = createGlobalStyle`

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { styling } from "../../../utilities/config";
+import { styling } from "../../../utilities";
 
 import { Body, ListItem } from "./Body";
 import { Footer } from "./Footer";

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ITextBox } from "../ITextBox";
-import { colors } from "../../../../utilities/config";
+import { colors } from "../../../../utilities";
 
 const Input = styled.input<ITextBox>`
   height: 60px;
