@@ -9,7 +9,7 @@ import { Card } from "../card";
 import { localDateConfig } from "../../utilities/config";
 
 import "react-dates/lib/css/_datepicker.css";
-import { Container } from "../../utilities/styles/layout";
+import { Container, Row } from "../../utilities/styles/layout";
 import GlobalStyles from "../../utilities/styles/GlobalStyle";
 import { Title } from "./style";
 
@@ -22,10 +22,16 @@ const AppComponent: React.FC = () => {
       <GlobalStyles />
 
       <Title mt={30}>Vad behöver jag tänka på?</Title>
-      <Criteria />
+      <Row col={2}>
+        <Criteria.EmployeeStatus />
+        <Criteria.Birthday />
+      </Row>
 
       <Title>Prisbasbeloppet</Title>
-      <PriceBase />
+      <Row col={2}>
+        <PriceBase.Duration />
+        <PriceBase.BasicAmount />
+      </Row>
 
       <SalaryInfo />
 

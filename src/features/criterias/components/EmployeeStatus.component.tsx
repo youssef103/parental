@@ -8,17 +8,18 @@ import {
   criteriaText
 } from "../../../utilities/config/text.config";
 
-const EmployeeStatusComponent: React.FC<EmployeeStatusProps & {
-  error: string;
-}> = ({ changeSalaryHandler, ...props }) => {
+const EmployeeStatusComponent: React.FC<EmployeeStatusProps & any> = ({
+  changeSalaryHandler,
+  ...props
+}) => {
   return (
     <SelectBox
       name="salary-type"
       options={employeeStatus}
       labelText={criteriaText.employeeStatusLabelText}
       hintText={hintMessages.employeeStatus}
-      onChange={changeSalaryHandler}
-      error={props.error}
+      onChange={e => changeSalaryHandler(e.target.value)}
+      error={props.statusError}
     />
   );
 };

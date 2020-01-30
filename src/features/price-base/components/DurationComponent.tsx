@@ -16,7 +16,7 @@ export const Duration: React.FC<IDuration &
   endDate,
   countOfDays,
   onDatesChanges,
-  error
+  errors
 }) => {
   const [focusedInput, setFocusedInput] = useState<
     "startDate" | "endDate" | null
@@ -57,9 +57,9 @@ export const Duration: React.FC<IDuration &
         //regular
         //block
       />
-      <Row col={2} reqCol={error.startDate !== "" && error.endDate !== ""}>
-        {error && error.startDate && <Error error={error.startDate} />}
-        {error && error.endDate && <Error error={error.endDate} />}
+      <Row col={2} reqCol={errors.startDate !== "" && errors.endDate !== ""}>
+        {errors && errors.startDate && <Error error={errors.startDate} />}
+        {errors && errors.endDate && <Error error={errors.endDate} />}
       </Row>
       {countOfDays && (
         <Label

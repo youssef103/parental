@@ -6,8 +6,10 @@ export const SET_BIRTHDAY = "[CRITERIAS] SET_BIRTHDAY";
 export const SET_STATUS_ERROR = "[CRITERIAS] SET_STATUS_ERROR";
 export const SET_BIRTHDAY_ERROR = "[CRITERIAS] SET_BIRTHDAY_ERROR";
 
+export type dateType = moment.Moment | null;
+
 export interface CriteriaState {
-  readonly birthday?: null | string;
+  readonly birthday?: dateType;
   readonly status?: string;
   readonly compensationPeriod: string;
   readonly errors: {
@@ -17,8 +19,8 @@ export interface CriteriaState {
 }
 
 export interface DatePickerProps {
-  readonly birthday: moment.Moment | null;
-  readonly changeDateHandler: (date: moment.Moment | null) => void;
+  readonly birthday: dateType;
+  readonly changeDateHandler: (date: dateType) => void;
   readonly error?: string;
 }
 
@@ -30,14 +32,14 @@ export interface EmployeeStatusProps {
 }
 
 export type IMapStateToProps = {
-  birthday?: string | null;
+  birthday?: dateType;
   statusError?: string;
   birthdayError?: string;
 };
 
 export type IMapDispatchProps = {
-  changeSalaryHandler: (status: string) => void;
-  changeDateHandler: (date: string) => void;
+  changeSalaryHandler?: (status: string) => void;
+  changeDateHandler?: (date: dateType) => void;
 };
 
 interface setStatusAction extends Action {
@@ -49,7 +51,7 @@ interface setStatusAction extends Action {
 
 interface setChildBirthdayAction extends Action {
   readonly type: typeof SET_BIRTHDAY;
-  readonly birthday: string | null;
+  readonly birthday: dateType;
   readonly error: string;
 }
 

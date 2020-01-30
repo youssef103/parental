@@ -8,11 +8,21 @@ exports[`Test ParentalCompensationApp Component should render ParentalCompensati
   >
     Vad behöver jag tänka på?
   </styled.h3>
-  <Connect(Criteria) />
+  <styled.div
+    col={2}
+  >
+    <Connect(EmployeeStatusComponent) />
+    <Connect(DatePickerComponent) />
+  </styled.div>
   <styled.h3>
     Prisbasbeloppet
   </styled.h3>
-  <Connect(PriceBase) />
+  <styled.div
+    col={2}
+  >
+    <Connect(Duration) />
+    <Connect(BasicAmount) />
+  </styled.div>
   <Connect(SalaryInfoComponent) />
   <Connect(CardComponent) />
 </styled.div>
