@@ -87,7 +87,21 @@ The directory containing all project configurations and global layout and style.
 
 <img alt='utilities' src='./images/utilities.png' width='200px'>
 
-<img alt='config' src='./images/config.png' width='200px'>
+- config:
+
+  1.  **moment.config:** The date configuration that contains a Swedish format and labels.
+  2.  **text.config:** it contains all ui texts and labels
+  3.  **general:** it's a general function that can use in our project.
+  4.  **index:** exported all files from config.
+
+- styles:
+  1.  **layout:** it's contains the major layout/grid such as row and container.
+  2.  **colors:** contains all color variables
+  3.  **GlobalStyle:** contains global style.
+  4.  **mediaQuery:** contains all screen sizes.
+
+<img alt='config' src='./images/utilities_config.png' width='200px'>
+<img alt='styles' src='./images/utilities_styles.png' width='200px'>
 
 ---
 
