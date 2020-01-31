@@ -14,7 +14,6 @@ type c = {
 
 export const SelectBox: React.FC<ILabelSharedProps & ISelectBoxProps & c> = ({
   labelText,
-  labelClass,
   hintText,
   name,
   options,
@@ -25,7 +24,6 @@ export const SelectBox: React.FC<ILabelSharedProps & ISelectBoxProps & c> = ({
       <StyledSelectBox.Label
         htmlFor={name}
         labelText={labelText}
-        labelClassName={labelClass}
         hintText={hintText}
       />
     )}

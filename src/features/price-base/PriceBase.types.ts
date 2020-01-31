@@ -10,7 +10,7 @@ export type IDuration = {
   readonly startDate?: moment.Moment | string | null;
   readonly endDate?: moment.Moment | string | null;
   readonly birthday?: moment.Moment | string | null;
-  readonly countOfDays?: number | undefined;
+  readonly countOfDays?: string | undefined;
   readonly error?: { startDate: string; endDate: string } | string;
 };
 

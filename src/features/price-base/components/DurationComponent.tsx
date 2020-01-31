@@ -61,13 +61,7 @@ export const Duration: React.FC<IDuration &
         {errors && errors.startDate && <Error error={errors.startDate} />}
         {errors && errors.endDate && <Error error={errors.endDate} />}
       </Row>
-      {countOfDays && (
-        <Label
-          labelText={
-            countOfDays === 1 ? countOfDays + " Dag" : countOfDays + " Dagar"
-          }
-        />
-      )}
+      {countOfDays && <Label labelText={countOfDays} isCenter />}
     </div>
   );
 };

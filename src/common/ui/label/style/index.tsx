@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { mediaQuery } from "../../../../utilities";
+import { ILabelSharedProps } from "../ILabel";
 
-const LebalWrap: any = styled.div`
+const LebalWrap: any = styled.div<ILabelSharedProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 6px;
+  ${({ isCenter }) => (isCenter ? "text-align:center" : "")}
 
   ${mediaQuery.minSizeLaptopAndUp} {
     min-height: 25px;

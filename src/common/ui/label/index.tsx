@@ -8,7 +8,7 @@ import { ILabel, ILabelSharedProps, ILabelToggle } from "./ILabel";
 export const Label: React.FC<ILabel & ILabelSharedProps & ILabelToggle> = ({
   htmlFor,
   labelText,
-  labelClass,
+  isCenter,
   hintText,
   children,
   handleToggle,
@@ -16,10 +16,10 @@ export const Label: React.FC<ILabel & ILabelSharedProps & ILabelToggle> = ({
   toggleState = false
 }) => {
   return (
-    <LabelWrap>
+    <LabelWrap isCenter={isCenter}>
       {hintText && <Hint hintText={hintText} />}
 
-      <label htmlFor={htmlFor} className={labelClass}>
+      <label htmlFor={htmlFor}>
         {labelText}
         {children}
       </label>

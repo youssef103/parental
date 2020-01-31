@@ -17,7 +17,6 @@ const TextBox: React.FC<ILabelSharedProps &
   ILabelToggle &
   OnChangeProps> = ({
   labelText,
-  labelClass,
   hintText,
   name,
   error,
@@ -29,7 +28,6 @@ const TextBox: React.FC<ILabelSharedProps &
       <Label
         htmlFor={name}
         labelText={labelText}
-        labelClass={labelClass}
         hintText={hintText}
         toggleName={rest.toggleName}
         toggleState={rest.toggleState}

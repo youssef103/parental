@@ -4,7 +4,7 @@ export interface ILabel {
 
 export interface ILabelSharedProps {
   labelText?: string;
-  labelClass?: string;
+  isCenter?: boolean;
   hintText?: string;
 }
 
