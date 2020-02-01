@@ -76,7 +76,7 @@ const setEndDate = (endDate: string): ThunkActionType => (
   let startDate: any = getState().priceBase.duration.startDate;
   let error = !endDate
     ? errorMessages.endDateIsRequired
-    : "" || moment(endDate).diff(startDate, "days") <= 29
+    : "" || moment(endDate).diff(startDate, "days") + 1 <= 29
     ? errorMessages.minPeriod
     : "";
 

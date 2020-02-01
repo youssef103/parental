@@ -1,5 +1,6 @@
 import moment from "moment";
 import { AppState } from "../../store";
+import { returnCountingDays } from "../../utilities";
 
 export const getPriceBaseErrors = (state: AppState) => state.priceBase.errors;
 
@@ -28,20 +29,18 @@ export const getCountOfDays = (state: AppState) => {
   const endOf = moment(endDate).startOf("year");
 
   const countOfDays: number =
-    startDate && endDate && endDate.diff(startDate, "days");
+    startDate && endDate && endDate.diff(startDate, "days") + 1;
 
   const countofDaysInDifferentsYears =
     startDate && endDate && !sameYear
-      ? `( ${startOf.diff(startDate, "days") +
-          1} dagar i ${firstYear} och ${moment(endDate).diff(
-          endOf,
-          "days"
-        )} dagar i ${secondYear} )`
+      ? `( ${returnCountingDays(
+          startOf.diff(startDate, "days") + 1
+        )} i ${firstYear} och ${returnCountingDays(
+          moment(endDate).diff(endOf, "days") + 1
+        )} i ${secondYear} )`
       : "";
 
-  return countOfDays === 1
-    ? countOfDays + " Dag"
-    : undefined || countOfDays > 1
-    ? `${countOfDays} Dagar ${countofDaysInDifferentsYears}`
+  return countOfDays > 0
+    ? returnCountingDays(countOfDays, countofDaysInDifferentsYears)
     : undefined;
 };
