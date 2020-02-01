@@ -26,6 +26,6 @@ export const returnCountingDays = (
   otherValue: string = ""
 ): string => {
   return countOfDays === 1
-    ? `${countOfDays} Dag`
+    ? `${countOfDays} Dag `
     : `${countOfDays} Dagar ${otherValue}`;
 };

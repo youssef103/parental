@@ -11,9 +11,10 @@ import { cardText, colors } from "../../../utilities";
 
 export const CardComponent: React.FC<ICardProps> = ({
   cards,
+  periodInfo,
   errors,
   loaded,
-  compensationPeriod
+  compensationInfo
 }) => {
   if (!loaded) return <Spinner size={5} />;
   if (errors && errors.length > 0 && loaded)
@@ -21,15 +22,18 @@ export const CardComponent: React.FC<ICardProps> = ({
 
   return (
     <>
-      {cards && cards.length > 0 && compensationPeriod && (
+      {cards && cards.length > 0 && compensationInfo && (
         <Title md={5} color={colors.primary}>
-          {compensationPeriod}
+          {compensationInfo}
         </Title>
       )}
       <Row col={cards && cards.length === 2 ? 2 : 1}>
         {cards &&
           cards.map((cardData: ICard, index: number) => (
             <StyledCard key={index}>
+              {periodInfo && (
+                <StyledCard.Header>{periodInfo[index]}</StyledCard.Header>
+              )}
               <StyledCard.Body>
                 <StyledCard.ListItem>
                   <span>{cardText.max10PBB}</span>

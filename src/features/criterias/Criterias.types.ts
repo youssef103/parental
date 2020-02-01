@@ -11,7 +11,7 @@ export type dateType = moment.Moment | null;
 export interface CriteriaState {
   readonly birthday?: dateType;
   readonly status?: string;
-  readonly compensationPeriod: string;
+  readonly compensationInfo: string;
   readonly errors: {
     readonly birthday?: string;
     readonly status?: string;
@@ -45,7 +45,7 @@ export type IMapDispatchProps = {
 interface setStatusAction extends Action {
   readonly type: typeof SET_STATUS;
   readonly status: string;
-  readonly compensationPeriod: string;
+  readonly compensationInfo: string;
   readonly error: string;
 }
 

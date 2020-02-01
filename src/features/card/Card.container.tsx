@@ -7,11 +7,12 @@ import {
   getPBB2,
   checkCardDState,
   getErrors,
-  getCompensationPeriod,
+  getCompensationInfo,
   getCardsData
 } from "../../store/selector";
 
 import { CardComponent } from "./components";
+import { getDurationData } from "../price-base/PriceBase.selector";
 
 const mapStateToProps = (
   state: AppState
@@ -21,7 +22,8 @@ const mapStateToProps = (
   cards: getCardsData(state),
   loaded: checkCardDState(state),
   errors: getErrors(state),
-  compensationPeriod: getCompensationPeriod(state)
+  compensationInfo: getCompensationInfo(state),
+  periodInfo: getDurationData(state).periodInfo
 });
 
 export default connect(mapStateToProps, null)(CardComponent);

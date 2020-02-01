@@ -8,7 +8,7 @@ import {
 const initialState: CriteriaState = {
   birthday: null,
   status: "",
-  compensationPeriod: "",
+  compensationInfo: "",
   errors: {}
 };
 
@@ -28,7 +28,7 @@ export default (
       return {
         ...state,
         status: action.status,
-        compensationPeriod: action.compensationPeriod,
+        compensationInfo: action.compensationInfo,
         errors: { ...state.errors, status: action.error }
       };
 

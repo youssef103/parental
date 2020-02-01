@@ -21,7 +21,7 @@ import {
 
 import {
   getYears,
-  getCountOfDays,
+  getDurationData,
   getPriceBaseErrors
 } from "./PriceBase.selector";
 
@@ -32,7 +32,7 @@ const mapStateToProps = (state: AppState): IMapPriceBaseStateToProps => ({
   years: getYears(state),
   pbb1: getPBB1(state),
   pbb2: getPBB2(state),
-  countOfDays: getCountOfDays(state),
+  countOfDays: getDurationData(state).countOfDays,
   errors: getPriceBaseErrors(state)
 });
 

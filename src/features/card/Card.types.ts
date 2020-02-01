@@ -13,8 +13,9 @@ export interface ICard {
 export interface ICardProps {
   loaded?: boolean;
   cards?: ICard[];
-  compensationPeriod?: string;
+  compensationInfo?: string;
   errors?: string[];
+  periodInfo?: any[];
 }
 
 export interface IMapCardStateToProps {

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { styling } from "../../../utilities";
 
+import { Header } from "./Header";
 import { Body, ListItem } from "./Body";
 import { Footer } from "./Footer";
 
@@ -18,6 +19,7 @@ const StyledCard: any = styled.div`
   }
 `;
 
+StyledCard.Header = Header;
 StyledCard.Body = Body;
 StyledCard.ListItem = ListItem;
 StyledCard.Footer = Footer;

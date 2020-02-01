@@ -16,7 +16,7 @@ export const setBirtDate = (
 export const setStatus = (status: string): ThunkActionType => (
   dispatch: ThunkDispatchType
 ): void => {
-  const compensationPeriod =
+  const compensationInfo =
     status === "mer än ett år"
       ? hintMessages.employedMoreThanOneYear
       : "" || status === "mer än tre år"
@@ -27,6 +27,6 @@ export const setStatus = (status: string): ThunkActionType => (
     type: SET_STATUS,
     status,
     error: status === "" ? errorMessages.statusIsRequired : "",
-    compensationPeriod
+    compensationInfo
   });
 };

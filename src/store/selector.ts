@@ -21,8 +21,8 @@ export const getSalaryModel = (state: AppState): string =>
 export const getBasicSalary = (state: AppState): number =>
   state.salaryInfo.basicSalary || 0;
 
-export const getCompensationPeriod = (state: AppState) =>
-  state.critera.compensationPeriod;
+export const getCompensationInfo = (state: AppState) =>
+  state.critera.compensationInfo;
 
 export const checkCardDState = (state: AppState): boolean => state.cards.loaded;
 
