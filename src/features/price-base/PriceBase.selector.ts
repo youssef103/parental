@@ -1,15 +1,20 @@
 import moment from "moment";
 import { AppState } from "../../store";
-import { returnCountingDays } from "../../utilities";
+import {
+  returnCountingDays,
+  getDiffDays,
+  getStatusOfYears
+} from "../../utilities";
 
 export const getPriceBaseErrors = (state: AppState) => state.priceBase.errors;
 
 export const getYears = (state: AppState) => {
-  let { startDate = moment().year(), endDate }: any = state.priceBase.duration;
+  let { startDate, endDate }: any = state.priceBase.duration;
 
-  const firstYear: null | number = moment(startDate).year() || moment().year();
-  const secondYear: null | number = moment(endDate).year();
-  const sameYear: boolean = moment(startDate).isSame(endDate, "year");
+  const { firstYear, secondYear, sameYear } = getStatusOfYears(
+    startDate,
+    endDate
+  );
 
   let years = [firstYear];
   if (!sameYear && secondYear) {
@@ -21,22 +26,23 @@ export const getYears = (state: AppState) => {
 export const getCountOfDays = (state: AppState) => {
   const { startDate, endDate }: any = state.priceBase.duration;
 
-  const firstYear: null | number = moment(startDate).year();
-  const secondYear: null | number = moment(endDate).year();
-  const sameYear: boolean = moment(startDate).isSame(endDate, "year");
+  const { firstYear, secondYear, sameYear } = getStatusOfYears(
+    startDate,
+    endDate
+  );
 
   const startOf = moment(startDate).endOf("year");
   const endOf = moment(endDate).startOf("year");
 
   const countOfDays: number =
-    startDate && endDate && endDate.diff(startDate, "days") + 1;
+    startDate && endDate && getDiffDays(endDate, startDate);
 
   const countofDaysInDifferentsYears =
     startDate && endDate && !sameYear
       ? `( ${returnCountingDays(
-          startOf.diff(startDate, "days") + 1
+          getDiffDays(startOf, startDate)
         )} i ${firstYear} och ${returnCountingDays(
-          moment(endDate).diff(endOf, "days") + 1
+          getDiffDays(endDate, endOf)
         )} i ${secondYear} )`
       : "";
 

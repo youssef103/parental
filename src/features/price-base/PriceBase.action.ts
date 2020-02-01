@@ -8,14 +8,14 @@ import {
   SET_END_DATE
 } from "./PriceBase.types";
 import { PBB } from "../../constants/pbb";
-import { errorMessages } from "../../utilities/config";
+import { errorMessages, getDiffDays, getStatusOfYears } from "../../utilities";
 
 export const setPBB1 = (pbb1: number): ThunkActionType => (
   dispatch: ThunkDispatchType,
   getState: () => AppState
 ): void => {
   const { startDate }: any = getState().priceBase.duration;
-  const firstYear = moment(startDate).year();
+  const { firstYear } = getStatusOfYears(startDate);
 
   dispatch({
     type: SET_PBB1,
@@ -29,8 +29,7 @@ export const setPBB2 = (pbb2: number | undefined): ThunkActionType => (
   getState: () => AppState
 ): void => {
   const { startDate, endDate }: any = getState().priceBase.duration;
-  const secondYear = moment(endDate).year();
-  const sameYear: boolean = moment(startDate).isSame(endDate, "year");
+  const { secondYear, sameYear } = getStatusOfYears(startDate, endDate);
 
   let error =
     !pbb2 && startDate && endDate && !sameYear
@@ -76,7 +75,7 @@ const setEndDate = (endDate: string): ThunkActionType => (
   let startDate: any = getState().priceBase.duration.startDate;
   let error = !endDate
     ? errorMessages.endDateIsRequired
-    : "" || moment(endDate).diff(startDate, "days") + 1 <= 29
+    : "" || getDiffDays(endDate, startDate) <= 29
     ? errorMessages.minPeriod
     : "";
 
@@ -91,9 +90,10 @@ export const setDuration = (
   startDate: string,
   endDate: string
 ): ThunkActionType => (dispatch: ThunkDispatchType) => {
-  const firstYear: number = moment(startDate).year();
-  const secondYear: number = moment(endDate).year();
-  const sameYear: boolean = moment(startDate).isSame(endDate, "year");
+  const { firstYear, secondYear, sameYear } = getStatusOfYears(
+    startDate,
+    endDate
+  );
 
   dispatch(setStartDate(startDate));
 
