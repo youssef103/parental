@@ -30,7 +30,7 @@ jobs:
       - name: Deploy to gh-pages 🎉
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.Github_Actions }}
+          personal_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
           publish_dir: ./public
         
       - name: Updating Domain 
