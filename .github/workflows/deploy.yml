@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node_version: [15]
+        node-version: [15.x]
         os: [ubuntu-latest]
           
     steps:
@@ -27,11 +27,8 @@ jobs:
       - name: Install Packages 📦📦📦
         run: npm install
         
-      - name: Build page 🎉
-        run: npm run build
+      - name: Deploy to gh-pages 🎉
+        run: npm run deploy
         
-      - name: Deploy to gh-pages 👏
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-          publish_branch: gh-pages
+      - name: Updating Domain 
+        run: echo "Update domain.....👏🎉🎉🎉👏"
