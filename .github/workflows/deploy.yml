@@ -28,11 +28,7 @@ jobs:
         run: yarn install
         
       - name: Build app 🏛
-        run :
-         |
-          yarn run build
-          yarn run deploy
-       
+        run : yarn run build
         
       - name: Deploy to gh-pages 🎉
         run: |
