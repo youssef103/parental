@@ -25,10 +25,14 @@ jobs:
           node-version: ${{ matrix.node-version }}
           
       - name: Install Packages 📦📦📦
-        run: npm install
+        run: yarn install
         
       - name: Build app 🏛
-        run : npm run build
+        run :
+         |
+          yarn run build
+          yarn run deploy
+       
         
       - name: Deploy to gh-pages 🎉
         uses: peaceiris/actions-gh-pages@v3
