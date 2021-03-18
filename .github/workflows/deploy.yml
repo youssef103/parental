@@ -31,7 +31,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./build
         
       - name: Updating Domain 
         run: echo "Update domain.....👏🎉🎉🎉👏"
