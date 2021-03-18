@@ -34,7 +34,7 @@ jobs:
         run: |
           git config --global user.email "youssefmoti@yahoo.com"
           git config --global user.name "youssef103"
-          git remote set-url origin https://${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}@github.com/youssef103/gh-page.git
+          git remote set-url origin https://${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}@github.com/youssef103/parental.git
           npm run deploy
         #uses: peaceiris/actions-gh-pages@v3
         #with:
